@@ -46,9 +46,9 @@ export default function Home() {
             >
                 <div className={styles.aboutContent}>
                     <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
-                        <h2>Hello, I'm Tim <small>(he/him)</small></h2>
+                        <h2>Hello, I&apos;sm Tim <small>(he/him)</small></h2>
                         <p>
-                            I'm a crotchety 50-something-year-old who has been building websites —
+                            I&apos;sm a crotchety 50-something-year-old who has been building websites —
                             mostly for non-profit organizations — since 1998. It feels a lot longer
                             than that, if possible.</p>
                         <p><em>I dunno, time is an illusion</em>.
@@ -92,7 +92,7 @@ export default function Home() {
                         <ParallaxElement speed={-0.6} direction="up" amplify={2}>
                             <div className={styles.featureCard}>
                                 <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
-                                    She is a therapist and I'm in the market for one.</p>
+                                    She is a therapist and I&apos;sm in the market for one.</p>
                                 <p><em>Am I an illusion?</em></p>
                             </div>
                         </ParallaxElement>

@@ -39,14 +39,14 @@ export default function Home() {
 
             {/* About Section */}
             <ParallaxSection
-                id="about"
+                id="hello"
                 backgroundColor="var(--background-dark)"
                 height="auto"
                 className={styles.aboutSection}
             >
                 <div className={styles.aboutContent}>
                     <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
-                        <h2>Hello, I&apos;sm Tim <small>(he/him)</small></h2>
+                        <h2>Hello, I am Tim <small>(he/him)</small></h2>
                         <p>
                             I&apos;sm a crotchety 50-something-year-old who has been building websites —
                             mostly for non-profit organizations — since 1998. It feels a lot longer
@@ -77,7 +77,7 @@ export default function Home() {
 
             {/* Features Section */}
             <ParallaxSection
-                id="features"
+                id="cactus"
                 speed={0.3}
                 height="auto"
                 backgroundColor="var(--background-dark)"

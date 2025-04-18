@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import Image from 'next/image';
+import Link from 'next/link'; // Add this import
 
 export default function Home() {
     return (
@@ -31,7 +32,7 @@ export default function Home() {
 
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <a href="#hello" className="button">Doink</a>
+                            <Link href="#hello" className="button">Doink</Link>
                         </div>
                     </ParallaxElement>
                 </div>
@@ -76,7 +77,7 @@ export default function Home() {
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <a href="#cactus" className="button">Doink</a>
+                        <Link href="#cactus" className="button">Doink</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>
@@ -123,7 +124,7 @@ export default function Home() {
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <a href="#findme" className="button">Dink</a>
+                        <Link href="#findme" className="button">Dink</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>
@@ -142,20 +143,21 @@ export default function Home() {
 
                     <ParallaxElement speed={0.5}>
                         <div className={styles.socialLinks}>
-                            <a href="https://weareoutright.com/" aria-label="Outight">Outright (work)</a>
-                            <a href="https://instagram.com/tim52pics/" aria-label="Instagram">Instagram</a>
-                            <a href="https://linkedin.com/in/timarnold/" aria-label="LinkedIn">LinkedIn</a>
-                            <a href="https://bsky.app/profile/tim52.bsky.social" aria-label="Bluesky">Bluesky</a>
-                            <a href="https://twit.social/@tim52" aria-label="Mastadon">Mastadon</a>
-                            <a href="https://tiktok.com/@tim5.2" aria-label="TikTok">TikTok</a>
-                            <a href="https://insurmountableopportunities.com/" aria-label="Old Blog">Old Blog</a>
+                            {/* External links can remain as anchor tags */}
+                            <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outight">Outright (work)</a>
+                            <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+                            <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">Bluesky</a>
+                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Mastadon">Mastadon</a>
+                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Old Blog">Old Blog</a>
                         </div>
                     </ParallaxElement>
                 </div>
 
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <a href="#top" className="button button-up">Woosh</a>
+                        <Link href="#top" className="button button-up">Woosh</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

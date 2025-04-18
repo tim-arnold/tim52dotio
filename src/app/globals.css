@@ -65,7 +65,27 @@ p {
   padding: 0 2rem;
 }
 
+/* Add this to your src/app/globals.css file */
+
+/* Define the pulse animation */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Update the .button class to include the animation */
 .button {
+  position: relative;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
@@ -74,17 +94,84 @@ p {
   font-weight: 600;
   text-align: center;
   transition: all 0.3s ease;
+
+  /* Add the pulsing animation */
+  animation: buttonPulse 2s infinite ease-in-out;
 }
 
+/* Modify the hover effect to work with the animation */
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation-play-state: paused; /* Optional: pause the animation on hover */
 }
 
+/* Make sure the secondary button also has the animation */
 .button.secondary {
   background-color: transparent;
   border: 2px solid var(--foreground);
   color: var(--foreground);
+  /* Animation is inherited from .button */
+}
+
+/* Create the arrow using ::after pseudo-element */
+.button::after {
+  content: '';
+  position: absolute;
+  top: 98%; /* Position it just below the button */
+  left: 50%;
+  transform: translateX(-50%) scaleY(0); /* Center horizontally and initially hide by scaling to 0 height */
+  transform-origin: top; /* Grow from the top */
+
+  /* Create a triangle with borders */
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid var(--primary); /* Match the button color */
+
+  /* Animation for growing effect */
+  transition: transform 0.3s ease;
+
+  /* Make sure arrow is above other elements */
+  z-index: 10;
+}
+
+/* Make the arrow grow on hover */
+.button:hover::after {
+  transform: translateX(-50%) scaleY(1); /* Restore full height */
+}
+
+/* Special styling for secondary buttons */
+.button.secondary::after {
+  border-top-color: var(--foreground); /* Use the border color instead of primary color */
+}
+
+
+/* For dark mode, adjust the shadow color */
+@media (prefers-color-scheme: dark) {
+  @keyframes buttonPulseDark {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .button {
+    animation-name: buttonPulseDark;
+  }
+
+  .button.secondary::after {
+    border-top-color: var(--foreground); /* Use the dark mode text color */
+  }
 }
 
 @media (prefers-color-scheme: dark) {

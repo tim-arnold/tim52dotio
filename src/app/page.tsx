@@ -31,7 +31,7 @@ export default function Home() {
 
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <a href="#about" className="button">Doink</a>
+                            <a href="#hello" className="button">Doink</a>
                         </div>
                     </ParallaxElement>
                 </div>
@@ -41,7 +41,7 @@ export default function Home() {
             <ParallaxSection
                 id="hello"
                 backgroundColor="var(--background-dark)"
-                height="auto"
+                height="100vh"
                 className={styles.aboutSection}
             >
                 <div className={styles.aboutContent}>
@@ -72,14 +72,20 @@ export default function Home() {
                             />
                         </ParallaxElement>
                     </div>
+
                 </div>
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <a href="#cactus" className="button">Doink</a>
+                    </div>
+                </ParallaxElement>
             </ParallaxSection>
 
             {/* Features Section */}
             <ParallaxSection
                 id="cactus"
                 speed={0.3}
-                height="auto"
+                height="100vh"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
             >
@@ -115,13 +121,18 @@ export default function Home() {
                         </ParallaxElement>
                     </div>
                 </div>
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <a href="#findme" className="button">Dink</a>
+                    </div>
+                </ParallaxElement>
             </ParallaxSection>
 
             {/* Contact Section */}
             <ParallaxSection
                 id="findme"
                 backgroundColor="var(--background)"
-                height="60vh"
+                height="100vh"
                 className={styles.contactSection}
             >
                 <div className={styles.contactContent}>
@@ -141,6 +152,12 @@ export default function Home() {
                         </div>
                     </ParallaxElement>
                 </div>
+
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <a href="#top" className="button">Woosh</a>
+                    </div>
+                </ParallaxElement>
             </ParallaxSection>
 
             <footer className={styles.footer}>

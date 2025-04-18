@@ -64,7 +64,7 @@ export default function Navigation() {
                         <li><a href="#hero" onClick={closeMenu}>Home</a></li>
                         <li><a href="#hello" onClick={closeMenu}>Hello</a></li>
                         <li><a href="#cactus" onClick={closeMenu}>I am a Cactus</a></li>
-                        <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+                        <li><a href="#findme" onClick={closeMenu}>Where to Find Me</a></li>
                     </ul>
                 </div>
             </div>

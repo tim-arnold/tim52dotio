@@ -147,6 +147,34 @@ p {
   border-top-color: var(--foreground); /* Use the border color instead of primary color */
 }
 
+/* Styles for the upward-pointing arrow */
+.button.button-up::after {
+  /* Change position to bottom of the button instead of top */
+  top: auto;
+  bottom: 100%;
+
+  /* Flip the triangle to point upward */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--primary); /* Use bottom border to create upward triangle */
+  border-top: 0; /* Remove the top border */
+
+  /* Change transform origin to grow from bottom */
+  transform-origin: bottom;
+  transform: translateX(-50%) scaleY(0); /* Initially hidden */
+}
+
+/* Hover state for the upward arrow */
+.button.button-up:hover::after {
+  transform: translateX(-50%) scaleY(1); /* Grow to full size */
+}
+
+/* Handle secondary button with upward arrow */
+.button.button-up.secondary::after {
+  border-bottom-color: var(--foreground); /* Use the border color instead of primary color */
+}
+
+
 
 /* For dark mode, adjust the shadow color */
 @media (prefers-color-scheme: dark) {
@@ -171,6 +199,10 @@ p {
 
   .button.secondary::after {
     border-top-color: var(--foreground); /* Use the dark mode text color */
+  }
+
+  .button.button-up.secondary::after {
+    border-bottom-color: var(--foreground); /* Use the dark mode text color */
   }
 }
 

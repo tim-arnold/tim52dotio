@@ -155,7 +155,7 @@ export default function Home() {
 
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <a href="#top" className="button">Woosh</a>
+                        <a href="#top" className="button button-up">Woosh</a>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

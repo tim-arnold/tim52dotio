@@ -61,7 +61,7 @@ export default function Navigation() {
                 {/* Navigation Menu */}
                 <div className={styles.menuContainer}>
                     <ul className={styles.menu}>
-                        <li><a href="#hero" onClick={closeMenu}>Home</a></li>
+                        <li><a href="#" onClick={closeMenu}>Home</a></li>
                         <li><a href="#hello" onClick={closeMenu}>Hello</a></li>
                         <li><a href="#cactus" onClick={closeMenu}>I am a Cactus</a></li>
                         <li><a href="#findme" onClick={closeMenu}>Where to Find Me</a></li>

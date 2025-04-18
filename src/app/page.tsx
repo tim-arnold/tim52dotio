@@ -126,7 +126,7 @@ export default function Home() {
             >
                 <div className={styles.contactContent}>
                     <ParallaxElement speed={0.3}>
-                        <h2>Get In Touch</h2>
+                        <h2>Where to Find Me</h2>
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.5}>

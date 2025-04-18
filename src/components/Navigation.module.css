@@ -1,0 +1,197 @@
+/* src/components/Navigation.module.css */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: rgba(var(--background-rgb), 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
+}
+
+.scrolled {
+    background: rgba(var(--background-rgb), 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    z-index: 1010; /* Ensure the logo stays on top of the mobile menu */
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 28px;
+    height: 20px;
+    position: relative;
+    z-index: 1010; /* Ensure button stays on top of the mobile menu */
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--foreground);
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+/* Hamburger Animation When Active */
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    width: 0%;
+}
+
+.hamburger.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-45deg);
+}
+
+.menuContainer {
+    /* Default state for desktop */
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu a {
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--foreground);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover:after {
+    width: 100%;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    /* Show hamburger button on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    /* Default state of menu (closed) */
+    .menuContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        transform: translateY(-100%);
+        overflow-y: auto;
+    }
+
+    /* Menu open state */
+    .menuOpen .menuContainer {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .menu li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        transition-delay: 0.1s;
+    }
+
+    .menu li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .menu li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .menu li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    /* Animate menu items when menu is open */
+    .menuOpen .menu li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu a {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+
+    .menu a:after {
+        height: 3px;
+    }
+}

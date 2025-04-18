@@ -1,95 +1,151 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/page.tsx
+import styles from './page.module.css';
+import Navigation from '../components/Navigation';
+import ParallaxSection from '../components/ParallaxSection';
+import ParallaxElement from '../components/ParallaxElement';
+import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    return (
+        <div className={styles.page}>
+            <Navigation />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+            {/* Hero Section */}
+            <ParallaxSection
+                id="hero"
+                backgroundImage="/images/cow.webp"
+                backgroundPosition="right top"
+                backgroundSize="cover"
+                speed={0.5}
+                height="70vh"
+                className={styles.heroSection}
+            >
+                <div className={styles.heroContent}>
+                    <ParallaxElement speed={0.2} direction="up">
+                        <h1>Welcome to tim52.io</h1>
+                    </ParallaxElement>
+
+                    <ParallaxElement speed={0.4}>
+                        <p>It is website with Tim (and a cow).</p>
+                    </ParallaxElement>
+
+                    <ParallaxElement speed={0.6}>
+                        <div className={styles.heroCtas}>
+                            <a href="#about" className="button">Doink</a>
+                        </div>
+                    </ParallaxElement>
+                </div>
+            </ParallaxSection>
+
+            {/* About Section */}
+            <ParallaxSection
+                id="about"
+                backgroundColor="var(--background-dark)"
+                height="auto"
+                className={styles.aboutSection}
+            >
+                <div className={styles.aboutContent}>
+                    <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
+                        <h2>Hello, I'm Tim <small>(he/him)</small></h2>
+                        <p>
+                            I'm a crotchety 50-something-year-old who has been building websites —
+                            mostly for non-profit organizations — since 1998. It feels a lot longer
+                            than that, if possible.</p>
+                        <p><em>I dunno, time is an illusion</em>.
+                        </p>
+                        <p>
+                            Before that I mostly served delicious coffee drinks to make ends meet
+                            while I was playing drums for a bunch of bands in Eugene, Seattle,
+                            and Cincinnati.</p>
+                        <p><em>Ohio is also an illusion</em>.
+                        </p>
+                    </ParallaxElement>
+
+                    <div className={styles.aboutImage}>
+                        <ParallaxElement speed={0.5} direction="left">
+                            <Image
+                                src="/images/tim-yelling.webp"
+                                alt="About our approach"
+                                width={300}
+                                height={300}
+                                className={styles.floatingImage}
+                            />
+                        </ParallaxElement>
+                    </div>
+                </div>
+            </ParallaxSection>
+
+            {/* Features Section */}
+            <ParallaxSection
+                id="features"
+                speed={0.3}
+                height="auto"
+                backgroundColor="var(--background-dark)"
+                className={styles.featuresSection}
+            >
+                <div className={styles.featuresContent}>
+                    <ParallaxElement speed={-0.3} amplify={1.5}>
+                        <h2>I am a Cactus</h2>
+                    </ParallaxElement>
+
+                    <div className={styles.featuresList}>
+                        <ParallaxElement speed={-0.6} direction="up" amplify={2}>
+                            <div className={styles.featureCard}>
+                                <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
+                                    She is a therapist and I'm in the market for one.</p>
+                                <p><em>Am I an illusion?</em></p>
+                            </div>
+                        </ParallaxElement>
+
+                        <ParallaxElement speed={-0.2} direction="up" amplify={1.5}>
+                            <div className={styles.featureCard}>
+                                <p><strong>The kids</strong> (of which there are two) have flown the coop and are building
+                                    lives of their own out in the world.</p>
+                                <p><em>We delight in their company and assure you that both kids are quite real</em>.</p>
+                            </div>
+                        </ParallaxElement>
+
+                        <ParallaxElement speed={0.5} direction="up" amplify={1.5}>
+                            <div className={styles.featureCard}>
+                                <p><strong>The photo of the cow</strong> was taken by me in County Kerry,
+                                    Ireland in July 2023.</p>
+                                <p><em>Cows are an illusion and this illusory cow
+                                    would like you to move along, thank you very much!</em></p>
+                            </div>
+                        </ParallaxElement>
+                    </div>
+                </div>
+            </ParallaxSection>
+
+            {/* Contact Section */}
+            <ParallaxSection
+                id="contact"
+                backgroundColor="var(--background)"
+                height="60vh"
+                className={styles.contactSection}
+            >
+                <div className={styles.contactContent}>
+                    <ParallaxElement speed={0.3}>
+                        <h2>Get In Touch</h2>
+                    </ParallaxElement>
+
+                    <ParallaxElement speed={0.5}>
+                        <div className={styles.socialLinks}>
+                            <a href="https://weareoutright.com/" aria-label="Outight">Outright (work)</a>
+                            <a href="https://instagram.com/tim52pics/" aria-label="Instagram">Instagram</a>
+                            <a href="https://linkedin.com/in/timarnold/" aria-label="LinkedIn">LinkedIn</a>
+                            <a href="https://bsky.app/profile/tim52.bsky.social" aria-label="Bluesky">Bluesky</a>
+                            <a href="https://twit.social/@tim52" aria-label="Mastadon">Mastadon</a>
+                            <a href="https://tiktok.com/@tim5.2" aria-label="TikTok">TikTok</a>
+                            <a href="https://insurmountableopportunities.com/" aria-label="Old Blog">Old Blog</a>
+                        </div>
+                    </ParallaxElement>
+                </div>
+            </ParallaxSection>
+
+            <footer className={styles.footer}>
+                <p>© 2024 Tim Arnold. All rights reserved.</p>
+            </footer>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }

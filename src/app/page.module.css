@@ -1,3 +1,4 @@
+/* src/app/page.module.css */
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -6,13 +7,7 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  min-height: 100vh;
   font-family: var(--font-geist-sans);
 }
 
@@ -27,142 +22,228 @@
   }
 }
 
-.main {
+/* Hero Section */
+.heroSection {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.heroContent {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.heroCtas {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+  gap: 1rem;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+/* About Section */
+.aboutSection {
+  padding: 6rem 0;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
+.aboutContent {
   display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
+  gap: 3rem;
   align-items: center;
-  gap: 8px;
 }
 
-.footer img {
-  flex-shrink: 0;
+.aboutText {
+  flex: 1;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+/* Update the .aboutText and .aboutText::before in your src/app/page.module.css file */
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.aboutText {
+  flex: 1;
+  position: relative;
+  background-color: white;
+  color: var(--text-dark);
+  padding: 2rem;
+  border-radius: 20px;
+  /* Add a shadow for depth */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-right: 2rem; /* Add space for the speech bubble point */
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
+/* Replace the circular pseudo-element with a triangle wedge */
+.aboutText::before {
+  content: '';
+  position: absolute;
+  /* Create a triangle with borders */
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 40px solid white; /* Triangle pointing right */
 
-  .main {
-    align-items: center;
-  }
+  /* Position on the right side */
+  top: 60%;
+  right: -38px; /* Position slightly inside the edge of main bubble */
+}
 
-  .main ol {
-    text-align: center;
-  }
+.aboutText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  /* Comic-like styling */
+  font-weight: 800;
+  color: #333;
+}
 
-  .ctas {
+.aboutText p {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Modify existing media query to handle mobile layout */
+@media (max-width: 768px) {
+  .aboutContent {
     flex-direction: column;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+  .aboutText {
+    margin-right: 0;
+    margin-bottom: 3rem; /* Give space for the downward pointing wedge */
+    margin-left: .5rem;
   }
 
-  a.secondary {
-    min-width: auto;
+  /* Change the wedge to point downward on mobile */
+  .aboutText::before {
+    /* Reset the horizontal triangle */
+    border-top: 40px solid white; /* Triangle pointing down */
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 0;
+
+    /* Reposition to bottom center */
+    top: auto;
+    right: auto;
+    bottom: -38px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .featuresContent h2,
+  .contactContent h2,
+  .aboutText h2 {
+    font-size: 2rem;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+.aboutImage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallaxItem {
+  transition: transform 0.5s ease;
+}
+
+.floatingImage {
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 6rem 0;
+  color: white;
+  background: black;
+}
+
+.featuresContent {
+  text-align: center;
+}
+
+.featuresContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+}
+
+.featureCard h3 {
+  margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contactSection {
+  padding: 6rem 0;
+}
+
+.contactContent {
+  text-align: center;
+}
+
+.contactContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contactContent p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--background);
+  border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .aboutContent {
+    flex-direction: column;
+  }
+
+  .featuresContent h2,
+  .contactContent h2,
+  .aboutText h2 {
+    font-size: 2rem;
   }
 }

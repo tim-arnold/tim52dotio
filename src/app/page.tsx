@@ -42,7 +42,7 @@ export default function Home() {
             <ParallaxSection
                 id="hello"
                 backgroundColor="var(--background-dark)"
-                height="100vh"
+                height="auto"
                 className={styles.aboutSection}
             >
                 <div className={styles.aboutContent}>
@@ -86,7 +86,7 @@ export default function Home() {
             <ParallaxSection
                 id="cactus"
                 speed={0.3}
-                height="100vh"
+                height="auto"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
             >

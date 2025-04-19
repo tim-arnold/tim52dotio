@@ -243,6 +243,12 @@
   margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+  .socialLinks {
+    flex-direction: column;
+  }
+}
+
 .socialLinks a {
   position: relative;
   padding: 0.5rem 1rem;

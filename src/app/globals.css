@@ -120,7 +120,7 @@ p {
   position: absolute;
   top: 98%; /* Position it just below the button */
   left: 50%;
-  transform: translateX(-50%) scaleY(0); /* Center horizontally and initially hide by scaling to 0 height */
+  transform: translateX(-50%) scaleY(1); /* Center horizontally and initially hide by scaling to 0 height */
   transform-origin: top; /* Grow from the top */
 
   /* Create a triangle with borders */
@@ -139,7 +139,8 @@ p {
 
 /* Make the arrow grow on hover */
 .button:hover::after {
-  transform: translateX(-50%) scaleY(1); /* Restore full height */
+  transform: translateX(-50%) scaleY(2); /* Restore full height */
+  border-top: 12px solid var(--primary); /* Match the button color */
 }
 
 /* Special styling for secondary buttons */
@@ -166,7 +167,7 @@ p {
 
 /* Hover state for the upward arrow */
 .button.button-up:hover::after {
-  transform: translateX(-50%) scaleY(1); /* Grow to full size */
+  transform: translateX(-50%) scaleY(2); /* Grow to full size */
 }
 
 /* Handle secondary button with upward arrow */

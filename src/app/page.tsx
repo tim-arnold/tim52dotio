@@ -19,6 +19,7 @@ export default function Home() {
                 backgroundSize="cover"
                 speed={0.5}
                 height="70vh"
+                minHeight="70vh"
                 className={styles.heroSection}
             >
                 <div className={styles.heroContent}>
@@ -43,6 +44,7 @@ export default function Home() {
                 id="hello"
                 backgroundColor="var(--background-dark)"
                 height="auto"
+                minHeight="100vh"
                 className={styles.aboutSection}
             >
                 <div className={styles.aboutContent}>
@@ -87,6 +89,7 @@ export default function Home() {
                 id="cactus"
                 speed={0.3}
                 height="auto"
+                minHeight="100vh"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
             >

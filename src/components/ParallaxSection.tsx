@@ -13,6 +13,7 @@ interface ParallaxSectionProps {
     children: ReactNode;
     backgroundColor?: string;
     height?: string;
+    minHeight?: string;
     id?: string;
 }
 
@@ -25,6 +26,7 @@ export default function ParallaxSection({
                                             children,
                                             backgroundColor = 'transparent',
                                             height = '100vh',
+                                            minHeight = '100vh',
                                             id,
                                         }: ParallaxSectionProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -51,7 +53,8 @@ export default function ParallaxSection({
             className={`${styles.parallaxSection} ${className}`}
             style={{
                 height,
-                backgroundColor
+                backgroundColor,
+                minHeight
             }}
             id={id}
         >

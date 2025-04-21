@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
+import StaggeredFeatures from '../components/StaggeredFeatures';
 import Image from 'next/image';
 import Link from 'next/link'; // Add this import
 
@@ -98,32 +99,28 @@ export default function Home() {
                         <h2>I am a Cactus</h2>
                     </ParallaxElement>
 
-                    <div className={styles.featuresList}>
-                        <ParallaxElement speed={-0.6} direction="up" amplify={2}>
-                            <div className={styles.featureCard}>
-                                <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
-                                    She is a therapist and I&apos;m in the market for one.</p>
-                                <p><em>Am I an illusion?</em></p>
-                            </div>
-                        </ParallaxElement>
+                    {/* Replace the featuresList div with the StaggeredFeatures component */}
+                    <StaggeredFeatures className={styles.featuresList}>
+                        {/* Remove the ParallaxElement wrappers from each card */}
+                        <div className={styles.featureCard}>
+                            <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
+                                She is a therapist and I&apos;m in the market for one.</p>
+                            <p><em>Am I an illusion?</em></p>
+                        </div>
 
-                        <ParallaxElement speed={-0.2} direction="up" amplify={1.5}>
-                            <div className={styles.featureCard}>
-                                <p><strong>The kids</strong> (of which there are two) have flown the coop and are building
-                                    lives of their own out in the world.</p>
-                                <p><em>We delight in their company and assure you that both kids are quite real</em>.</p>
-                            </div>
-                        </ParallaxElement>
+                        <div className={styles.featureCard}>
+                            <p><strong>The kids</strong> (of which there are two) have flown the coop and are building
+                                lives of their own out in the world.</p>
+                            <p><em>We delight in their company and assure you that both kids are quite real</em>.</p>
+                        </div>
 
-                        <ParallaxElement speed={0.5} direction="up" amplify={1.5}>
-                            <div className={styles.featureCard}>
-                                <p><strong>The photo of the cow</strong> was taken by me in County Kerry,
-                                    Ireland in July 2023.</p>
-                                <p><em>Cows are an illusion and this illusory cow
-                                    would like you to move along, thank you very much!</em></p>
-                            </div>
-                        </ParallaxElement>
-                    </div>
+                        <div className={styles.featureCard}>
+                            <p><strong>The photo of the cow</strong> was taken by me in County Kerry,
+                                Ireland in July 2023.</p>
+                            <p><em>Cows are an illusion and this illusory cow
+                                would like you to move along, thank you very much!</em></p>
+                        </div>
+                    </StaggeredFeatures>
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>

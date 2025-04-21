@@ -14,11 +14,11 @@ export default function Home() {
             {/* Hero Section */}
             <ParallaxSection
                 id="hero"
-                backgroundImage="/images/cow.webp"
-                backgroundPosition="right top"
+                backgroundImage="/images/cow-16-9.webp"
+                backgroundPosition="right center"
                 backgroundSize="cover"
                 speed={0.5}
-                height="70vh"
+                height="100vh"
                 minHeight="70vh"
                 className={styles.heroSection}
             >

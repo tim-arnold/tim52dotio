@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#cactus" className="button">Doink</Link>
+                        <Link href="#cactus" className="button">Ka-Doink</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

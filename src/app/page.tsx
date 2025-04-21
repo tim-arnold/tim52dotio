@@ -3,8 +3,8 @@ import styles from './page.module.css';
 import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
-import StickyButton from '../components/StickyButton'; // Import the new component
 import Image from 'next/image';
+import Link from 'next/link'; // Add this import
 
 export default function Home() {
     return (
@@ -29,6 +29,12 @@ export default function Home() {
 
                     <ParallaxElement speed={0.4}>
                         <p>It is website with Tim (and a cow).</p>
+                    </ParallaxElement>
+
+                    <ParallaxElement speed={0.6}>
+                        <div className={styles.heroCtas}>
+                            <Link href="#hello" className="button">Doink</Link>
+                        </div>
                     </ParallaxElement>
                 </div>
             </ParallaxSection>
@@ -69,7 +75,13 @@ export default function Home() {
                             />
                         </ParallaxElement>
                     </div>
+
                 </div>
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <Link href="#cactus" className="button">Doink</Link>
+                    </div>
+                </ParallaxElement>
             </ParallaxSection>
 
             {/* Features Section */}
@@ -113,6 +125,11 @@ export default function Home() {
                         </ParallaxElement>
                     </div>
                 </div>
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <Link href="#findme" className="button">Dink</Link>
+                    </div>
+                </ParallaxElement>
             </ParallaxSection>
 
             {/* Contact Section */}
@@ -129,6 +146,7 @@ export default function Home() {
 
                     <ParallaxElement speed={0.5}>
                         <div className={styles.socialLinks}>
+                            {/* External links can remain as anchor tags */}
                             <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outight">Outright (work)</a>
                             <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
                             <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
@@ -139,10 +157,13 @@ export default function Home() {
                         </div>
                     </ParallaxElement>
                 </div>
-            </ParallaxSection>
 
-            {/* Add the StickyButton component */}
-            <StickyButton />
+                <ParallaxElement speed={0.6}>
+                    <div className={styles.heroCtas}>
+                        <Link href="#top" className="button button-up">Woosh</Link>
+                    </div>
+                </ParallaxElement>
+            </ParallaxSection>
 
             <footer className={styles.footer}>
                 <p>© 2024 Tim Arnold. All rights reserved.</p>

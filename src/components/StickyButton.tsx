@@ -1,7 +1,7 @@
 // src/components/StickyButton.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import styles from './StickyButton.module.css';
 
@@ -15,13 +15,13 @@ interface Section {
 export default function StickyButton() {
     const [activeSection, setActiveSection] = useState('hero');
 
-    // Define our sections and their corresponding button texts
-    const sections: Section[] = [
+    // Memoize the sections array to prevent unnecessary re-renders
+    const sections = useMemo<Section[]>(() => [
         { id: 'hero', buttonText: 'Doink', nextSection: 'hello' },
-        { id: 'hello', buttonText: 'Ka-Doink', nextSection: 'cactus' },
+        { id: 'hello', buttonText: 'Doink', nextSection: 'cactus' },
         { id: 'cactus', buttonText: 'Dink', nextSection: 'findme' },
         { id: 'findme', buttonText: 'Woosh', nextSection: 'hero', isLast: true }
-    ];
+    ], []);
 
     useEffect(() => {
         // Function to determine which section is currently in view
@@ -69,7 +69,7 @@ export default function StickyButton() {
         return () => {
             window.removeEventListener('scroll', determineActiveSection);
         };
-    }, [sections]);
+    }, [sections]); // sections is now memoized and won't change on re-renders
 
     // Find the current active section in our array
     const currentSection = sections.find(section => section.id === activeSection);

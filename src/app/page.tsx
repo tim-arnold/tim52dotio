@@ -16,7 +16,7 @@ export default function Home() {
             {/* Hero Section */}
             <ParallaxSection
                 id="hero"
-                backgroundImage="/images/cow-16-9.webp"  // Use the cow-16-9.webp image
+                backgroundImage="/images/cow-fullwidth.webp"  // Use the cow-16-9.webp image
                 backgroundPosition="center right"
                 backgroundSize="cover"
                 speed={0.5}

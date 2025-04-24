@@ -14,7 +14,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    width: 200%; /* Larger than the screen extending right to account for horizontal parallax */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;  /* This adds a basic parallax effect */

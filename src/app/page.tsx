@@ -29,7 +29,7 @@ export default function Home() {
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.4}>
-                        <p>It is website with Tim (and a cow).</p>
+                        <p>It is website with Tim (and cow).</p>
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.6}>

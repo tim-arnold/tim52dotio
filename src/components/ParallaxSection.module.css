@@ -11,10 +11,10 @@
 
 .parallaxBackground {
     position: absolute;
-    top: -50%;  /* Increased from -20% */
-    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 200%;  /* Increased from 140% */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;  /* This adds a basic parallax effect */

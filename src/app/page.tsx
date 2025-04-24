@@ -13,13 +13,15 @@ export default function Home() {
             <Navigation />
 
             {/* Hero Section */}
+            {/* Hero Section */}
             <ParallaxSection
                 id="hero"
-                backgroundImage="/images/cow-16-9.webp"
-                backgroundPosition="right center"
+                backgroundImage="/images/cow-16-9.webp"  // Use the cow-16-9.webp image
+                backgroundPosition="center right"
                 backgroundSize="cover"
                 speed={0.5}
-                height="100vh"
+                horizontalSpeed={0.3}  // Add horizontal movement (positive value moves right)
+                height="70vh"
                 minHeight="70vh"
                 className={styles.heroSection}
             >
@@ -29,7 +31,7 @@ export default function Home() {
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.4}>
-                        <p>It is website with Tim (and cow).</p>
+                        <p>It is website with Tim (and a cow).</p>
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.6}>

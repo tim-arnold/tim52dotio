@@ -50,7 +50,7 @@ export default function StaggeredFeatures({ children, className = '' }: Staggere
             className={`${styles.staggerContainer} ${className} ${isInView ? styles.inView : styles.outOfView}`}
         >
             {/* Map over the children and wrap each one in a staggerItem div */}
-            {React.Children.map(children, (child, index) => (
+            {React.Children.map(children, (child) => (
                 <div className={`${styles.staggerItem} ${isInView ? styles.inView : styles.outOfView}`}>
                     {child}
                 </div>

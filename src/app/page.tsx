@@ -21,20 +21,14 @@ export default function Home() {
                 backgroundSize="cover"
                 speed={0.5}
                 horizontalSpeed={0.3}  // Add horizontal movement (positive value moves right)
-                height="70vh"
+                height="100vh"
                 minHeight="70vh"
                 className={styles.heroSection}
             >
                 <div className={styles.heroContent}>
-                    <ParallaxElement speed={0.2} direction="up">
+                    <ParallaxElement speed={2.2} direction="up">
                         <h1>Welcome to tim52.io</h1>
-                    </ParallaxElement>
-
-                    <ParallaxElement speed={0.4}>
                         <p>It is website with Tim (and a cow).</p>
-                    </ParallaxElement>
-
-                    <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
                             <Link href="#hello" className="button">Doink</Link>
                         </div>

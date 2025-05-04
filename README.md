@@ -31,5 +31,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Cloudflare Pages
 
-On branch "cow"
+I am a cow
 

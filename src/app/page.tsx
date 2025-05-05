@@ -100,21 +100,18 @@ export default function Home() {
                         {/* Remove the ParallaxElement wrappers from each card */}
                         <div className={styles.featureCard}>
                             <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
-                                She is a therapist and I&apos;m in the market for one.</p>
+                                She is a therapist and I&apos;m currently in the market for one.</p>
                             <p><em>Am I an illusion?</em></p>
                         </div>
 
                         <div className={styles.featureCard}>
-                            <p><strong>The kids</strong> (of which there are two) have flown the coop and are building
-                                lives of their own out in the world.</p>
-                            <p><em>We delight in their company and assure you that both kids are quite real</em>.</p>
+                            <p><strong>The two kids</strong> are out in the world making lives of their own.</p>
+                            <p><em>We delight in seeing them do their things and assure you that both kids are quite real</em>.</p>
                         </div>
 
                         <div className={styles.featureCard}>
-                            <p><strong>The photo of the cow</strong> was taken by me in County Kerry,
-                                Ireland in July 2023.</p>
-                            <p><em>Cows are an illusion and this illusory cow
-                                would like you to move along, thank you very much!</em></p>
+                            <p><strong>The photo of the cow</strong> was taken by me in County Kerry, Ireland in July 2023.</p>
+                            <p><em>Cows are an illusion and this illusory cow would like you to move along, thank you very much!</em></p>
                         </div>
                     </StaggeredFeatures>
                 </div>

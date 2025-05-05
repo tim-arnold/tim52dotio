@@ -45,7 +45,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -120,6 +120,7 @@ p {
   color: var(--text-dark);
   font-weight: 600;
   text-align: center;
+  text-decoration: none;
   transition: all 0.3s ease;
 
   /* Add the pulsing animation */

@@ -59,6 +59,8 @@ export default function Home() {
                             and Cincinnati.</p>
                         <p><em>Ohio is also an illusion</em>.
                         </p>
+                        <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com">Grandmother&#39;s artwork</a>. It&#39;s good and real.</p>
+                        <p><a href="https://mildredfoxarnold.com">Go ahead, check it out</a>!</p>
                     </ParallaxElement>
 
                     <div className={styles.aboutImage}>
@@ -110,7 +112,7 @@ export default function Home() {
                         </div>
 
                         <div className={styles.featureCard}>
-                            <p><strong>The photo of the cow</strong> was taken by me in County Kerry, Ireland in July 2023.</p>
+                            <p><strong>The photo of the cow</strong> was taken by me in <a href={"https://maps.app.goo.gl/S14myK6WuNNFC1bF8"}>County Kerry, Ireland</a> in July 2023.</p>
                             <p><em>Cows are an illusion and this illusory cow would like you to move along, thank you very much!</em></p>
                         </div>
                     </StaggeredFeatures>

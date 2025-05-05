@@ -258,6 +258,7 @@
   border-radius: 4px;
   overflow: hidden;
   z-index: 1;
+  text-decoration: none;
 }
 
 /* Create the background highlight effect */

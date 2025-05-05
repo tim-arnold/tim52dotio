@@ -29,6 +29,7 @@
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
+    text-decoration: none;
     color: var(--foreground);
     z-index: 1010; /* Ensure the logo stays on top of the mobile menu */
 }
@@ -60,7 +61,7 @@
 }
 
 .hamburger span:nth-child(1) {
-    top: 0px;
+    top: 0;
 }
 
 .hamburger span:nth-child(2) {
@@ -79,7 +80,7 @@
 
 .hamburger.active span:nth-child(2) {
     opacity: 0;
-    width: 0%;
+    width: 0;
 }
 
 .hamburger.active span:nth-child(3) {
@@ -101,6 +102,7 @@
     position: relative;
     font-weight: 500;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .menu a:after {

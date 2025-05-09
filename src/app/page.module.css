@@ -293,7 +293,7 @@
 
 /* Hover effects */
 .socialLinks a:hover {
-  color: var(--text-dark);
+  color: var(--social-hover);
   transform: translateY(-3px);
 }
 

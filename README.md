@@ -38,30 +38,27 @@ This will start the Next.js development server with Turbopack and the SASS watch
 Open http://localhost:3000 with your browser to see the result.
 
 📦 Scripts
+
+Run the dev server (includes sass watching)
 ```bash
 npm run dev
 ```
-```bash
-npm run dev:sass
-```
+Run a production-ready build
 ```bash
 npm run build
 ```
+Start up a server and run that production-ready build
 ```bash
 npm run start
 ```
+Take a deep dive into linting errors 
 ```bash
 npm run lint
-```
-```bash
-npm run sass:build
-```
-```bash
-npm run sass:watch
 ```
 
 🧩 Project Structure
 
+```
 tim52next/
 ├── public/              # Static assets
 │   └── images/          # Image files
@@ -76,6 +73,7 @@ tim52next/
 │   └── styles/          # SCSS styles
 │       ├── components/  # Component-specific styles
 │       └── globals/     # Global styles
+```
 
 🧪 Technologies Used
 

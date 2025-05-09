@@ -33,13 +33,13 @@ export default function StaggeredFeatures({ children, className = '' }: Staggere
             }
         );
 
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
+        // Capture the current value of the ref
+        const currentElement = containerRef.current;
 
         return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
+            // Use the captured value in the cleanup
+            if (currentElement) {
+                observer.unobserve(currentElement);
             }
         };
     }, []);

@@ -6,9 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "npx serve@latest out",
-    "lint": "next lint",
-    "sass:build": "sass src/styles:src/styles --style=compressed",
-    "sass:watch": "sass src/styles:src/styles --watch"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "15.3.1",

@@ -1,0 +1,5 @@
+/* src/styles/modules/ParallaxElement.module.scss */
+.parallaxElement {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}

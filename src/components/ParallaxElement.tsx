@@ -2,7 +2,7 @@
 'use client';
 
 import { ReactNode, useRef, useEffect, useState } from 'react';
-import styles from './ParallaxElement.module.css';
+import styles from '../styles/components/ParallaxElement.module.scss';
 
 interface ParallaxElementProps {
     children: ReactNode;

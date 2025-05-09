@@ -1,5 +1,5 @@
 // src/app/page.tsx
-import styles from './page.module.css';
+import styles from '../styles/components/page.module.scss';
 import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';

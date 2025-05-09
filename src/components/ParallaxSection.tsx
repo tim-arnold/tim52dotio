@@ -2,7 +2,7 @@
 'use client';
 
 import { useRef, useEffect, ReactNode } from 'react';
-import styles from './ParallaxSection.module.css';
+import styles from '../styles/components/ParallaxSection.module.scss';
 
 interface ParallaxSectionProps {
     id?: string;

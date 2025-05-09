@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './Navigation.module.css';
+import styles from '../styles/components/Navigation.module.scss';
 
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);

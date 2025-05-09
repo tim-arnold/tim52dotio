@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState, ReactNode } from 'react';
-import styles from './StaggeredAnimation.module.css';
+import styles from '../styles/components/StaggeredAnimation.module.scss';
 
 interface StaggeredFeaturesProps {
     children: ReactNode;

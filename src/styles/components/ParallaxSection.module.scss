@@ -1,0 +1,39 @@
+/* src/styles/modules/ParallaxSection.module.scss */
+.parallaxSection {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  scroll-snap-align: start;
+
+  .content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+  }
+}
+
+.parallaxBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  z-index: 0;
+  will-change: transform;
+
+  @media (min-width: 768px) {
+    background-attachment: fixed;
+  }
+}

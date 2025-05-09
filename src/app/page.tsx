@@ -141,11 +141,11 @@ export default function Home() {
                             {/* External links can remain as anchor tags */}
                             <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outight">Outright (work)</a>
                             <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram (a bit)</a>
-                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn (rarely)</a>
+                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn (professionally)</a>
                             <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">Bluesky (blue moon)</a>
-                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Mastadon">Mastadon (hardly)</a>
-                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok (formerly)</a>
-                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Old Blog">Old Blog (olden days)</a>
+                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Mastadon">Mastadon (long ago)</a>
+                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok (no time)</a>
+                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Old Blog">Old Blog (remember blogs?)</a>
                         </div>
                     </ParallaxElement>
                 </div>

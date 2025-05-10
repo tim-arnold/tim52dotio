@@ -1,4 +1,3 @@
-// src/components/Navigation.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -7,7 +6,9 @@ import styles from '../styles/components/Navigation.module.scss';
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [announcement, setAnnouncement] = useState('');
 
+    // Handle scroll detection
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 70;
@@ -17,21 +18,65 @@ export default function Navigation() {
         };
 
         window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [scrolled]);
 
-        // Prevent scrolling when menu is open
+    // Handle body scroll locking
+    useEffect(() => {
+        // Prevent scrolling when menu is open but allow screen readers to still navigate
         if (menuOpen) {
-            document.body.style.overflow = 'hidden';
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
         } else {
-            document.body.style.overflow = '';
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+            }
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.body.style.overflow = '';
+            // Clean up scroll locking on unmount
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
         };
-    }, [scrolled, menuOpen]);
+    }, [menuOpen]);
 
-    const [announcement, setAnnouncement] = useState('');
+    // Focus management helpers
+    const getMenuItems = () => {
+        return Array.from(
+            document.querySelectorAll<HTMLElement>(`.${styles.menu} a[role="menuitem"]`)
+        );
+    };
+
+    const focusFirstMenuItem = () => {
+        const menuItems = getMenuItems();
+        menuItems[0]?.focus();
+    };
+
+    const focusLastMenuItem = () => {
+        const menuItems = getMenuItems();
+        menuItems[menuItems.length - 1]?.focus();
+    };
+
+    const focusNextMenuItem = () => {
+        const menuItems = getMenuItems();
+        const currentIndex = menuItems.findIndex(item => item === document.activeElement);
+        const nextIndex = (currentIndex + 1) % menuItems.length;
+        menuItems[nextIndex]?.focus();
+    };
+
+    const focusPreviousMenuItem = () => {
+        const menuItems = getMenuItems();
+        const currentIndex = menuItems.findIndex(item => item === document.activeElement);
+        const prevIndex = currentIndex <= 0 ? menuItems.length - 1 : currentIndex - 1;
+        menuItems[prevIndex]?.focus();
+    };
 
     const handleMenuKeyDown = (e: React.KeyboardEvent) => {
         switch (e.key) {
@@ -59,39 +104,17 @@ export default function Navigation() {
         }
     };
 
-    const focusFirstMenuItem = () => {
-        const menuItems = getMenuItems();
-        menuItems[0]?.focus();
-    };
-
-    const focusLastMenuItem = () => {
-        const menuItems = getMenuItems();
-        menuItems[menuItems.length - 1]?.focus();
-    };
-
-    const focusNextMenuItem = () => {
-        const menuItems = getMenuItems();
-        const currentIndex = menuItems.findIndex(item => item === document.activeElement);
-        const nextIndex = (currentIndex + 1) % menuItems.length;
-        menuItems[nextIndex]?.focus();
-    };
-
-    const focusPreviousMenuItem = () => {
-        const menuItems = getMenuItems();
-        const currentIndex = menuItems.findIndex(item => item === document.activeElement);
-        const prevIndex = currentIndex <= 0 ? menuItems.length - 1 : currentIndex - 1;
-        menuItems[prevIndex]?.focus();
-    };
-
-    const getMenuItems = () => {
-        return Array.from(
-            document.querySelectorAll<HTMLElement>(`.${styles.menu} a[role="menuitem"]`)
-        );
-    };
-
     const toggleMenu = () => {
         const newMenuState = !menuOpen;
         setMenuOpen(newMenuState);
+
+        // Set the announcement
+        setAnnouncement(newMenuState ? 'Navigation menu opened' : 'Navigation menu closed');
+
+        // Clear the announcement after 3 seconds
+        setTimeout(() => {
+            setAnnouncement('');
+        }, 3000);
 
         // Set timeout to wait for DOM update
         if (newMenuState) {
@@ -153,7 +176,8 @@ export default function Navigation() {
                     id="navigation-menu"
                     role="menu"
                     aria-hidden={!menuOpen}
-                    tabIndex={-1} // Will receive focus when menu opens
+                    tabIndex={-1}
+                    onKeyDown={handleMenuKeyDown}
                 >
                     <ul className={styles.menu} role="menubar">
                         <li role="none">

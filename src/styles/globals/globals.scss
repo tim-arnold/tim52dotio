@@ -45,6 +45,14 @@ body {
   margin: 0;
 }
 
+// Ensure visible focus states
+a, button {
+  &:focus {
+    outline: 2px solid #4299e1;
+    outline-offset: 2px;
+  }
+}
+
 a {
   color: inherit;
   font-weight: 500;

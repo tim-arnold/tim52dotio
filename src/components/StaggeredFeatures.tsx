@@ -1,4 +1,3 @@
-// src/components/StaggeredFeatures.tsx
 'use client';
 
 import React, { useRef, useEffect, useState, ReactNode } from 'react';
@@ -7,51 +6,61 @@ import styles from '../styles/components/StaggeredAnimation.module.scss';
 interface StaggeredFeaturesProps {
     children: ReactNode;
     className?: string;
+    threshold?: number;
 }
 
-export default function StaggeredFeatures({ children, className = '' }: StaggeredFeaturesProps) {
+export default function StaggeredFeatures({
+                                              children,
+                                              className = '',
+                                              threshold = 0.1
+                                          }: StaggeredFeaturesProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
+        // Fallback for browsers that don't support IntersectionObserver
+        if (!('IntersectionObserver' in window)) {
+            setIsInView(true);
+            return;
+        }
+
         const observer = new IntersectionObserver(
-            ([entry]) => {
-                // When the container enters the viewport, set isInView to true
+            (entries) => {
+                const [entry] = entries;
+
                 if (entry.isIntersecting) {
                     setIsInView(true);
-                } else {
-                    // Optional: Reset animation when out of view
-                    // Uncomment the next line if you want the animation to replay each time
-                    // setIsInView(false);
+                    // Once it's in view, disconnect the observer
+                    observer.disconnect();
                 }
             },
             {
-                // Root options
-                root: null, // Use the viewport
+                root: null,
                 rootMargin: '0px',
-                threshold: 0.3, // Trigger when 30% of the element is visible
+                threshold, // Uses the prop value, defaulting to 0.1
             }
         );
 
-        // Capture the current value of the ref
         const currentElement = containerRef.current;
+        if (currentElement) {
+            observer.observe(currentElement);
+        }
 
         return () => {
-            // Use the captured value in the cleanup
-            if (currentElement) {
-                observer.unobserve(currentElement);
-            }
+            observer.disconnect();
         };
-    }, []);
+    }, [threshold]); // Only re-run if threshold changes
 
     return (
         <div
             ref={containerRef}
             className={`${styles.staggerContainer} ${className} ${isInView ? styles.inView : styles.outOfView}`}
         >
-            {/* Map over the children and wrap each one in a staggerItem div */}
-            {React.Children.map(children, (child) => (
-                <div className={`${styles.staggerItem} ${isInView ? styles.inView : styles.outOfView}`}>
+            {React.Children.map(children, (child, index) => (
+                <div
+                    className={`${styles.staggerItem} ${isInView ? styles.inView : styles.outOfView}`}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                >
                     {child}
                 </div>
             ))}

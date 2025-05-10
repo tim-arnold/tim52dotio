@@ -16,7 +16,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .container {
+  .logoContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,8 +28,58 @@
       padding: 1rem;
     }
   }
+}
 
+// Add to Navigation.module.scss
 
+// Skip link (visually hidden until focused)
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Screen reader only class
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Ensure visible focus states
+a, button {
+  &:focus {
+    outline: 2px solid #4299e1;
+    outline-offset: 2px;
+  }
+}
+
+// Close menu button (visible only in mobile view)
+.closeMenuButton {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: transparent;
+  border: 1px solid currentColor;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
 .menuOpen {
@@ -71,7 +121,7 @@
     display: block;
   }
 
-  span {
+  .burgerLayer {
     display: block;
     position: absolute;
     height: 2px;
@@ -82,33 +132,33 @@
     left: 0;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
+  }
 
-    &:nth-child(1) {
-      top: 0;
-    }
+  .burgerLayer1 {
+    top: 0;
+  }
 
-    &:nth-child(2) {
-      top: 9px;
-    }
+  .burgerLayer2 {
+    top: 9px;
+  }
 
-    &:nth-child(3) {
-      top: 18px;
-    }
+  .burgerLayer3 {
+    top: 18px;
   }
 
   &.active {
     span {
-      &:nth-child(1) {
+      &.burgerLayer1 {
         top: 9px;
         transform: rotate(45deg);
       }
 
-      &:nth-child(2) {
+      &.burgerLayer2 {
         opacity: 0;
         width: 0;
       }
 
-      &:nth-child(3) {
+      &.burgerLayer3 {
         top: 9px;
         transform: rotate(-45deg);
       }
@@ -126,6 +176,7 @@
     height: 100vh;
     background: var(--background);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;

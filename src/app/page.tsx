@@ -158,7 +158,7 @@ export default function Home() {
             </ParallaxSection>
 
             <footer className={styles.footer}>
-                <p>© 2024 Tim Arnold. All rights reserved.</p>
+                <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
             </footer>
         </div>
     );

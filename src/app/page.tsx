@@ -28,7 +28,7 @@ export default function Home() {
                 <div className={styles.heroContent}>
                     <ParallaxElement speed={2.2} direction="up">
                         <h1>Welcome to tim52.io</h1>
-                        <p>It is website with Tim (and a cow).</p>
+                        <p>It is website with Tim (but first: a cow).</p>
                         <div className={styles.heroCtas}>
                             <Link href="#hello" className="button">Doink</Link>
                         </div>

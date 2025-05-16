@@ -12,6 +12,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Define your production URL
+const siteUrl = "https://tim52.io"; // Replace with your actual domain
+
 export const metadata: Metadata = {
   title: "tim52.io is a cow",
   description: "A website that is about Tim. And a cow.",
@@ -21,11 +24,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "tim52.io is a cow",
     description: "A website that is about Tim. And a cow.",
-    url: "https://tim52.io", // Update with your actual URL
+    url: siteUrl,
     siteName: "tim52.io",
     images: [
       {
-        url: "/images/og-image.jpg", // Update with your actual image path
+        url: `${siteUrl}/images/og-image.jpg`, // Use absolute URL with domain
         width: 1200,
         height: 630,
         alt: "tim52.io - Tim and a cow",
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "tim52.io is a cow",
     description: "A website that is about Tim. And a cow.",
-    images: ["/images/og-image.jpg"], // Update with your actual image path
+    images: [`${siteUrl}/images/og-image.jpg`], // Use absolute URL with domain
   },
 };
 

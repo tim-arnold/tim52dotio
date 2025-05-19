@@ -55,8 +55,9 @@ export default function Home() {
                         </p>
                         <p>
                             Before that I mostly served delicious coffee drinks to make ends meet
-                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void">Eugene</a>, <a href="https://bestkissersintheworld.com/">Seattle</a>,
-                            and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA">Cincinnati</a>.</p>
+                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void">Eugene</a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs">Oregon</a>, <a
+                                href="https://bestkissersintheworld.com/">Seattle</a> (duh),
+                                and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA">Cincinnati</a> (don&#39;t worry about it).</p>
                         <p><em>Ohio is also an illusion</em>.
                         </p>
                         <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com">Grandmother&#39;s artwork</a>. It&#39;s good and real.</p>

@@ -8,15 +8,16 @@
   width: 100%;
   scroll-snap-align: start;
 
-  .content {
+  .parallaxContent {
     position: relative;
     z-index: 1;
     width: 100%;
     max-width: 1200px;
-    padding: 0 1rem;
+    padding: 0 2rem; /* Increased horizontal padding */
+    margin: 0 auto; /* Center the content horizontally */
 
     @media (min-width: 768px) {
-      padding: 0 2rem;
+      padding: 0 4rem; /* More padding on larger screens */
     }
   }
 }

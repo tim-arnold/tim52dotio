@@ -74,6 +74,16 @@
   display: flex;
   gap: 3rem;
   align-items: center;
+  width: 100%;
+  padding: 0 1rem; /* Add padding for smaller screens */
+
+  @media (min-width: 768px) {
+    padding: 0; /* Remove extra padding on larger screens as parallaxContent handles it */
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 1.5rem; /* Slightly more padding on mobile */
+  }
 }
 
 .aboutText {
@@ -277,7 +287,8 @@
   .aboutText {
     margin-right: 0;
     margin-bottom: 3rem;
-    margin-left: .5rem;
+    margin-left: 0; /* Remove the offset that might cause it to shift left */
+    width: 100%; /* Ensure full width */
 
     &::before {
       border-top: 40px solid white;

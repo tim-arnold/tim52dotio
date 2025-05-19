@@ -55,8 +55,8 @@ export default function Home() {
                         </p>
                         <p>
                             Before that I mostly served delicious coffee drinks to make ends meet
-                            while I was playing drums for a bunch of bands in Eugene, Seattle,
-                            and Cincinnati.</p>
+                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void">Eugene</a>, <a href="https://bestkissersintheworld.com/">Seattle</a>,
+                            and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA">Cincinnati</a>.</p>
                         <p><em>Ohio is also an illusion</em>.
                         </p>
                         <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com">Grandmother&#39;s artwork</a>. It&#39;s good and real.</p>

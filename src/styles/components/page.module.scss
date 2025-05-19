@@ -80,10 +80,6 @@
   @media (min-width: 768px) {
     padding: 0; /* Remove extra padding on larger screens as parallaxContent handles it */
   }
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 0 1.5rem; /* Slightly more padding on mobile */
-  }
 }
 
 .aboutText {
@@ -298,8 +294,7 @@
       top: auto;
       right: auto;
       bottom: -38px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 70%;
     }
   }
 

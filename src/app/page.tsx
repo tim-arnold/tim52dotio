@@ -115,7 +115,7 @@ export default function Home() {
 
                         <div className={styles.featureCard}>
                             <p><strong>The two kids</strong> are out in the world making lives of their own.</p>
-                            <p><em>We delight in seeing them do their things and assure you that both kids are quite real</em>.</p>
+                            <p><em>We delight in seeing them do their things and assure you that both kids are quite real.</em></p>
                         </div>
 
                         <div className={styles.featureCard}>

@@ -100,7 +100,7 @@
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-left: 40px solid white;
-    top: 60%;
+    top: 44%;
     right: -38px;
   }
 
@@ -121,7 +121,7 @@
 .aboutImage {
   flex: 1;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .parallaxItem {
@@ -129,7 +129,7 @@
 }
 
 .floatingImage {
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 

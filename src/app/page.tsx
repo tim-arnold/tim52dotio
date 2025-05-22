@@ -62,8 +62,16 @@ export default function Home() {
                         <p><a href="https://mildredfoxarnold.com">Go ahead, check it out</a>!</p>
                     </ParallaxElement>
 
+                    {/* In the About Section of page.tsx */}
                     <div className={styles.aboutImage}>
-                        <ParallaxElement speed={0.5} direction="left">
+                        <ParallaxElement
+                            speed={0.5}
+                            direction="left"
+                            rotate={true}
+                            rotationRange={10}
+                            rotationOffset={20}
+                            reverseRotation={true} // Add this to reverse the rotation direction
+                        >
                             <Image
                                 src="/images/tim-yelling.webp"
                                 alt="About our approach"

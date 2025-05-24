@@ -160,7 +160,7 @@ export default function Home() {
                             <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Tim's Bluesky profile - opens in new window">Bluesky (blue moon) <span aria-hidden="true">↗</span></a>
                             <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Tim's Mastodon profile - opens in new window">Mastodon (long ago) <span aria-hidden="true">↗</span></a>
                             <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="Tim's TikTok profile - opens in new window">TikTok (no time) <span aria-hidden="true">↗</span></a>
-                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim's old blog - opens in new window">Old Blog (remember blogs?) <span aria-hidden="true">↗</span></a>
+                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim's old blog - opens in new window">Old Blog (blog?) <span aria-hidden="true">↗</span></a>
                         </div>
                     </ParallaxElement>
                 </div>

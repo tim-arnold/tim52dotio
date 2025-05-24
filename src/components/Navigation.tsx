@@ -1,25 +1,31 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from '../styles/components/Navigation.module.scss';
+import { useThrottledScroll } from '../hooks/useThrottledScroll';
 
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [announcement, setAnnouncement] = useState('');
 
-    // Handle scroll detection
-    useEffect(() => {
-        const handleScroll = () => {
-            const isScrolled = window.scrollY > 70;
-            if (isScrolled !== scrolled) {
-                setScrolled(isScrolled);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+    // Handle scroll detection with throttling
+    const handleScrollUpdate = useCallback(() => {
+        const isScrolled = window.scrollY > 70;
+        if (isScrolled !== scrolled) {
+            setScrolled(isScrolled);
+        }
     }, [scrolled]);
+
+    const throttledScroll = useThrottledScroll(handleScrollUpdate, 16);
+
+    useEffect(() => {
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        // Initial check
+        throttledScroll();
+        
+        return () => window.removeEventListener('scroll', throttledScroll);
+    }, [throttledScroll]);
 
     // Handle body scroll locking
     useEffect(() => {

@@ -1,8 +1,9 @@
 // src/components/ParallaxSection.tsx
 'use client';
 
-import { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect, ReactNode, useState, useCallback } from 'react';
 import styles from '../styles/components/ParallaxSection.module.scss';
+import { useThrottledScroll } from '../hooks/useThrottledScroll';
 
 interface ParallaxSectionProps {
     id?: string;
@@ -33,41 +34,80 @@ export default function ParallaxSection({
                                         }: ParallaxSectionProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Cache section position to avoid repeated getBoundingClientRect calls
+    const sectionMetrics = useRef({ top: 0, updated: false });
+
+    const updateSectionPosition = useCallback(() => {
+        if (sectionRef.current && !sectionMetrics.current.updated) {
+            const rect = sectionRef.current.getBoundingClientRect();
+            sectionMetrics.current = {
+                top: rect.top + window.scrollY,
+                updated: true
+            };
+        }
+    }, []);
+
+    const handleScrollUpdate = useCallback(() => {
+        if (!isVisible || !backgroundRef.current) return;
+
+        updateSectionPosition();
+        const currentScrollY = window.scrollY;
+
+        // Calculate translations using cached position
+        const scrollPastSection = Math.max(0, currentScrollY - sectionMetrics.current.top);
+        const translateY = scrollPastSection * speed;
+        const translateX = scrollPastSection * horizontalSpeed;
+
+        // Use transform3d for hardware acceleration
+        backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+    }, [isVisible, speed, horizontalSpeed, updateSectionPosition]);
+
+    const throttledScroll = useThrottledScroll(handleScrollUpdate, 16, isVisible);
+
+    // Intersection Observer to only animate visible sections
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    // Reset cached position when becoming visible
+                    sectionMetrics.current.updated = false;
+                }
+            },
+            { rootMargin: '100px 0px' }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!sectionRef.current || !backgroundRef.current) return;
+        if (!isVisible) return;
 
-            // Get the section's position relative to the viewport
-            const rect = sectionRef.current.getBoundingClientRect();
-
-            // Calculate the section's position relative to the document
-            const scrollTop = window.scrollY || window.pageYOffset;
-            const sectionTop = rect.top + scrollTop;
-
-            // Calculate how far we've scrolled past the section's top
-            const scrollPastSection = Math.max(0, scrollTop - sectionTop);
-
-            // Calculate the vertical translation based on scroll position
-            const translateY = scrollPastSection * speed;
-
-            // Calculate the horizontal translation based on scroll position
-            const translateX = scrollPastSection * horizontalSpeed;
-
-            // Apply both translations
-            backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
-        };
-
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
-
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        
         // Initial calculation
-        handleScroll();
+        throttledScroll();
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', throttledScroll);
         };
-    }, [speed, horizontalSpeed]);
+    }, [throttledScroll, isVisible]);
+
+    // Reset cached position on resize
+    useEffect(() => {
+        const handleResize = () => {
+            sectionMetrics.current.updated = false;
+        };
+
+        window.addEventListener('resize', handleResize, { passive: true });
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <section

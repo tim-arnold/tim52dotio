@@ -1,8 +1,9 @@
 // src/components/ParallaxElement.tsx
 'use client';
 
-import { ReactNode, useRef, useEffect, useState } from 'react';
+import { ReactNode, useRef, useEffect, useState, useCallback } from 'react';
 import styles from '../styles/components/ParallaxElement.module.scss';
+import { useThrottledScroll } from '../hooks/useThrottledScroll';
 
 interface ParallaxElementProps {
     children: ReactNode;
@@ -28,40 +29,82 @@ export default function ParallaxElement({
                                             reverseRotation = false, // Default to false (original direction)
                                         }: ParallaxElementProps) {
     const elementRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
-    const [elementTop, setElementTop] = useState(0);
-    const [windowHeight, setWindowHeight] = useState(0);
+    
+    // Cache element metrics to avoid repeated getBoundingClientRect calls
+    const elementMetrics = useRef({ top: 0, height: 0, windowHeight: 0, updated: false });
 
-    useEffect(() => {
-        if (elementRef.current) {
-            setElementTop(elementRef.current.getBoundingClientRect().top + window.scrollY);
+    const updateElementMetrics = useCallback(() => {
+        if (elementRef.current && !elementMetrics.current.updated) {
+            const rect = elementRef.current.getBoundingClientRect();
+            elementMetrics.current = {
+                top: rect.top + window.scrollY,
+                height: rect.height,
+                windowHeight: window.innerHeight,
+                updated: true
+            };
         }
-        setWindowHeight(window.innerHeight);
-
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
-
-        const handleResize = () => {
-            if (elementRef.current) {
-                setElementTop(elementRef.current.getBoundingClientRect().top + window.scrollY);
-            }
-            setWindowHeight(window.innerHeight);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', handleResize, { passive: true });
-        handleScroll();
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleResize);
-        };
     }, []);
 
-    const calculateTransform = () => {
-        // Basic calculation for relative scroll position
-        const relativeScroll = scrollPosition - elementTop;
+    const handleScrollUpdate = useCallback(() => {
+        if (!isVisible) return;
+        
+        updateElementMetrics();
+        setScrollPosition(window.scrollY);
+    }, [isVisible, updateElementMetrics]);
+
+    const throttledScroll = useThrottledScroll(handleScrollUpdate, 16, isVisible);
+
+    // Intersection Observer to only animate visible elements
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    // Reset cached metrics when becoming visible
+                    elementMetrics.current.updated = false;
+                }
+            },
+            { rootMargin: '200px 0px' } // Larger margin for smoother transitions
+        );
+
+        if (elementRef.current) {
+            observer.observe(elementRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isVisible) return;
+
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        
+        // Initial calculation
+        throttledScroll();
+
+        return () => {
+            window.removeEventListener('scroll', throttledScroll);
+        };
+    }, [throttledScroll, isVisible]);
+
+    // Reset cached metrics on resize
+    useEffect(() => {
+        const handleResize = () => {
+            elementMetrics.current.updated = false;
+            elementMetrics.current.windowHeight = window.innerHeight;
+        };
+
+        window.addEventListener('resize', handleResize, { passive: true });
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const calculateTransform = useCallback(() => {
+        if (!isVisible || !elementMetrics.current.updated) return '';
+        
+        // Use cached metrics to avoid getBoundingClientRect
+        const relativeScroll = scrollPosition - elementMetrics.current.top;
         const translateValue = relativeScroll * speed * 0.15 * amplify;
 
         let translateStyle = '';
@@ -82,31 +125,26 @@ export default function ParallaxElement({
                 translateStyle = `translateY(${-translateValue}px)`;
         }
 
-        // Calculate rotation if enabled - simplified approach
-        if (rotate) {
-            // Use viewport-relative position for rotation calculation
-            const elementPositionInViewport = elementRef.current ?
-                elementRef.current.getBoundingClientRect().top / windowHeight : 0;
+        // Calculate rotation if enabled - use cached viewport position
+        if (rotate && elementRef.current && elementMetrics.current.windowHeight > 0) {
+            // Use cached position instead of getBoundingClientRect
+            const viewportTop = scrollPosition - elementMetrics.current.top;
+            const elementPositionInViewport = viewportTop / elementMetrics.current.windowHeight;
 
             let rotationAngle;
 
             if (reverseRotation) {
-                // Reversed: -rotationRange to +rotationRange (counterclockwise to clockwise)
                 rotationAngle = -rotationRange + (elementPositionInViewport + 0.5) * rotationRange * 2;
             } else {
-                // Original: +rotationRange to -rotationRange (clockwise to counterclockwise)
                 rotationAngle = rotationRange - (elementPositionInViewport + 0.5) * rotationRange * 2;
             }
 
-            // Apply offset to rotation angle
             rotationAngle += rotationOffset;
-
-            // Combine translation and rotation
             return `${translateStyle} rotate(${rotationAngle}deg)`;
         }
 
         return translateStyle;
-    };
+    }, [isVisible, scrollPosition, speed, amplify, direction, rotate, rotationRange, rotationOffset, reverseRotation]);
 
     return (
         <div
@@ -114,7 +152,8 @@ export default function ParallaxElement({
             className={`${styles.parallaxElement} ${className}`}
             style={{
                 transform: calculateTransform(),
-                transition: 'transform 0.05s linear', // Add a small transition for smoothness
+                // Remove conflicting transition for better performance
+                willChange: isVisible ? 'transform' : 'auto'
             }}
         >
             {children}

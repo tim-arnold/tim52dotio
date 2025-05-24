@@ -1,13 +1,21 @@
 // src/app/page.tsx
+'use client';
+
 import styles from '../styles/components/page.module.scss';
 import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import Image from 'next/image';
-import Link from 'next/link'; // Add this import
+import Link from 'next/link';
+import { smoothScrollToTop } from '../utils/smoothScroll';
 
 export default function Home() {
+    const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+        e.preventDefault();
+        smoothScrollToTop(1500); // 1.5 seconds for smooth scroll to top
+    };
+
     return (
         <div className={styles.page}>
             <Navigation />
@@ -169,7 +177,7 @@ export default function Home() {
 
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#" className="button button-up" aria-label="Return to top of page">Woosh</Link>
+                        <Link href="#" className="button button-up" aria-label="Return to top of page" onClick={handleScrollToTop}>Woosh</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

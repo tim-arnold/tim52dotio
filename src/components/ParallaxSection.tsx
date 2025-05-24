@@ -17,6 +17,8 @@ interface ParallaxSectionProps {
     height?: string;
     minHeight?: string;
     className?: string;
+    role?: string;
+    'aria-labelledby'?: string;
 }
 
 export default function ParallaxSection({
@@ -30,11 +32,14 @@ export default function ParallaxSection({
                                             horizontalSpeed = 0, // Default to 0 (no horizontal movement)
                                             height = 'auto',
                                             minHeight = '0',
-                                            className = ''
+                                            className = '',
+                                            role,
+                                            'aria-labelledby': ariaLabelledBy
                                         }: ParallaxSectionProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
     // Cache section position to avoid repeated getBoundingClientRect calls
     const sectionMetrics = useRef({ top: 0, updated: false });
@@ -50,7 +55,7 @@ export default function ParallaxSection({
     }, []);
 
     const handleScrollUpdate = useCallback(() => {
-        if (!isVisible || !backgroundRef.current) return;
+        if (!isVisible || !backgroundRef.current || prefersReducedMotion) return;
 
         updateSectionPosition();
         const currentScrollY = window.scrollY;
@@ -62,9 +67,22 @@ export default function ParallaxSection({
 
         // Use transform3d for hardware acceleration
         backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
-    }, [isVisible, speed, horizontalSpeed, updateSectionPosition]);
+    }, [isVisible, speed, horizontalSpeed, updateSectionPosition, prefersReducedMotion]);
 
     const throttledScroll = useThrottledScroll(handleScrollUpdate, 16, isVisible);
+
+    // Check for user's motion preferences
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setPrefersReducedMotion(mediaQuery.matches);
+        
+        const handleChange = (e: MediaQueryListEvent) => {
+            setPrefersReducedMotion(e.matches);
+        };
+        
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     // Intersection Observer to only animate visible sections
     useEffect(() => {
@@ -114,6 +132,8 @@ export default function ParallaxSection({
             id={id}
             ref={sectionRef}
             className={`${styles.parallaxSection} ${className}`}
+            role={role}
+            aria-labelledby={ariaLabelledBy}
             style={{
                 backgroundColor,
                 height,

@@ -49,13 +49,30 @@ a {
   color: inherit;
   font-weight: 500;
   text-decoration: underline;
+  
+  /* Style external link indicators */
+  span[aria-hidden="true"] {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-left: 0.2em;
+    transition: opacity 0.2s ease;
+  }
+  
+  &:hover span[aria-hidden="true"] {
+    opacity: 1;
+  }
 }
 
-// Ensure visible focus states
+// Ensure visible focus states with better contrast
 a, button {
-  &:focus {
-    outline: 2px solid #4299e1;
+  &:focus-visible {
+    outline: 3px solid #005fcc;
     outline-offset: 2px;
+  }
+  
+  // Fallback for browsers that don't support focus-visible
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 }
 
@@ -253,5 +270,35 @@ em {
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+  }
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations for users who prefer reduced motion */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Specifically disable button animations */
+  .button {
+    animation: none !important;
+    
+    &::before {
+      animation: none !important;
+    }
+    
+    &:hover {
+      transform: none !important;
+      animation-play-state: initial !important;
+    }
+  }
+  
+  /* Disable smooth scroll */
+  html {
+    scroll-behavior: auto !important;
   }
 }

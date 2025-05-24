@@ -151,7 +151,7 @@ export default function Navigation() {
             </div>
 
             <div className={styles.logoContainer}>
-                <a href="#hero" className={styles.skipLink}>
+                <a href="#main-content" className={styles.skipLink}>
                     Skip to main content
                 </a>
                 <a href="#" className={styles.logo} aria-label="tim52.io - Home page">

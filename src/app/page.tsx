@@ -12,9 +12,9 @@ export default function Home() {
         <div className={styles.page}>
             <Navigation />
 
-            {/* Hero Section */}
-            {/* Hero Section */}
-            <ParallaxSection
+            <main id="main-content">
+                {/* Hero Section */}
+                <ParallaxSection
                 id="hero"
                 backgroundImage="/images/cow-fullwidth.webp"  // Use the cow-16-9.webp image
                 backgroundPosition="center right"
@@ -24,10 +24,12 @@ export default function Home() {
                 height="100vh"
                 minHeight="70vh"
                 className={styles.heroSection}
+                role="banner"
+                aria-labelledby="hero-heading"
             >
                 <div className={styles.heroContent}>
                     <ParallaxElement speed={2.2} direction="up">
-                        <h1>Welcome to tim52.io</h1>
+                        <h1 id="hero-heading">Welcome to tim52.io</h1>
                         <p>It is website with Tim (but first: a cow).</p>
                         <div className={styles.heroCtas}>
                             <Link href="#hello" className="button">Doink</Link>
@@ -43,10 +45,12 @@ export default function Home() {
                 height="auto"
                 minHeight="100vh"
                 className={styles.aboutSection}
+                role="region"
+                aria-labelledby="about-heading"
             >
                 <div className={styles.aboutContent}>
                     <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
-                        <h2>Hello, I am Tim <small>(he/him)</small></h2>
+                        <h2 id="about-heading">Hello, I am Tim <small>(he/him)</small></h2>
                         <p>
                             I&apos;m a crotchety 50-something-year-old who has been building websites —
                             mostly for non-profit organizations — since 1998. It feels a lot longer
@@ -55,11 +59,11 @@ export default function Home() {
                         </p>
                         <p>
                             Before that I mostly served delicious coffee drinks to make ends meet
-                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void">Eugene</a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs">Oregon</a>), <a href="https://bestkissersintheworld.com/">Seattle</a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA">Cincinnati</a> (don&#39;t worry about it).</p>
+                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void" target="_blank" rel="noopener noreferrer" aria-label="Rawhead Rex band album on Bandcamp - opens in new window">Eugene <span aria-hidden="true">↗</span></a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs" target="_blank" rel="noopener noreferrer" aria-label="Oregon reference on YouTube - opens in new window">Oregon <span aria-hidden="true">↗</span></a>), <a href="https://bestkissersintheworld.com/" target="_blank" rel="noopener noreferrer" aria-label="Best Kissers in the World band website - opens in new window">Seattle <span aria-hidden="true">↗</span></a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA" target="_blank" rel="noopener noreferrer" aria-label="Cincinnati band album on Spotify - opens in new window">Cincinnati <span aria-hidden="true">↗</span></a> (don&#39;t worry about it).</p>
                         <p><em>Ohio is also an illusion</em>.
                         </p>
-                        <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com">Grandmother&#39;s artwork</a>. It&#39;s good and real.</p>
-                        <p><a href="https://mildredfoxarnold.com">Go ahead, check it out</a>!</p>
+                        <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com" target="_blank" rel="noopener noreferrer" aria-label="Mildred Fox Arnold's artwork website - opens in new window">Grandmother&#39;s artwork <span aria-hidden="true">↗</span></a>. It&#39;s good and real.</p>
+                        <p><a href="https://mildredfoxarnold.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Mildred Fox Arnold's artwork website - opens in new window">Go ahead, check it out <span aria-hidden="true">↗</span></a>!</p>
                     </ParallaxElement>
 
                     {/* In the About Section of page.tsx */}
@@ -74,7 +78,7 @@ export default function Home() {
                         >
                             <Image
                                 src="/images/tim-yelling.webp"
-                                alt="About our approach"
+                                alt="Tim Arnold speaking enthusiastically with animated gestures and mouth open wide"
                                 width={300}
                                 height={300}
                                 className={styles.floatingImage}
@@ -98,10 +102,12 @@ export default function Home() {
                 minHeight="100vh"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
+                role="region"
+                aria-labelledby="cactus-heading"
             >
                 <div className={styles.featuresContent}>
                     <ParallaxElement speed={-0.3} amplify={1.5}>
-                        <h2>I am a Cactus</h2>
+                        <h2 id="cactus-heading">I am a Cactus</h2>
                     </ParallaxElement>
 
                     {/* Replace the featuresList div with the StaggeredFeatures component */}
@@ -137,22 +143,24 @@ export default function Home() {
                 backgroundColor="var(--background)"
                 height="100vh"
                 className={styles.contactSection}
+                role="region"
+                aria-labelledby="contact-heading"
             >
                 <div className={styles.contactContent}>
                     <ParallaxElement speed={0.3}>
-                        <h2>Where to Find Me</h2>
+                        <h2 id="contact-heading">Where to Find Me</h2>
                     </ParallaxElement>
 
                     <ParallaxElement speed={0.5}>
                         <div className={styles.socialLinks}>
-                            {/* External links can remain as anchor tags */}
-                            <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outight">Outright (work)</a>
-                            <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram (a bit)</a>
-                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn (professionally)</a>
-                            <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">Bluesky (blue moon)</a>
-                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Mastadon">Mastadon (long ago)</a>
-                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok (no time)</a>
-                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Old Blog">Old Blog (remember blogs?)</a>
+                            {/* External links with accessibility indicators */}
+                            <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outright work website - opens in new window">Outright (work) <span aria-hidden="true">↗</span></a>
+                            <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Tim's Instagram profile - opens in new window">Instagram (a bit) <span aria-hidden="true">↗</span></a>
+                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="Tim Arnold's LinkedIn profile - opens in new window">LinkedIn (professionally) <span aria-hidden="true">↗</span></a>
+                            <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Tim's Bluesky profile - opens in new window">Bluesky (blue moon) <span aria-hidden="true">↗</span></a>
+                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Tim's Mastodon profile - opens in new window">Mastodon (long ago) <span aria-hidden="true">↗</span></a>
+                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="Tim's TikTok profile - opens in new window">TikTok (no time) <span aria-hidden="true">↗</span></a>
+                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim's old blog - opens in new window">Old Blog (remember blogs?) <span aria-hidden="true">↗</span></a>
                         </div>
                     </ParallaxElement>
                 </div>
@@ -163,6 +171,8 @@ export default function Home() {
                     </div>
                 </ParallaxElement>
             </ParallaxSection>
+
+            </main>
 
             <footer className={styles.footer}>
                 <p>&copy; 2024 Tim Arnold. All rights reserved.</p>

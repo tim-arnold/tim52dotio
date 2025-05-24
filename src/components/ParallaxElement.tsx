@@ -31,6 +31,7 @@ export default function ParallaxElement({
     const elementRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
     
     // Cache element metrics to avoid repeated getBoundingClientRect calls
     const elementMetrics = useRef({ top: 0, height: 0, windowHeight: 0, updated: false });
@@ -55,6 +56,19 @@ export default function ParallaxElement({
     }, [isVisible, updateElementMetrics]);
 
     const throttledScroll = useThrottledScroll(handleScrollUpdate, 16, isVisible);
+
+    // Check for user's motion preferences
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setPrefersReducedMotion(mediaQuery.matches);
+        
+        const handleChange = (e: MediaQueryListEvent) => {
+            setPrefersReducedMotion(e.matches);
+        };
+        
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     // Intersection Observer to only animate visible elements
     useEffect(() => {
@@ -101,7 +115,7 @@ export default function ParallaxElement({
     }, []);
 
     const calculateTransform = useCallback(() => {
-        if (!isVisible || !elementMetrics.current.updated) return '';
+        if (!isVisible || !elementMetrics.current.updated || prefersReducedMotion) return '';
         
         // Use cached metrics to avoid getBoundingClientRect
         const relativeScroll = scrollPosition - elementMetrics.current.top;
@@ -144,7 +158,7 @@ export default function ParallaxElement({
         }
 
         return translateStyle;
-    }, [isVisible, scrollPosition, speed, amplify, direction, rotate, rotationRange, rotationOffset, reverseRotation]);
+    }, [isVisible, scrollPosition, speed, amplify, direction, rotate, rotationRange, rotationOffset, reverseRotation, prefersReducedMotion]);
 
     return (
         <div

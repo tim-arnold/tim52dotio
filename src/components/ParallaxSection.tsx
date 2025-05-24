@@ -44,7 +44,7 @@ export default function ParallaxSection({
     // Cache section position to avoid repeated getBoundingClientRect calls
     const sectionMetrics = useRef({ top: 0, updated: false });
 
-    const updateSectionPosition = useCallback(() => {
+    const updateSectionPosition = useCallback((): void => {
         if (sectionRef.current && !sectionMetrics.current.updated) {
             const rect = sectionRef.current.getBoundingClientRect();
             sectionMetrics.current = {
@@ -54,7 +54,7 @@ export default function ParallaxSection({
         }
     }, []);
 
-    const handleScrollUpdate = useCallback(() => {
+    const handleScrollUpdate = useCallback((): void => {
         if (!isVisible || !backgroundRef.current || prefersReducedMotion) return;
 
         updateSectionPosition();

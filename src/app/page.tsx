@@ -32,7 +32,7 @@ export default function Home() {
                         <h1 id="hero-heading">Welcome to tim52.io</h1>
                         <p>It is website with Tim (but first: a cow).</p>
                         <div className={styles.heroCtas}>
-                            <Link href="#hello" className="button">Doink</Link>
+                            <Link href="#hello" className="button" aria-describedby="hero-heading">Doink</Link>
                         </div>
                     </ParallaxElement>
                 </div>
@@ -55,15 +55,15 @@ export default function Home() {
                             I&apos;m a crotchety 50-something-year-old who has been building websites —
                             mostly for non-profit organizations — since 1998. It feels a lot longer
                             than that, if possible.</p>
-                        <p><em>I dunno, time is an illusion</em>.
+                        <p>
+                            <em>I dunno, time is an illusion.</em>
                         </p>
                         <p>
                             Before that I mostly served delicious coffee drinks to make ends meet
-                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void" target="_blank" rel="noopener noreferrer" aria-label="Rawhead Rex band album on Bandcamp - opens in new window">Eugene <span aria-hidden="true">↗</span></a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs" target="_blank" rel="noopener noreferrer" aria-label="Oregon reference on YouTube - opens in new window">Oregon <span aria-hidden="true">↗</span></a>), <a href="https://bestkissersintheworld.com/" target="_blank" rel="noopener noreferrer" aria-label="Best Kissers in the World band website - opens in new window">Seattle <span aria-hidden="true">↗</span></a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA" target="_blank" rel="noopener noreferrer" aria-label="Cincinnati band album on Spotify - opens in new window">Cincinnati <span aria-hidden="true">↗</span></a> (don&#39;t worry about it).</p>
-                        <p><em>Ohio is also an illusion</em>.
+                            while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void" target="_blank" rel="noopener noreferrer" aria-label="Rawhead Rex band album on Bandcamp - opens in new window">Eugene</a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs" target="_blank" rel="noopener noreferrer" aria-label="Oregon reference on YouTube - opens in new window">Oregon</a>), <a href="https://bestkissersintheworld.com/" target="_blank" rel="noopener noreferrer" aria-label="Best Kissers in the World band website - opens in new window">Seattle</a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA" target="_blank" rel="noopener noreferrer" aria-label="Cincinnati band album on Spotify - opens in new window">Cincinnati</a> (don&#39;t worry about it).</p>
+                        <p>
+                            <em>Ohio is also an illusion.</em>
                         </p>
-                        <p>Also, I just made a website for my <a href="https://mildredfoxarnold.com" target="_blank" rel="noopener noreferrer" aria-label="Mildred Fox Arnold's artwork website - opens in new window">Grandmother&#39;s artwork <span aria-hidden="true">↗</span></a>. It&#39;s good and real.</p>
-                        <p><a href="https://mildredfoxarnold.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Mildred Fox Arnold's artwork website - opens in new window">Go ahead, check it out <span aria-hidden="true">↗</span></a>!</p>
                     </ParallaxElement>
 
                     {/* In the About Section of page.tsx */}
@@ -82,6 +82,8 @@ export default function Home() {
                                 width={300}
                                 height={300}
                                 className={styles.floatingImage}
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                             />
                         </ParallaxElement>
                     </div>
@@ -89,7 +91,7 @@ export default function Home() {
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#cactus" className="button">Ka-Doink</Link>
+                        <Link href="#cactus" className="button" aria-label="Continue to I am a Cactus section">Ka-Doink</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>
@@ -132,7 +134,7 @@ export default function Home() {
                 </div>
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#findme" className="button">Dink</Link>
+                        <Link href="#findme" className="button" aria-label="Continue to Where to Find Me section">Dink</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>
@@ -167,7 +169,7 @@ export default function Home() {
 
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#top" className="button button-up">Woosh</Link>
+                        <Link href="#" className="button button-up" aria-label="Return to top of page">Woosh</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

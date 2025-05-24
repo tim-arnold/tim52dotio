@@ -4,7 +4,7 @@ export const useThrottledScroll = (
   callback: () => void,
   delay: number = 16,
   enabled: boolean = true
-) => {
+): (() => void) => {
   const lastCall = useRef(0);
   const animationFrame = useRef<number | null>(null);
 
@@ -34,7 +34,19 @@ export const useThrottledScroll = (
   return throttledCallback;
 };
 
-export const useElementMetrics = () => {
+interface ElementMetrics {
+  top: number;
+  height: number;
+  width: number;
+}
+
+interface UseElementMetricsReturn {
+  elementRef: React.RefObject<HTMLElement | null>;
+  metrics: ElementMetrics;
+  updateMetrics: () => void;
+}
+
+export const useElementMetrics = (): UseElementMetricsReturn => {
   const elementRef = useRef<HTMLElement>(null);
   const metricsRef = useRef({ top: 0, height: 0, width: 0 });
 

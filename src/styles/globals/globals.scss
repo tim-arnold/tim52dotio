@@ -66,15 +66,46 @@ a {
 }
 
 // Ensure visible focus states with better contrast
-a, button {
+a, button, [tabindex] {
   &:focus-visible {
     outline: 3px solid #005fcc;
-    outline-offset: 2px;
+    outline-offset: 3px;
+    outline-style: solid;
+    border-radius: 4px;
+    transition: outline-color 0.2s ease;
   }
   
   // Fallback for browsers that don't support focus-visible
   &:focus:not(:focus-visible) {
     outline: none;
+  }
+  
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    &:focus-visible {
+      outline: 4px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Skip link styles
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  background: var(--background);
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  border: 2px solid var(--primary);
+  
+  &:focus {
+    top: 20px;
   }
 }
 

@@ -36,7 +36,7 @@ export default function ParallaxElement({
     // Cache element metrics to avoid repeated getBoundingClientRect calls
     const elementMetrics = useRef({ top: 0, height: 0, windowHeight: 0, updated: false });
 
-    const updateElementMetrics = useCallback(() => {
+    const updateElementMetrics = useCallback((): void => {
         if (elementRef.current && !elementMetrics.current.updated) {
             const rect = elementRef.current.getBoundingClientRect();
             elementMetrics.current = {
@@ -48,7 +48,7 @@ export default function ParallaxElement({
         }
     }, []);
 
-    const handleScrollUpdate = useCallback(() => {
+    const handleScrollUpdate = useCallback((): void => {
         if (!isVisible) return;
         
         updateElementMetrics();
@@ -114,7 +114,7 @@ export default function ParallaxElement({
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const calculateTransform = useCallback(() => {
+    const calculateTransform = useCallback((): string => {
         if (!isVisible || !elementMetrics.current.updated || prefersReducedMotion) return '';
         
         // Use cached metrics to avoid getBoundingClientRect

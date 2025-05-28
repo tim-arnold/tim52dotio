@@ -35,3 +35,12 @@ This is a Next.js 15.3 static site (output: 'export') built for Cloudflare Pages
 - Target branch: 'cow' (main deployment branch)
 - Platform: Cloudflare Pages
 - Build output: Static files in `/out` directory
+
+## Documentation
+
+Comprehensive project documentation is located in the `/docs` directory, including:
+- Architecture details and technical design decisions
+- Development guides and best practices
+- Project planning and roadmaps
+- Technical decision records (ADRs)
+- Development time analyses and retrospectives

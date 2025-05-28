@@ -6,15 +6,6 @@ A modern, parallax-rich personal website built with Next.js 15.3 and React 19.
 
 This is Tim Arnold's personal website, featuring a playful and visually engaging design with parallax scrolling effects, staggered animations, and responsive navigation. The site showcases Tim's personality through quirky content about himself, his family, and his background in web development.
 
-## ✨ Features
-
-- **Parallax Scrolling Effects**: Multi-directional parallax sections and elements create depth and visual interest
-- **Responsive Design**: Mobile-friendly navigation with hamburger menu
-- **Staggered Animations**: Elements appear with staggered timing as they enter the viewport
-- **SCSS Modules**: Organized styles with SCSS modules for component-specific styling
-- **Next.js App Router**: Uses the modern App Router architecture from Next.js
-- **React 19**: Takes advantage of the latest React features
-
 ## 🚀 Getting Started
 
 First, make sure you have [Node.js](https://nodejs.org) installed (v18 or newer recommended).
@@ -56,33 +47,18 @@ Take a deep dive into linting errors
 npm run lint
 ```
 
-🧩 Project Structure
+## 📚 Documentation
 
-```
-tim52next/
-├── public/              # Static assets
-│   └── images/          # Image files
-├── src/
-│   ├── app/             # Next.js App Router pages
-│   ├── components/      # React components
-│   │   ├── Navigation.tsx          # Responsive navigation
-│   │   ├── ParallaxSection.tsx     # Container for parallax sections
-│   │   ├── ParallaxElement.tsx     # Individual parallax elements
-│   │   └── StaggeredFeatures.tsx   # Staggered animation container
-│   ├── contexts/        # React contexts (if needed)
-│   └── styles/          # SCSS styles
-│       ├── components/  # Component-specific styles
-│       └── globals/     # Global styles
-```
+For comprehensive project documentation, including architecture details, development guides, and planning documents, see the [docs/](docs/) directory.
 
-🧪 Technologies Used
+## 🧪 Technologies Used
 
-- Next.js 15.3.1: React framework with App Router
-- React 19.0.0: UI library
-- TypeScript: Type-safe code
-- SASS: CSS preprocessing
-- Turbopack: Fast development experience
-- ESLint: Code linting
+- **Next.js 15.3.1**: React framework with App Router and static export
+- **React 19.0.0**: UI library with latest features
+- **TypeScript**: Type-safe development
+- **SCSS Modules**: Component-scoped styling
+- **Turbopack**: Fast development experience
+- **ESLint**: Code quality and consistency
 
 🖼️ Page Sections
 

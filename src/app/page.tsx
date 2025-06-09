@@ -86,12 +86,12 @@ export default function Home() {
                                 <FadeImageTransition
                                     image1={{
                                         src: "/images/tim-yelling.webp",
-                                        alt: "Tim Arnold speaking enthusiastically with animated gestures and mouth open wide",
+                                        alt: "A very excited young Tim, shouting at the top of his lungs. Photographed by his fathner.",
                                         blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                                     }}
                                     image2={{
                                         src: "/images/tim-and-the-wall-square.webp",
-                                        alt: "Tim Arnold in a different pose or expression"
+                                        alt: "A significantly older Tim who never yells. Photographed by himself."
                                     }}
                                     width={300}
                                     height={300}

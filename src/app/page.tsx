@@ -61,7 +61,7 @@ export default function Home() {
                             <h2 id="about-heading">Hello, I am Tim <small>(he/him)</small></h2>
                             <p>
                                 I have been building websites and managing the teams that build websites —
-                                mostly for non-profit organizations — since 1998. It doesn&#39;t feel that long.</p>
+                                mainly at agencies serving non-profit organizations — since 1998. It doesn&#39;t feel that long.</p>
                             <p>
                                 <em>I dunno, time is an illusion.</em>
                             </p>

@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
-import Image from 'next/image';
+import FadeImageTransition from '../components/FadeImageTransition';
 import Link from 'next/link';
 import { smoothScrollToTop } from '../utils/smoothScroll';
 
@@ -81,16 +81,21 @@ export default function Home() {
                                 rotate={true}
                                 rotationRange={10}
                                 rotationOffset={20}
-                                reverseRotation={true} // Add this to reverse the rotation direction
+                                reverseRotation={true}
                             >
-                                <Image
-                                    src="/images/tim-yelling.webp"
-                                    alt="Tim Arnold speaking enthusiastically with animated gestures and mouth open wide"
+                                <FadeImageTransition
+                                    image1={{
+                                        src: "/images/tim-yelling.webp",
+                                        alt: "Tim Arnold speaking enthusiastically with animated gestures and mouth open wide",
+                                        blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                                    }}
+                                    image2={{
+                                        src: "/images/tim-and-the-wall-square.webp",
+                                        alt: "Tim Arnold in a different pose or expression"
+                                    }}
                                     width={300}
                                     height={300}
                                     className={styles.floatingImage}
-                                    placeholder="blur"
-                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                                 />
                             </ParallaxElement>
                         </div>

@@ -241,12 +241,15 @@ em {
   }
 
   &.button-up {
+    background-color: white;
+    color: var(--text-dark);
+    
     &::after {
       top: auto;
       bottom: 100%;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-bottom: 12px solid var(--primary);
+      border-bottom: 12px solid white;
       border-top: 0;
       transform-origin: bottom;
       transform: translateX(-50%) scaleY(0);

@@ -62,11 +62,28 @@ export default function ParallaxSection({
 
         // Calculate translations using cached position
         const scrollPastSection = Math.max(0, currentScrollY - sectionMetrics.current.top);
-        const translateY = scrollPastSection * speed;
-        const translateX = scrollPastSection * horizontalSpeed;
-
-        // Use transform3d for hardware acceleration
-        backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+        
+        // Special handling for negative speeds (sticky effect)
+        if (speed < 0) {
+            // Only start moving the background when we're close to the top of the viewport
+            const sectionHeight = sectionRef.current?.offsetHeight || 0;
+            const stickyThreshold = sectionHeight * 0.8; // Start moving when 80% scrolled
+            
+            if (scrollPastSection > stickyThreshold) {
+                const adjustedScroll = scrollPastSection - stickyThreshold;
+                const translateY = adjustedScroll * Math.abs(speed);
+                const translateX = adjustedScroll * horizontalSpeed;
+                backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+            } else {
+                // Keep background fixed
+                backgroundRef.current.style.transform = `translate3d(0px, 0px, 0)`;
+            }
+        } else {
+            // Normal parallax behavior
+            const translateY = scrollPastSection * speed;
+            const translateX = scrollPastSection * horizontalSpeed;
+            backgroundRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+        }
     }, [isVisible, speed, horizontalSpeed, updateSectionPosition, prefersReducedMotion]);
 
     const throttledScroll = useThrottledScroll(handleScrollUpdate, 16, isVisible);

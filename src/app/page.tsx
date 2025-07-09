@@ -7,6 +7,8 @@ import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import FadeImageTransition from '../components/FadeImageTransition';
+import GSAPSplitText from '../components/GSAPSplitText';
+import StickyBackground from '../components/StickyBackground';
 import Link from 'next/link';
 import { smoothScrollToTop } from '../utils/smoothScroll';
 
@@ -24,20 +26,34 @@ export default function Home() {
                 {/* Hero Section */}
                 <ParallaxSection
                 id="hero"
-                backgroundImage="/images/cow-fullwidth.webp"  // Use the cow-16-9.webp image
-                backgroundPosition="center right"
-                backgroundSize="cover"
-                speed={0.5}
-                horizontalSpeed={0.3}  // Add horizontal movement (positive value moves right)
+                speed={0}  // No background parallax
+                horizontalSpeed={0}  // No horizontal movement
                 height="100vh"
                 minHeight="70vh"
                 className={styles.heroSection}
                 role="banner"
                 aria-labelledby="hero-heading"
             >
+                {/* Sticky cow background that stays fixed until text is near top */}
+                <StickyBackground 
+                    src="/images/cow-fullwidth.webp"
+                    alt="Cow in County Kerry, Ireland"
+                    objectPosition="center right"
+                    stickyUntilElement="#findme"
+                    className={styles.heroCow}
+                />
+                
                 <div className={styles.heroContent}>
                     <ParallaxElement speed={2.2} direction="up">
-                        <h1 id="hero-heading">Welcome to tim52.io</h1>
+                        <GSAPSplitText 
+                            tag="h1" 
+                            id="hero-heading"
+                            speed={1.5}
+                            stagger={0.02}
+                            direction="up"
+                        >
+                            Welcome to tim52.io
+                        </GSAPSplitText>
                         <p>It is website with Tim (but first: a cow).</p>
                         <div className={styles.heroCtas}>
                             <Link href="#hello" className="button" aria-describedby="hero-heading">Doink</Link>
@@ -154,7 +170,7 @@ export default function Home() {
             {/* Contact Section */}
             <ParallaxSection
                 id="findme"
-                backgroundColor="var(--background)"
+                backgroundColor="var(--primary)"
                 height="100vh"
                 className={styles.contactSection}
                 role="region"

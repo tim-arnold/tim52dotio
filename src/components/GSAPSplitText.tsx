@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -11,7 +11,7 @@ interface GSAPSplitTextProps {
   children: string;
   className?: string;
   id?: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: React.ElementType;
   speed?: number;
   stagger?: number;
   direction?: 'up' | 'down';

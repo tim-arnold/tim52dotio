@@ -51,7 +51,7 @@ export default function GSAPSplitText({
     // Wait for next frame to ensure DOM is ready
     requestAnimationFrame(() => {
       // Add each character animation with individual ScrollTrigger and random velocities
-      chars.forEach((char, i) => {
+      chars.forEach((char) => {
         const multiplier = direction === 'up' ? -1 : 1;
         const baseVelocity = speed;
         

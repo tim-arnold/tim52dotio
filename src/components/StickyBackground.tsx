@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 interface StickyBackgroundProps {
   src: string;
@@ -73,16 +74,16 @@ export default function StickyBackground({
         overflow: 'hidden'
       }}
     >
-      <img 
+      <Image 
         ref={imageRef}
         src={src}
         alt={alt}
+        fill
         style={{
-          width: '100%',
-          height: '100%',
           objectFit: 'cover',
           objectPosition
         }}
+        unoptimized
       />
     </div>
   );

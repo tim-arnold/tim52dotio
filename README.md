@@ -22,7 +22,7 @@ First, make sure you have [Node.js](https://nodejs.org) installed (v18 or newer 
    ```
 3. Run the development server
 ```bash
-   npm run dev:sass
+   npm run dev
    ```
 
 This will start the Next.js development server with Turbopack and the SASS watcher in parallel.

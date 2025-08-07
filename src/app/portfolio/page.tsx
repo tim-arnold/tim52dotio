@@ -53,7 +53,7 @@ const projects: Project[] = [
     screenshotPosition: 'top left',
     description: 'The national website for the League of Women Voters, featuring voter education resources, advocacy tools, and membership management. The site serves as a hub for democratic participation and civic engagement across the United States.',
     tags: {
-      role: ['Front End', 'Design'],
+      role: ['Front End'],
       tech: ['Drupal', 'PHP', 'SCSS', 'JavaScript'],
       company: 'Allegiance Group + Pursuant'
     }

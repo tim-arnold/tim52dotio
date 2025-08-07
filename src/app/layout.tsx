@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals/globals.scss";
 import ErrorBoundary from "../components/ErrorBoundary";
+import ContactForm from "../components/ContactForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,10 +85,15 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#c5cd57" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <ErrorBoundary>
         {children}
+        <footer className="footer">
+          <ContactForm />
+          <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+        </footer>
       </ErrorBoundary>
       </body>
       </html>

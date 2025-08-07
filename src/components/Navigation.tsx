@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import styles from '../styles/components/Navigation.module.scss';
 import { useThrottledScroll } from '../hooks/useThrottledScroll';
 
@@ -187,44 +188,54 @@ export default function Navigation() {
                 >
                     <ul className={styles.menu} role="menubar">
                         <li role="none">
-                            <a
-                                href="#"
+                            <Link
+                                href="/"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li role="none">
-                            <a
-                                href="#hello"
+                            <Link
+                                href="/#hello"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
                                 Hello
-                            </a>
+                            </Link>
                         </li>
                         <li role="none">
-                            <a
-                                href="#cactus"
+                            <Link
+                                href="/#cactus"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
                                 I am a Cactus
-                            </a>
+                            </Link>
                         </li>
                         <li role="none">
-                            <a
-                                href="#findme"
+                            <Link
+                                href="/#findme"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
                                 Where to Find Me
-                            </a>
+                            </Link>
+                        </li>
+                        <li role="none">
+                            <Link
+                                href="/portfolio"
+                                onClick={closeMenu}
+                                role="menuitem"
+                                tabIndex={menuOpen ? 0 : -1}
+                            >
+                                Portfolio
+                            </Link>
                         </li>
                     </ul>
                     {/* Add a close button at the end of the menu for keyboard users */}

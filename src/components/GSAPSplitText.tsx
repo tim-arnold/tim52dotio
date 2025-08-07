@@ -32,18 +32,51 @@ export default function GSAPSplitText({
     if (!textRef.current) return;
 
     const text = textRef.current;
-    const chars = children.split('').map((char) => {
+    const chars = children.split('').map((char, index) => {
       const span = document.createElement('span');
       span.textContent = char === ' ' ? '\u00A0' : char; // Non-breaking space
       span.style.display = 'inline-block';
       span.style.transform = 'translateY(0px)';
       span.style.transition = 'none';
+      
+      // Add class to "tim52.io" characters for better mobile control
+      const text = children;
+      const tim52Start = text.indexOf('tim52.io');
+      if (tim52Start !== -1 && index >= tim52Start && index < tim52Start + 8) {
+        span.classList.add('domain-char');
+        if (index === tim52Start) {
+          span.classList.add('domain-start');
+        }
+      }
+      
       return span;
     });
 
     // Clear existing content and add character spans
     text.innerHTML = '';
-    chars.forEach(char => text.appendChild(char));
+    
+    // Group domain characters in a container to keep them together
+    let domainContainer: HTMLSpanElement | null = null;
+    chars.forEach((char, index) => {
+      if (char.classList.contains('domain-start')) {
+        // Create container for domain characters
+        domainContainer = document.createElement('span');
+        domainContainer.style.display = 'inline-block';
+        domainContainer.style.whiteSpace = 'nowrap';
+        domainContainer.classList.add('domain-container');
+        text.appendChild(domainContainer);
+        domainContainer.appendChild(char);
+      } else if (char.classList.contains('domain-char') && domainContainer) {
+        // Add to domain container
+        domainContainer.appendChild(char);
+      } else {
+        // Add normally
+        text.appendChild(char);
+        if (!char.classList.contains('domain-char')) {
+          domainContainer = null; // Reset container when we're past domain
+        }
+      }
+    });
 
     // Start letters offscreen above the viewport
     const dropDistance = -window.innerHeight; // Start full viewport height above
@@ -52,7 +85,7 @@ export default function GSAPSplitText({
     // Wait for next frame to ensure DOM is ready
     requestAnimationFrame(() => {
       // Create initial drop animation timeline
-      const dropTl = gsap.timeline({ delay: 0.2 }); // Small delay before starting
+      const dropTl = gsap.timeline({ delay: 0.1 }); // Reduced delay before starting
       
       // Find the last "o" and "i" characters
       const lastOIndex = children.lastIndexOf('o');
@@ -64,12 +97,12 @@ export default function GSAPSplitText({
         
         if (index === lastOIndex) {
           // Make the last "o" drop last
-          randomDelay = 2.0; // Drop after all other letters
-          randomDuration = 0.8;
+          randomDelay = 0.8; // Reduced from 2.0s to 0.8s
+          randomDuration = 0.6;
         } else {
-          // All other letters drop randomly within first 1.5 seconds
-          randomDelay = Math.random() * 1.5;
-          randomDuration = 0.6 + (Math.random() * 0.8);
+          // All other letters drop randomly within first 0.7 seconds
+          randomDelay = Math.random() * 0.7; // Reduced from 1.5s
+          randomDuration = 0.4 + (Math.random() * 0.4); // Faster drops
         }
         
         dropTl.to(char, {
@@ -103,8 +136,8 @@ export default function GSAPSplitText({
               delay: 0.1 // Slight delay to show it's reacting to the collision
             });
           }
-        }, 300); // Wait for "o" to settle
-      }).delay(2.8); // Time when "o" finishes dropping
+        }, 200); // Reduced wait time for "o" to settle
+      }).delay(1.4); // Reduced time when "o" finishes dropping (0.8s + 0.6s)
 
       // After drop animation completes, add scroll-based parallax
       dropTl.call(() => {

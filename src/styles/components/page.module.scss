@@ -38,6 +38,28 @@
   h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    
+    // Ensure better line breaking on mobile - force tim52.io to new line
+    @media (max-width: 480px) {
+      font-size: 2.8rem;
+      line-height: 1.1;
+      
+      // Force line break before tim52.io container
+      :global(.domain-container) {
+        display: block !important;
+        text-align: center;
+      }
+      
+      // Keep all domain characters inline within container
+      :global(.domain-char) {
+        display: inline-block !important;
+      }
+    }
+    
+    // Even smaller screens
+    @media (max-width: 400px) {
+      font-size: 2.4rem;
+    }
   }
 
   p {

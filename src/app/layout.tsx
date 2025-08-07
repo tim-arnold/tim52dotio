@@ -124,6 +124,10 @@ export default function RootLayout({
           </PageTransition>
           <footer className="footer">
             <ContactForm />
+            <div className="fallen-letters">
+              <span className="fallen-i">i</span>
+              <span className="fallen-o">o</span>
+            </div>
             <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
           </footer>
         </ErrorBoundary>

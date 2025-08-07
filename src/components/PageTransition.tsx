@@ -89,10 +89,10 @@ export default function PageTransition({ children }: PageTransitionProps) {
   // Separate navigation from other children
   const childrenArray = Children.toArray(displayChildren);
   const navigationChild = childrenArray.find(child => 
-    isValidElement(child) && child.type && (child.type as React.ComponentType).name === 'Navigation'
+    isValidElement(child) && child.props && child.props['data-component'] === 'navigation'
   );
   const contentChildren = childrenArray.filter(child => 
-    !isValidElement(child) || !child.type || (child.type as React.ComponentType).name !== 'Navigation'
+    !isValidElement(child) || !child.props || child.props['data-component'] !== 'navigation'
   );
 
   return (

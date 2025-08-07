@@ -123,7 +123,7 @@ export default function RootLayout({
       <ThemeProvider>
         <ErrorBoundary>
           <PageTransition>
-            <Navigation />
+            <Navigation data-component="navigation" />
             {children}
           </PageTransition>
           <footer className="footer">

@@ -27,11 +27,13 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [displayChildren, setDisplayChildren] = useState(children);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
   const previousPathname = useRef(pathname);
   const isInitialRender = useRef(true);
 
   const startTransition = () => {
     if (!isTransitioning) {
+      setIsNavigating(true);
       setIsTransitioning(true);
       setIsVisible(false);
     }
@@ -46,21 +48,24 @@ export default function PageTransition({ children }: PageTransitionProps) {
 
     // Route has changed, complete the transition
     if (pathname !== previousPathname.current) {
-      // If we weren't already transitioning, start now
+      // If we weren't already transitioning, start now (for direct navigation)
       if (!isTransitioning) {
         setIsVisible(false);
         setIsTransitioning(true);
+        setIsNavigating(true);
       }
       
+      // Longer delay to ensure new page is fully loaded before showing
       const updateTimer = setTimeout(() => {
         setDisplayChildren(children);
         window.scrollTo({ top: 0, behavior: 'instant' });
-      }, 150);
+      }, 200);
       
       const fadeInTimer = setTimeout(() => {
         setIsVisible(true);
         setIsTransitioning(false);
-      }, 200);
+        setIsNavigating(false);
+      }, 300);
       
       previousPathname.current = pathname;
       
@@ -75,7 +80,8 @@ export default function PageTransition({ children }: PageTransitionProps) {
         setTimeout(() => {
           setIsVisible(true);
           setIsTransitioning(false);
-        }, 200);
+          setIsNavigating(false);
+        }, 300);
       }
     }
   }, [pathname, children, isTransitioning]);
@@ -96,6 +102,13 @@ export default function PageTransition({ children }: PageTransitionProps) {
         <div className={styles.navigationStatic}>
           {navigationChild}
         </div>
+        
+        {/* Loading indicator during navigation */}
+        {isNavigating && (
+          <div className={styles.loadingIndicator}>
+            <div className={styles.loadingBar}></div>
+          </div>
+        )}
         
         {/* Content that transitions */}
         <div 

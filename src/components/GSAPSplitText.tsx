@@ -7,6 +7,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// Configure ScrollTrigger for better mobile performance
+if (typeof window !== 'undefined') {
+  ScrollTrigger.config({
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
+    ignoreMobileResize: true
+  });
+}
+
 interface GSAPSplitTextProps {
   children: string;
   className?: string;
@@ -141,38 +149,52 @@ export default function GSAPSplitText({
 
       // After drop animation completes, add scroll-based parallax
       dropTl.call(() => {
-        chars.forEach((char, index) => {
-          // Skip the "o" and "i" that have fallen away
-          if (index === lastOIndex || index === lastIIndex) {
-            return;
-          }
-          
-          const multiplier = direction === 'up' ? -1 : 1;
-          const baseVelocity = speed;
-          
-          // Random velocity multiplier between 0.5x and 4x base speed
-          const velocityMultiplier = 0.5 + Math.random() * 3.5;
-          
-          // Distance also varies with velocity for more pronounced effect
-          const distance = 100 + (velocityMultiplier * 80); // Base 100px + up to 320px more
-          
-          // Create timeline for scroll-based movement starting from current position (y: 0)
-          gsap.timeline({
-            scrollTrigger: {
-              trigger: text,
-              start: 'top center',
-              end: 'bottom top',
-              scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
-              invalidateOnRefresh: true
+        // Add delay to ensure DOM is settled before creating ScrollTrigger
+        setTimeout(() => {
+          chars.forEach((char, index) => {
+            // Skip the "o" and "i" that have fallen away
+            if (index === lastOIndex || index === lastIIndex) {
+              return;
             }
-          }).fromTo(char, {
-            y: 0 // Start from the position they landed at
-          }, {
-            y: multiplier * distance, // Move full distance without fading
-            ease: 'none',
-            duration: 1 // Use full duration for movement only
+            
+            const multiplier = direction === 'up' ? -1 : 1;
+            const baseVelocity = speed;
+            
+            // Random velocity multiplier between 0.5x and 4x base speed
+            const velocityMultiplier = 0.5 + Math.random() * 3.5;
+            
+            // Distance also varies with velocity for more pronounced effect
+            const distance = 100 + (velocityMultiplier * 80); // Base 100px + up to 320px more
+            
+            // Create timeline for scroll-based movement starting from current position (y: 0)
+            gsap.timeline({
+              scrollTrigger: {
+                trigger: text,
+                start: 'top center',
+                end: 'bottom top',
+                scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
+                invalidateOnRefresh: true,
+                refreshPriority: -1, // Lower priority to avoid conflicts
+                // Ensure native scroll works on mobile
+                onUpdate: () => {
+                  // Force refresh if needed
+                  if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+                    ScrollTrigger.refresh();
+                  }
+                }
+              }
+            }).fromTo(char, {
+              y: 0 // Start from the position they landed at
+            }, {
+              y: multiplier * distance, // Move full distance without fading
+              ease: 'none',
+              duration: 1 // Use full duration for movement only
+            });
           });
-        });
+          
+          // Refresh ScrollTrigger after all animations are set up
+          ScrollTrigger.refresh();
+        }, 100);
       });
     });
 

@@ -129,7 +129,7 @@ export default function PortfolioPage() {
           <header className={styles.header}>
             <h1 className={styles.title}>Professional Portfolio</h1>
             <p className={styles.subtitle}>
-              A collection of websites I&apos;ve built or contributed to over the years
+              A collection of websites I&apos;ve built over the years either alone or as part of a team
             </p>
           </header>
 

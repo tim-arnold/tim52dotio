@@ -117,12 +117,16 @@ export default function GSAPSplitText({
       dropTl.call(() => {
         // Small delay to let the "o" settle
         setTimeout(() => {
-          // Create simple collision effect where letters fall down
+          // Create simple collision effect where letters fall to bottom of body
           if (lastOIndex >= 0) {
+            const rect = chars[lastOIndex].getBoundingClientRect();
+            const bodyRect = document.body.getBoundingClientRect();
+            const bodyBottom = bodyRect.bottom + window.scrollY;
+            const fallDistance = bodyBottom - (rect.top + window.scrollY) - 10; // 10px inside body bottom
             gsap.to(chars[lastOIndex], {
-              y: 500, // Fall down 500px
+              y: fallDistance,
               rotation: 360,
-              duration: 1.5,
+              duration: 3,
               ease: "power2.in"
             });
           }
@@ -130,10 +134,14 @@ export default function GSAPSplitText({
           if (lastIIndex >= 0) {
             // "i" gets bumped and falls too
             setTimeout(() => {
+              const rect = chars[lastIIndex].getBoundingClientRect();
+              const bodyRect = document.body.getBoundingClientRect();
+              const bodyBottom = bodyRect.bottom + window.scrollY;
+              const fallDistance = bodyBottom - (rect.top + window.scrollY) + 10; // 10px past body for rotation
               gsap.to(chars[lastIIndex], {
-                y: 480, // Fall down 480px
+                y: fallDistance,
                 rotation: -270,
-                duration: 1.4,
+                duration: 2.8,
                 ease: "power2.in"
               });
             }, 100); // Slight delay for collision reaction

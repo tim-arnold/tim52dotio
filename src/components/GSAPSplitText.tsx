@@ -117,27 +117,29 @@ export default function GSAPSplitText({
       dropTl.call(() => {
         // Small delay to let the "o" settle
         setTimeout(() => {
-          // Create collision effect - both letters bounce out of view
+          // Create simple collision effect where letters fall down
           if (lastOIndex >= 0) {
             gsap.to(chars[lastOIndex], {
-              y: window.innerHeight + 100, // Bounce down out of view
-              rotation: 360 * 3, // Spin while falling
-              duration: 1.2,
+              y: 500, // Fall down 500px
+              rotation: 360,
+              duration: 1.5,
               ease: "power2.in"
             });
           }
           
           if (lastIIndex >= 0) {
-            gsap.to(chars[lastIIndex], {
-              y: window.innerHeight + 100, // Bounce down out of view
-              rotation: -360 * 2, // Spin opposite direction
-              duration: 1.0,
-              ease: "power2.in",
-              delay: 0.1 // Slight delay to show it's reacting to the collision
-            });
+            // "i" gets bumped and falls too
+            setTimeout(() => {
+              gsap.to(chars[lastIIndex], {
+                y: 480, // Fall down 480px
+                rotation: -270,
+                duration: 1.4,
+                ease: "power2.in"
+              });
+            }, 100); // Slight delay for collision reaction
           }
-        }, 200); // Reduced wait time for "o" to settle
-      }).delay(1.4); // Reduced time when "o" finishes dropping (0.8s + 0.6s)
+        }, 200); // Wait for "o" to settle
+      }).delay(1.4); // When "o" finishes dropping (0.8s + 0.6s)
 
       // Temporarily disable scroll-based parallax to fix scrolling issues
       // TODO: Re-enable parallax once ScrollTrigger conflict is resolved

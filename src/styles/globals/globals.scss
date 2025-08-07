@@ -156,9 +156,8 @@ p {
   margin-bottom: 1rem;
 }
 
-em {
+.homepage em {
   display: block;
-  text-align: right;
 }
 
 .container {
@@ -406,81 +405,3 @@ html.dark .button {
   }
 }
 
-/* Fallen Letters from Hero Animation */
-.fallen-letters {
-  position: absolute;
-  bottom: 10px;
-  right: 25%;
-  width: 80px;
-  height: 60px;
-  pointer-events: none;
-  
-  .fallen-o {
-    position: absolute;
-    right: -12px;
-    bottom: -56px;
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: #000000; // Black in light mode
-    font-family: var(--font-geist-sans);
-    transform: rotate(8deg); // Slightly tilted
-    opacity: 0.8;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .fallen-i {
-    position: absolute;
-    right: 5px;
-    bottom: 0;
-    font-size: 3rem;
-    font-weight: 800;
-    color: #000000; // Black in light mode
-    font-family: var(--font-geist-sans);
-    transform: rotate(180deg) rotate(-25deg); // Upside down and leaning against the "o"
-    transform-origin: bottom right;
-    opacity: 0.8;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  // Add a subtle entrance animation when they come into view
-  .fallen-i, .fallen-o {
-    animation: settleLetter 0.6s ease-out 0s both;
-  }
-  
-  .fallen-o {
-    animation-delay: 0.1s; // "o" settles slightly later
-  }
-}
-
-@keyframes settleLetter {
-  0% {
-    transform: translateY(-20px) scale(1.2);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(5px) scale(1.1);
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 0.8;
-  }
-}
-
-// Dark mode styles for fallen letters
-:root.dark .fallen-letters,
-html.dark .fallen-letters {
-  .fallen-i, .fallen-o {
-    color: #ffffff; // White in dark mode
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-}
-
-// Fallback for browser preference
-@media (prefers-color-scheme: dark) {
-  :root:not(.light):not(.dark) .fallen-letters {
-    .fallen-i, .fallen-o {
-      color: #ffffff; // White in dark mode
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    }
-  }
-}

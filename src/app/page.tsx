@@ -153,13 +153,14 @@ export default function Home() {
                             <p>
                                 <em>I dunno, time is an illusion.</em>
                             </p>
-                            <p>Check out this <a href="/portfolio" onClick={handlePortfolioClick}>portfolio of my work</a>.</p>
                             <p>
                                 Before that I mostly served delicious coffee drinks to make ends meet
                                 while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void" target="_blank" rel="noopener noreferrer" aria-label="Rawhead Rex band album on Bandcamp - opens in new window">Eugene</a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs" target="_blank" rel="noopener noreferrer" aria-label="Oregon reference on YouTube - opens in new window">Oregon</a>), <a href="https://bestkissersintheworld.com/" target="_blank" rel="noopener noreferrer" aria-label="Best Kissers in the World band website - opens in new window">Seattle</a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA" target="_blank" rel="noopener noreferrer" aria-label="Cincinnati band album on Spotify - opens in new window">Cincinnati</a> (don&#39;t worry about it).</p>
                             <p>
                                 <em>Ohio is also an illusion.</em>
                             </p>
+                            <p>Check out this <a href="/portfolio" onClick={handlePortfolioClick}>portfolio of my work</a>.</p>
+
                         </ParallaxElement>
 
                         {/* In the About Section of page.tsx */}

@@ -6,6 +6,7 @@ import ContactForm from "../components/ContactForm";
 import Navigation from "../components/Navigation";
 import PageTransition from "../components/PageTransition";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import BodyClass from "../components/BodyClass";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -116,6 +117,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <BodyClass />
       <ThemeProvider>
         <ErrorBoundary>
           <PageTransition>
@@ -124,10 +126,6 @@ export default function RootLayout({
           </PageTransition>
           <footer className="footer">
             <ContactForm />
-            <div className="fallen-letters">
-              <span className="fallen-i">i</span>
-              <span className="fallen-o">o</span>
-            </div>
             <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
           </footer>
         </ErrorBoundary>

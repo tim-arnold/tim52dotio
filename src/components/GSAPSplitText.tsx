@@ -57,7 +57,7 @@ export default function GSAPSplitText({
     
     // Group domain characters in a container to keep them together
     let domainContainer: HTMLSpanElement | null = null;
-    chars.forEach((char, index) => {
+    chars.forEach((char) => {
       if (char.classList.contains('domain-start')) {
         // Create container for domain characters
         domainContainer = document.createElement('span');

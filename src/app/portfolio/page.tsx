@@ -25,7 +25,7 @@ const projects: Project[] = [
     url: 'https://oceanconservancy.org/sharkweek',
     screenshot: '/images/portfolio/ocean-conservancy-shark-week.jpg',
     screenshotPosition: 'center center',
-    description: 'Landing page which was part of a comprehensive digital campaign for Ocean Conservancy and Discovery\'s Shark Week, focusing on marine conservation education and awareness. The site features interactive elements, educational content, and donation pathways to support shark conservation efforts.',
+    description: 'Landing page which was part of a comprehensive digital campaign for Ocean Conservancy and Discovery\'s Shark Week, focusing on marine conservation education and awareness. The page features interactive elements, educational content, and donation pathways to support shark conservation efforts.',
     tags: {
       role: ['Front End', 'Full Stack'],
       tech: ['HTML', 'SCSS', 'JavaScript', 'GSAP'],

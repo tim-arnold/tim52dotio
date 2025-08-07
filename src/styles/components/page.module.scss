@@ -178,6 +178,11 @@
 /* Contact Section */
 .contactSection {
   /* Contact section styles */
+  
+  // Dark mode - override the primary background with a darker version
+  :global(.dark) & {
+    background-color: #5a6324 !important; // Darker shade of the primary color (#c5cd57)
+  }
 }
 
 .contactContent {
@@ -186,11 +191,21 @@
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    
+    // Dark mode - white text for better contrast
+    :global(.dark) & {
+      color: white;
+    }
   }
 
   p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
+    
+    // Dark mode - white text for better contrast
+    :global(.dark) & {
+      color: white;
+    }
   }
 }
 
@@ -211,6 +226,11 @@
     overflow: hidden;
     z-index: 1;
     text-decoration: none;
+    
+    // Dark mode - white text for better contrast against darker green
+    :global(.dark) & {
+      color: white;
+    }
 
     &:before {
       content: '';

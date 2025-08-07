@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals/globals.scss";
 import ErrorBoundary from "../components/ErrorBoundary";
 import ContactForm from "../components/ContactForm";
+import Navigation from "../components/Navigation";
+import PageTransition from "../components/PageTransition";
+import { ThemeProvider } from "../contexts/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,15 +89,45 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#c5cd57" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var savedTheme = localStorage.getItem('theme');
+                  if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+                    document.documentElement.classList.add(savedTheme);
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                  } else {
+                    // Default to browser preference
+                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var theme = prefersDark ? 'dark' : 'light';
+                    document.documentElement.classList.add(theme);
+                    document.documentElement.setAttribute('data-theme', theme);
+                  }
+                } catch (e) {
+                  // Fallback to light theme if anything fails
+                  document.documentElement.classList.add('light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <ErrorBoundary>
-        {children}
-        <footer className="footer">
-          <ContactForm />
-          <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
-        </footer>
-      </ErrorBoundary>
+      <ThemeProvider>
+        <ErrorBoundary>
+          <PageTransition>
+            <Navigation />
+            {children}
+          </PageTransition>
+          <footer className="footer">
+            <ContactForm />
+            <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+          </footer>
+        </ErrorBoundary>
+      </ThemeProvider>
       </body>
       </html>
   );

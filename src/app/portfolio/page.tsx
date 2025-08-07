@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Navigation from '../../components/Navigation';
 import styles from './portfolio.module.scss';
 
 interface Project {
@@ -125,8 +124,6 @@ const projects: Project[] = [
 
 export default function PortfolioPage() {
   return (
-    <>
-      <Navigation />
       <main className={styles.portfolio} id="main-content">
         <div className={styles.container}>
           <header className={styles.header}>
@@ -238,6 +235,5 @@ export default function PortfolioPage() {
           </div>
         </div>
       </main>
-    </>
   );
 }

@@ -2,13 +2,18 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styles from '../styles/components/Navigation.module.scss';
 import { useThrottledScroll } from '../hooks/useThrottledScroll';
+import { usePageTransition } from './PageTransition';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [announcement, setAnnouncement] = useState('');
+    const router = useRouter();
+    const { startTransition } = usePageTransition();
 
     // Handle scroll detection with throttling
     const handleScrollUpdate = useCallback(() => {
@@ -141,6 +146,20 @@ export default function Navigation() {
         }, 100);
     };
 
+    const handleNavigation = (href: string, e: React.MouseEvent) => {
+        // Only handle page transitions for different routes
+        if (href.startsWith('/') && !href.startsWith('/#')) {
+            e.preventDefault();
+            startTransition();
+            closeMenu();
+            setTimeout(() => {
+                router.push(href);
+            }, 50); // Small delay to ensure transition starts
+        } else {
+            closeMenu();
+        }
+    };
+
     return (
         <nav
             className={`${styles.navigation} ${scrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuOpen : ''}`}
@@ -155,11 +174,14 @@ export default function Navigation() {
                 <a href="#main-content" className={styles.skipLink}>
                     Skip to main content
                 </a>
-                <a href="#" className={styles.logo} aria-label="tim52.io - Home page">
+                <Link href="/" onClick={(e) => handleNavigation('/', e)} className={styles.logo} aria-label="tim52.io - Home page">
                     tim52.io
-                </a>
+                </Link>
 
-                {/* Hamburger Menu Button */}
+                <div className={styles.navControls}>
+                    <ThemeToggle />
+                    
+                    {/* Hamburger Menu Button */}
                 <button
                     className={`${styles.hamburger} ${menuOpen ? styles.active : ''}`}
                     onClick={toggleMenu}
@@ -176,6 +198,7 @@ export default function Navigation() {
                     <span className={`${styles.burgerLayer} ${styles.burgerLayer2}`} aria-hidden="true"></span>
                     <span className={`${styles.burgerLayer} ${styles.burgerLayer3}`} aria-hidden="true"></span>
                 </button>
+                </div>
 
                 {/* Navigation Menu */}
                 <div
@@ -190,7 +213,7 @@ export default function Navigation() {
                         <li role="none">
                             <Link
                                 href="/"
-                                onClick={closeMenu}
+                                onClick={(e) => handleNavigation('/', e)}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
@@ -230,7 +253,7 @@ export default function Navigation() {
                         <li role="none">
                             <Link
                                 href="/portfolio"
-                                onClick={closeMenu}
+                                onClick={(e) => handleNavigation('/portfolio', e)}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >

@@ -1,0 +1,34 @@
+.pageTransition {
+  width: 100%;
+  min-height: 100vh;
+  
+  &.visible {
+    opacity: 1;
+    transition: opacity 0.4s ease-in;
+  }
+  
+  &.hidden {
+    opacity: 0;
+    transition: opacity 0.15s ease-out;
+    pointer-events: none;
+  }
+}
+
+.navigationStatic {
+  opacity: 1 !important;
+  transition: none !important;
+  pointer-events: auto !important;
+}
+
+// Optimize for performance during transitions
+.hidden {
+  * {
+    will-change: opacity;
+  }
+}
+
+// Clean up will-change after transition
+.visible * {
+  will-change: auto;
+}
+

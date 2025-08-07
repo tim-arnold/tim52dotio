@@ -1,0 +1,67 @@
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(var(--foreground-rgb), 0.1);
+  border: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-radius: 20px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  
+  &:hover {
+    background: rgba(var(--foreground-rgb), 0.15);
+    border-color: rgba(var(--foreground-rgb), 0.3);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+// Theme-specific styling
+:global(.light) .themeToggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+:global(.dark) .themeToggle {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}

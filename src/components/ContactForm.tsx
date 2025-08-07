@@ -29,6 +29,9 @@ declare global {
     }
 }
 
+// Generate a unique ID for this component instance
+const TURNSTILE_CONTAINER_ID = 'turnstile-container-global';
+
 export default function ContactForm({ className }: ContactFormProps) {
     const [formData, setFormData] = useState<ContactFormData>({
         name: '',
@@ -40,11 +43,24 @@ export default function ContactForm({ className }: ContactFormProps) {
     const [turnstileToken, setTurnstileToken] = useState<string>('');
     const turnstileRef = useRef<HTMLDivElement>(null);
     const [turnstileWidgetId, setTurnstileWidgetId] = useState<string>('');
+    const [fieldErrors, setFieldErrors] = useState<{[key: string]: string}>({});
+    const [touchedFields, setTouchedFields] = useState<{[key: string]: boolean}>({});
 
     useEffect(() => {
         // Wait for Turnstile to load and render widget
         const renderTurnstile = () => {
             if (window.turnstile && turnstileRef.current) {
+                // Clear any existing widgets in this container
+                turnstileRef.current.innerHTML = '';
+                
+                // Check if there are any existing Turnstile widgets globally and remove them
+                const existingWidgets = document.querySelectorAll('[data-cf-turnstile-widget]');
+                existingWidgets.forEach(widget => {
+                    if (widget.parentNode) {
+                        widget.parentNode.removeChild(widget);
+                    }
+                });
+                
                 const widgetId = window.turnstile.render(turnstileRef.current, {
                     sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '',
                     callback: (token: string) => {
@@ -73,7 +89,44 @@ export default function ContactForm({ className }: ContactFormProps) {
 
             return () => clearInterval(checkTurnstile);
         }
-    }, []);
+
+        // Cleanup function to remove widget on unmount
+        return () => {
+            // Clear any existing Turnstile widgets globally on cleanup
+            const existingWidgets = document.querySelectorAll('[data-cf-turnstile-widget]');
+            existingWidgets.forEach(widget => {
+                if (widget.parentNode) {
+                    widget.parentNode.removeChild(widget);
+                }
+            });
+            
+            // Clear the specific container
+            const container = document.getElementById(TURNSTILE_CONTAINER_ID);
+            if (container) {
+                container.innerHTML = '';
+            }
+        };
+    }, []); // Empty dependency array is intentional
+
+    const validateField = (name: string, value: string): string => {
+        switch (name) {
+            case 'name':
+                if (!value.trim()) return 'Name is required';
+                if (value.trim().length < 2) return 'Name must be at least 2 characters';
+                return '';
+            case 'email':
+                if (!value.trim()) return 'Email is required';
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) return 'Please enter a valid email address';
+                return '';
+            case 'message':
+                if (!value.trim()) return 'Message is required';
+                if (value.trim().length < 10) return 'Message must be at least 10 characters';
+                return '';
+            default:
+                return '';
+        }
+    };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -81,10 +134,74 @@ export default function ContactForm({ className }: ContactFormProps) {
             ...prev,
             [name]: value
         }));
+
+        // Validate field if it's been touched
+        if (touchedFields[name]) {
+            const error = validateField(name, value);
+            setFieldErrors(prev => ({
+                ...prev,
+                [name]: error
+            }));
+        }
+    };
+
+    const handleFieldBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setTouchedFields(prev => ({
+            ...prev,
+            [name]: true
+        }));
+
+        const error = validateField(name, value);
+        setFieldErrors(prev => ({
+            ...prev,
+            [name]: error
+        }));
+    };
+
+    const getFieldValidationClass = (fieldName: string): string => {
+        if (!touchedFields[fieldName]) return '';
+        const hasError = fieldErrors[fieldName];
+        const hasValue = formData[fieldName as keyof ContactFormData]?.trim();
+        
+        if (hasError) return styles.error;
+        if (hasValue) return styles.valid;
+        return '';
+    };
+
+    const getValidationIcon = (fieldName: string): string => {
+        if (!touchedFields[fieldName]) return '*';
+        const hasError = fieldErrors[fieldName];
+        const hasValue = formData[fieldName as keyof ContactFormData]?.trim();
+        
+        if (hasError) return '*';
+        if (hasValue) return '✓';
+        return '*';
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        // Validate all fields
+        const errors: {[key: string]: string} = {};
+        Object.keys(formData).forEach(field => {
+            const error = validateField(field, formData[field as keyof ContactFormData]);
+            if (error) errors[field] = error;
+        });
+
+        // Mark all fields as touched
+        setTouchedFields({
+            name: true,
+            email: true,
+            message: true
+        });
+
+        setFieldErrors(errors);
+
+        // Check if there are validation errors
+        if (Object.keys(errors).length > 0) {
+            return;
+        }
         
         if (!turnstileToken) {
             alert('Please complete the verification challenge.');
@@ -110,6 +227,8 @@ export default function ContactForm({ className }: ContactFormProps) {
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', message: '' });
                 setTurnstileToken('');
+                setFieldErrors({});
+                setTouchedFields({});
                 // Reset Turnstile widget
                 if (window.turnstile && turnstileWidgetId) {
                     window.turnstile.reset(turnstileWidgetId);
@@ -147,7 +266,9 @@ export default function ContactForm({ className }: ContactFormProps) {
             <form onSubmit={handleSubmit} noValidate>
                 <div className={styles.formGroup}>
                     <label htmlFor="name">
-                        Name <span className={styles.required}>*</span>
+                        Name <span className={`${styles.required} ${getFieldValidationClass('name') === styles.valid ? styles.valid : ''}`}>
+                            {getValidationIcon('name')}
+                        </span>
                     </label>
                     <input
                         type="text"
@@ -155,15 +276,25 @@ export default function ContactForm({ className }: ContactFormProps) {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        onBlur={handleFieldBlur}
                         required
                         disabled={isSubmitting}
-                        aria-describedby="name-error"
+                        className={getFieldValidationClass('name')}
+                        aria-describedby={fieldErrors.name ? "name-error" : undefined}
+                        aria-invalid={!!fieldErrors.name}
                     />
+                    {fieldErrors.name && (
+                        <div id="name-error" className={styles.errorText} role="alert">
+                            {fieldErrors.name}
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.formGroup}>
                     <label htmlFor="email">
-                        Email <span className={styles.required}>*</span>
+                        Email <span className={`${styles.required} ${getFieldValidationClass('email') === styles.valid ? styles.valid : ''}`}>
+                            {getValidationIcon('email')}
+                        </span>
                     </label>
                     <input
                         type="email"
@@ -171,30 +302,48 @@ export default function ContactForm({ className }: ContactFormProps) {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        onBlur={handleFieldBlur}
                         required
                         disabled={isSubmitting}
-                        aria-describedby="email-error"
+                        className={getFieldValidationClass('email')}
+                        aria-describedby={fieldErrors.email ? "email-error" : undefined}
+                        aria-invalid={!!fieldErrors.email}
                     />
+                    {fieldErrors.email && (
+                        <div id="email-error" className={styles.errorText} role="alert">
+                            {fieldErrors.email}
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.formGroup}>
                     <label htmlFor="message">
-                        Message <span className={styles.required}>*</span>
+                        Message <span className={`${styles.required} ${getFieldValidationClass('message') === styles.valid ? styles.valid : ''}`}>
+                            {getValidationIcon('message')}
+                        </span>
                     </label>
                     <textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
+                        onBlur={handleFieldBlur}
                         required
                         disabled={isSubmitting}
                         rows={4}
-                        aria-describedby="message-error"
+                        className={getFieldValidationClass('message')}
+                        aria-describedby={fieldErrors.message ? "message-error" : undefined}
+                        aria-invalid={!!fieldErrors.message}
                     />
+                    {fieldErrors.message && (
+                        <div id="message-error" className={styles.errorText} role="alert">
+                            {fieldErrors.message}
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.turnstileContainer}>
-                    <div ref={turnstileRef}></div>
+                    <div ref={turnstileRef} id={TURNSTILE_CONTAINER_ID}></div>
                 </div>
 
                 <button

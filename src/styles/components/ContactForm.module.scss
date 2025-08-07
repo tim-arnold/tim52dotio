@@ -6,11 +6,22 @@
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--foreground);
+    
+    // Dark mode - white text for better contrast
+    :global(.dark) & {
+      color: var(--primary);
+    }
   }
   
   > p {
     margin-bottom: 2rem;
     opacity: 0.8;
+    
+    // Dark mode - white text for better contrast
+    :global(.dark) & {
+      color: var(--primary);
+      opacity: 0.9;
+    }
   }
 }
 
@@ -44,8 +55,29 @@
     font-weight: 500;
     color: var(--foreground);
     
+    // Dark mode - white text for better contrast
+    :global(.dark) & {
+      color: var(--primary);
+    }
+    
     .required {
       color: #e74c3c;
+      transition: color 0.3s ease;
+      
+      // Dark mode - brighter red for better visibility
+      :global(.dark) & {
+        color: #ff6b6b;
+      }
+      
+      // Valid state - green checkmark
+      &.valid {
+        color: #28a745;
+        
+        // Dark mode - brighter green for better visibility
+        :global(.dark) & {
+          color: var(--primary);
+        }
+      }
     }
   }
   
@@ -60,6 +92,22 @@
     background-color: var(--background);
     color: var(--foreground);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    
+    // Dark mode - swap border and background colors
+    :global(.dark) & {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: var(--primary);
+      border-color: var(--primary);
+      
+      &::placeholder {
+        color: rgba(197, 205, 87, 0.6);
+      }
+      
+      &:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(197, 205, 87, 0.2);
+      }
+    }
     
     &:focus {
       outline: none;
@@ -80,6 +128,58 @@
   textarea {
     resize: vertical;
     min-height: 100px;
+  }
+  
+  // Validation states
+  input.valid,
+  textarea.valid {
+    border-color: #28a745 !important;
+    
+    &:focus {
+      border-color: #28a745 !important;
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2) !important;
+    }
+    
+    // Dark mode - use a brighter green for better visibility
+    :global(.dark) & {
+      border-color: var(--primary) !important;
+      
+      &:focus {
+        border-color: #40c057 !important;
+        box-shadow: 0 0 0 3px rgba(64, 192, 87, 0.3) !important;
+      }
+    }
+  }
+  
+  input.error,
+  textarea.error {
+    border-color: #dc3545 !important;
+    
+    &:focus {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+    }
+    
+    // Dark mode - use a brighter red for better visibility
+    :global(.dark) & {
+      border-color: #ff6b6b !important;
+      
+      &:focus {
+        border-color: #ff6b6b !important;
+        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3) !important;
+      }
+    }
+  }
+}
+
+.errorText {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  
+  // Dark mode
+  :global(.dark) & {
+    color: #ff6b6b;
   }
 }
 

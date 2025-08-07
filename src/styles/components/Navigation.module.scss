@@ -97,6 +97,18 @@
   z-index: 1010;
 }
 
+/* Navigation Controls */
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1010;
+  
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
+}
+
 /* Hamburger Menu Button */
 .hamburger {
   display: none;

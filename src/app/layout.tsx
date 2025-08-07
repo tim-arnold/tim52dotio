@@ -82,6 +82,7 @@ export default function RootLayout({
   return (
       <html lang="en" suppressHydrationWarning={true}>
       <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/webp" href="/images/tim-yelling.webp" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -22,6 +22,21 @@ interface PageTransitionProps {
   children: React.ReactNode;
 }
 
+interface ComponentWithDataAttribute extends React.ReactElement {
+  props: {
+    'data-component'?: string;
+    [key: string]: unknown;
+  };
+}
+
+// Type guard function
+function hasDataComponent(child: React.ReactNode): child is ComponentWithDataAttribute {
+  return isValidElement(child) && 
+         child.props !== null && 
+         typeof child.props === 'object' && 
+         'data-component' in child.props;
+}
+
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
@@ -89,10 +104,10 @@ export default function PageTransition({ children }: PageTransitionProps) {
   // Separate navigation from other children
   const childrenArray = Children.toArray(displayChildren);
   const navigationChild = childrenArray.find(child => 
-    isValidElement(child) && child.props && (child.props as any)['data-component'] === 'navigation'
+    hasDataComponent(child) && child.props['data-component'] === 'navigation'
   );
   const contentChildren = childrenArray.filter(child => 
-    !isValidElement(child) || !child.props || (child.props as any)['data-component'] !== 'navigation'
+    !hasDataComponent(child) || child.props['data-component'] !== 'navigation'
   );
 
   return (

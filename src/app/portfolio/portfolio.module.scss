@@ -179,7 +179,7 @@
 
 .tagGroup {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
   
@@ -189,6 +189,7 @@
 }
 
 .tagLabel {
+  min-width: 100px;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.875rem;
@@ -197,6 +198,7 @@
   background: white;
   border: 1px solid #e9ecef;
   margin: 0;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   flex-shrink: 0;

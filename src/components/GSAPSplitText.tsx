@@ -7,14 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-// Configure ScrollTrigger for better mobile performance
-if (typeof window !== 'undefined') {
-  ScrollTrigger.config({
-    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
-    ignoreMobileResize: true
-  });
-}
-
 interface GSAPSplitTextProps {
   children: string;
   className?: string;
@@ -147,52 +139,11 @@ export default function GSAPSplitText({
         }, 200); // Reduced wait time for "o" to settle
       }).delay(1.4); // Reduced time when "o" finishes dropping (0.8s + 0.6s)
 
-      // After drop animation completes, add scroll-based parallax (disabled on mobile)
+      // Temporarily disable scroll-based parallax to fix scrolling issues
+      // TODO: Re-enable parallax once ScrollTrigger conflict is resolved
       dropTl.call(() => {
-        // Skip parallax on mobile devices to prevent scroll issues
-        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-          return;
-        }
-        
-        // Add delay to ensure DOM is settled before creating ScrollTrigger
-        setTimeout(() => {
-          chars.forEach((char, index) => {
-            // Skip the "o" and "i" that have fallen away
-            if (index === lastOIndex || index === lastIIndex) {
-              return;
-            }
-            
-            const multiplier = direction === 'up' ? -1 : 1;
-            const baseVelocity = speed;
-            
-            // Random velocity multiplier between 0.5x and 4x base speed
-            const velocityMultiplier = 0.5 + Math.random() * 3.5;
-            
-            // Distance also varies with velocity for more pronounced effect
-            const distance = 100 + (velocityMultiplier * 80); // Base 100px + up to 320px more
-            
-            // Create timeline for scroll-based movement starting from current position (y: 0)
-            gsap.timeline({
-              scrollTrigger: {
-                trigger: text,
-                start: 'top center',
-                end: 'bottom top',
-                scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
-                invalidateOnRefresh: true,
-                refreshPriority: -1 // Lower priority to avoid conflicts
-              }
-            }).fromTo(char, {
-              y: 0 // Start from the position they landed at
-            }, {
-              y: multiplier * distance, // Move full distance without fading
-              ease: 'none',
-              duration: 1 // Use full duration for movement only
-            });
-          });
-          
-          // Refresh ScrollTrigger after all animations are set up
-          ScrollTrigger.refresh();
-        }, 100);
+        // Parallax disabled - letters will stay in position after drop
+        console.log('Drop animation complete - parallax temporarily disabled');
       });
     });
 

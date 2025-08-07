@@ -54,15 +54,18 @@ html.light {
   }
 }
 
-html,
-body {
+html {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
   scroll-behavior: smooth;
   
   // Ensure scroll works on mobile devices
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
 }
 
 body {

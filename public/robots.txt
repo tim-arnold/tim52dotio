@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tim52.io/sitemap.xml
+
+# Optional: Block any development files
+Disallow: /scripts/
+Disallow: /_next/static/

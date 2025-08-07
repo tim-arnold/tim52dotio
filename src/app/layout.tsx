@@ -17,37 +17,51 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://tim52.io"; // Replace with your actual domain
 
 export const metadata: Metadata = {
-  title: "tim52.io is a cow",
-  description: "A website that is about Tim. And a cow.",
+  title: {
+    default: "Tim Arnold - Web Developer & Tech Leader | tim52.io",
+    template: "%s | Tim Arnold - tim52.io"
+  },
+  description: "Experienced web developer and tech leader specializing in accessibility, performance, and team management. 25+ years building websites for nonprofits and agencies.",
+  keywords: ["web developer", "frontend developer", "full stack developer", "tech leader", "accessibility", "performance", "nonprofit web development", "agency work", "Tim Arnold"],
+  authors: [{ name: "Tim Arnold", url: "https://tim52.io" }],
+  creator: "Tim Arnold",
   metadataBase: new URL(siteUrl),
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 
   // Open Graph metadata
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "tim52.io is a cow",
-    description: "A website that is about Tim. And a cow.",
+    title: "Tim Arnold - Web Developer & Tech Leader",
+    description: "Experienced web developer and tech leader specializing in accessibility, performance, and team management. 25+ years building websites for nonprofits and agencies.",
     url: siteUrl,
-    siteName: "tim52.io",
+    siteName: "Tim Arnold - tim52.io",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "tim52.io - Tim and a cow",
+        alt: "Tim Arnold - Web Developer and Tech Leader",
       },
     ],
   },
   // Twitter metadata
   twitter: {
     card: "summary_large_image",
-    title: "tim52.io is a cow",
-    description: "A website that is about Tim. And a cow.",
+    title: "Tim Arnold - Web Developer & Tech Leader",
+    description: "Experienced web developer and tech leader specializing in accessibility, performance, and team management. 25+ years building websites for nonprofits and agencies.",
     images: ["/images/og-image.jpg"],
+    creator: "@tim52pics",
   },
   // Additional metadata
   other: {

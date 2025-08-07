@@ -1,6 +1,7 @@
 // src/app/page.tsx
 'use client';
 
+import { useEffect } from 'react';
 import styles from '../styles/components/page.module.scss';
 import Navigation from '../components/Navigation';
 import ParallaxSection from '../components/ParallaxSection';
@@ -18,8 +19,74 @@ export default function Home() {
         smoothScrollToTop(1500); // 1.5 seconds for smooth scroll to top
     };
 
+    // Fun console message for curious developers
+    useEffect(() => {
+        console.log(`
+    🐄 Well hello there, fellow developer! 🐄
+    
+                   ^__^
+                   (oo)\\_______
+                   (__)\\       )\\/\\
+                       ||----w |
+                       ||     ||
+    
+    You found the secret cow! This means you're probably the kind
+    of person who appreciates good code AND good humor.
+    
+    👋 I'm Tim Arnold - a web developer and tech leader with 25+ years
+    of experience building websites for nonprofits and agencies.
+    
+    🚀 Looking for someone who can:
+       • Build accessible, performant websites
+       • Lead development teams with empathy and humor  
+       • Wrangle complex projects without losing their mind
+       • Make your users (and your cows) happy
+    
+    📧 Let's chat about your next exciting web project!
+       tim@tim52.io | https://tim52.io/portfolio
+    
+    P.S. - This cow was photographed in County Kerry, Ireland.
+           She's available for consulting but charges in grass.
+        `);
+    }, []); // Empty dependency array ensures this only runs once
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Tim Arnold',
+        jobTitle: 'Web Developer and Tech Leader',
+        description: 'Experienced web developer and tech leader with 25+ years building websites for nonprofits and agencies',
+        url: 'https://tim52.io',
+        image: 'https://tim52.io/images/tim-and-the-wall-square.webp',
+        sameAs: [
+            'https://linkedin.com/in/timarnold/',
+            'https://instagram.com/tim52pics/',
+            'https://bsky.app/profile/tim52.bsky.social',
+            'https://weareoutright.com/'
+        ],
+        knowsAbout: [
+            'Web Development',
+            'Frontend Development',
+            'Full Stack Development',
+            'Team Leadership',
+            'Accessibility',
+            'Performance Optimization',
+            'Nonprofit Technology',
+            'Agency Management'
+        ],
+        worksFor: {
+            '@type': 'Organization',
+            name: 'Outright',
+            url: 'https://weareoutright.com'
+        }
+    };
+
     return (
         <div className={styles.page}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Navigation />
 
             <main id="main-content">

@@ -45,46 +45,100 @@ export default function GSAPSplitText({
     text.innerHTML = '';
     chars.forEach(char => text.appendChild(char));
 
-    // Force all letters to start at 0 and stay there initially
-    gsap.set(chars, { y: 0, force3D: true });
+    // Start letters offscreen above the viewport
+    const dropDistance = -window.innerHeight; // Start full viewport height above
+    gsap.set(chars, { y: dropDistance, force3D: true });
 
     // Wait for next frame to ensure DOM is ready
     requestAnimationFrame(() => {
-      // Add each character animation with individual ScrollTrigger and random velocities
-      chars.forEach((char) => {
-        const multiplier = direction === 'up' ? -1 : 1;
-        const baseVelocity = speed;
+      // Create initial drop animation timeline
+      const dropTl = gsap.timeline({ delay: 0.2 }); // Small delay before starting
+      
+      // Find the last "o" and "i" characters
+      const lastOIndex = children.lastIndexOf('o');
+      const lastIIndex = children.lastIndexOf('i');
+      
+      // Drop each letter down with random timing
+      chars.forEach((char, index) => {
+        let randomDelay, randomDuration;
         
-        // Random velocity multiplier between 0.5x and 4x base speed
-        const velocityMultiplier = 0.5 + Math.random() * 3.5;
+        if (index === lastOIndex) {
+          // Make the last "o" drop last
+          randomDelay = 2.0; // Drop after all other letters
+          randomDuration = 0.8;
+        } else {
+          // All other letters drop randomly within first 1.5 seconds
+          randomDelay = Math.random() * 1.5;
+          randomDuration = 0.6 + (Math.random() * 0.8);
+        }
         
-        // Distance also varies with velocity for more pronounced effect
-        const distance = 100 + (velocityMultiplier * 80); // Base 100px + up to 320px more
-        
-        // Create timeline for different opacity and movement timing
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: text,
-            start: 'top center',
-            end: 'bottom top',
-            scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
-            invalidateOnRefresh: true
+        dropTl.to(char, {
+          y: 0, // Drop to normal position
+          duration: randomDuration,
+          ease: "bounce.out",
+          delay: randomDelay
+        }, 0);
+      });
+      
+      // Add collision effect after "o" lands
+      dropTl.call(() => {
+        // Small delay to let the "o" settle
+        setTimeout(() => {
+          // Create collision effect - both letters bounce out of view
+          if (lastOIndex >= 0) {
+            gsap.to(chars[lastOIndex], {
+              y: window.innerHeight + 100, // Bounce down out of view
+              rotation: 360 * 3, // Spin while falling
+              duration: 1.2,
+              ease: "power2.in"
+            });
           }
-        });
+          
+          if (lastIIndex >= 0) {
+            gsap.to(chars[lastIIndex], {
+              y: window.innerHeight + 100, // Bounce down out of view
+              rotation: -360 * 2, // Spin opposite direction
+              duration: 1.0,
+              ease: "power2.in",
+              delay: 0.1 // Slight delay to show it's reacting to the collision
+            });
+          }
+        }, 300); // Wait for "o" to settle
+      }).delay(2.8); // Time when "o" finishes dropping
 
-        tl.fromTo(char, 
-          { y: 0, opacity: 1 }, // Start at 0 position with full opacity
-          {
-            y: multiplier * distance * 0.4, // Move less distance while fading
-            opacity: 0, // Fade out completely
-            ease: 'none',
-            duration: 0.4 // Fade completes in first 40% of scroll
+      // After drop animation completes, add scroll-based parallax
+      dropTl.call(() => {
+        chars.forEach((char, index) => {
+          // Skip the "o" and "i" that have fallen away
+          if (index === lastOIndex || index === lastIIndex) {
+            return;
           }
-        )
-        .to(char, {
-          y: multiplier * distance, // Continue moving after fading out
-          ease: 'none',
-          duration: 0.6 // Remaining 60% of scroll
+          
+          const multiplier = direction === 'up' ? -1 : 1;
+          const baseVelocity = speed;
+          
+          // Random velocity multiplier between 0.5x and 4x base speed
+          const velocityMultiplier = 0.5 + Math.random() * 3.5;
+          
+          // Distance also varies with velocity for more pronounced effect
+          const distance = 100 + (velocityMultiplier * 80); // Base 100px + up to 320px more
+          
+          // Create timeline for scroll-based movement starting from current position (y: 0)
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: text,
+              start: 'top center',
+              end: 'bottom top',
+              scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
+              invalidateOnRefresh: true
+            }
+          }).fromTo(char, {
+            y: 0 // Start from the position they landed at
+          }, {
+            y: multiplier * distance, // Move full distance without fading
+            ease: 'none',
+            duration: 1 // Use full duration for movement only
+          });
         });
       });
     });

@@ -63,6 +63,7 @@ export async function onRequestPost(context: any) {
     const emailData = {
       from: 'Contact Form <hello@tim52.io>',
       to: ['tim@tim52.io'],
+      reply_to: [email], // Reply directly to the person who submitted the form
       subject: `New contact form message from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>

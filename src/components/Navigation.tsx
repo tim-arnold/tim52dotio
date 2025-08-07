@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import styles from '../styles/components/Navigation.module.scss';
 import { useThrottledScroll } from '../hooks/useThrottledScroll';
 import { usePageTransition } from './PageTransition';
@@ -13,6 +13,7 @@ export default function Navigation() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [announcement, setAnnouncement] = useState('');
     const router = useRouter();
+    const pathname = usePathname();
     const { startTransition } = usePageTransition();
 
     // Handle scroll detection with throttling
@@ -147,6 +148,23 @@ export default function Navigation() {
     };
 
     const handleNavigation = (href: string, e: React.MouseEvent) => {
+        // Check if we're navigating to the same page we're already on
+        if (href === '/' && pathname === '/') {
+            // Already on home page, just scroll to top
+            e.preventDefault();
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
+        if (href === '/portfolio' && pathname === '/portfolio') {
+            // Already on portfolio page, just scroll to top
+            e.preventDefault();
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
         // Only handle page transitions for different routes
         if (href.startsWith('/') && !href.startsWith('/#')) {
             e.preventDefault();

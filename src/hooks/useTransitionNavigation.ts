@@ -1,13 +1,21 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { usePageTransition } from '../components/PageTransition';
 
 export const useTransitionNavigation = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { startTransition } = usePageTransition();
 
   const navigate = (href: string) => {
+    // Check if we're navigating to the same page we're already on
+    if (href === pathname) {
+      // Same page, just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
     // Only handle page transitions for different routes
     if (href.startsWith('/') && !href.startsWith('/#')) {
       startTransition();

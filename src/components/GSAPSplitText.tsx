@@ -147,8 +147,13 @@ export default function GSAPSplitText({
         }, 200); // Reduced wait time for "o" to settle
       }).delay(1.4); // Reduced time when "o" finishes dropping (0.8s + 0.6s)
 
-      // After drop animation completes, add scroll-based parallax
+      // After drop animation completes, add scroll-based parallax (disabled on mobile)
       dropTl.call(() => {
+        // Skip parallax on mobile devices to prevent scroll issues
+        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+          return;
+        }
+        
         // Add delay to ensure DOM is settled before creating ScrollTrigger
         setTimeout(() => {
           chars.forEach((char, index) => {
@@ -174,14 +179,7 @@ export default function GSAPSplitText({
                 end: 'bottom top',
                 scrub: baseVelocity / velocityMultiplier, // Smaller scrub = faster response
                 invalidateOnRefresh: true,
-                refreshPriority: -1, // Lower priority to avoid conflicts
-                // Ensure native scroll works on mobile
-                onUpdate: () => {
-                  // Force refresh if needed
-                  if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-                    ScrollTrigger.refresh();
-                  }
-                }
+                refreshPriority: -1 // Lower priority to avoid conflicts
               }
             }).fromTo(char, {
               y: 0 // Start from the position they landed at

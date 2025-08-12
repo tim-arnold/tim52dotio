@@ -17,7 +17,8 @@
 }
 
 .header {
-  text-align: center;
+  text-align: left;
+  max-width: 900px;
   margin-bottom: 4rem;
 }
 
@@ -45,8 +46,6 @@
 .subtitle {
   font-size: 1.25rem;
   color: #6c757d;
-  max-width: 600px;
-  margin: 0 auto;
   line-height: 1.6;
   
   // Dark mode

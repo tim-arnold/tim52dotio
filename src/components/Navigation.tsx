@@ -250,12 +250,12 @@ export default function Navigation() {
                         </li>
                         <li role="none">
                             <Link
-                                href="/#cactus"
+                                href="/#reality-nibbles"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
-                                I am a Cactus
+                                Reality Nibbles
                             </Link>
                         </li>
                         <li role="none">

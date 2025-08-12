@@ -26,7 +26,7 @@ const projects: Project[] = [
     screenshotPosition: 'center center',
     description: 'Landing page which was part of a comprehensive digital campaign for Ocean Conservancy and Discovery\'s Shark Week, focusing on marine conservation education and awareness. The page features interactive elements, educational content, and donation pathways to support shark conservation efforts.',
     tags: {
-      role: ['Front End', 'Full Stack'],
+      role: ['Full Stack'],
       tech: ['HTML', 'SCSS', 'JavaScript', 'GSAP'],
       company: 'Outright'
     }
@@ -96,6 +96,18 @@ const projects: Project[] = [
     }
   },
   {
+    id: 'covid-banking',
+    title: 'COVID Banking Relief',
+    url: 'https://covidbanking.joinbankon.org/',
+    screenshot: '/images/portfolio/covid-banking.jpg',
+    description: 'A static HTML resource site providing critical banking relief information during the COVID-19 pandemic. The site served as an informational hub for individuals and businesses seeking financial assistance and banking guidance during the crisis.',
+    tags: {
+      role: ['Front End'],
+      tech: ['HTML', 'CSS', 'JavaScript'],
+      company: 'Allegiance Group + Pursuant'
+    }
+  },
+  {
     id: 'tim52-io',
     title: 'tim52.io',
     url: 'https://tim52.io',
@@ -107,18 +119,6 @@ const projects: Project[] = [
       tech: ['Next.js', 'TypeScript', 'SCSS', 'React'],
       company: 'Tim52.io'
     }
-  },
-  {
-    id: 'covid-banking',
-    title: 'COVID Banking Relief',
-    url: 'https://covidbanking.joinbankon.org/',
-    screenshot: '/images/portfolio/covid-banking.jpg',
-    description: 'A static HTML resource site providing critical banking relief information during the COVID-19 pandemic. The site served as an informational hub for individuals and businesses seeking financial assistance and banking guidance during the crisis.',
-    tags: {
-      role: ['Front End'],
-      tech: ['HTML', 'CSS', 'JavaScript'],
-      company: 'Allegiance Group + Pursuant'
-    }
   }
 ];
 
@@ -129,7 +129,8 @@ export default function PortfolioPage() {
           <header className={styles.header}>
             <h1 className={styles.title}>Professional Portfolio</h1>
             <p className={styles.subtitle}>
-              A collection of websites I&apos;ve built over the years either alone or as part of a team
+              Possessing a broad set of skills that comes from consulting for non-profit organizations for more than twenty years,
+              this is a collection of websites I&apos;ve built over the years either alone or as part of a team.
             </p>
           </header>
 

@@ -10,16 +10,10 @@ import FadeImageTransition from '../components/FadeImageTransition';
 import GSAPSplitText from '../components/GSAPSplitText';
 import StickyBackground from '../components/StickyBackground';
 import Link from 'next/link';
-import { smoothScrollToTop } from '../utils/smoothScroll';
 import { useTransitionNavigation } from '../hooks/useTransitionNavigation';
 
 export default function Home() {
     const { navigate } = useTransitionNavigation();
-    
-    const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>): void => {
-        e.preventDefault();
-        smoothScrollToTop(1500); // 1.5 seconds for smooth scroll to top
-    };
 
     const handlePortfolioClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
         e.preventDefault();
@@ -193,25 +187,25 @@ export default function Home() {
                     </div>
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <Link href="#cactus" className="button" aria-label="Continue to I am a Cactus section">Ka-Doink</Link>
+                            <Link href="#reality-nibbles" className="button" aria-label="Continue to Reality Nibbles section">Ka-Doink</Link>
                         </div>
                     </ParallaxElement>
                 </ParallaxSection>
 
             {/* Features Section */}
             <ParallaxSection
-                id="cactus"
+                id="reality-nibbles"
                 speed={0.3}
                 height="auto"
                 minHeight="100vh"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
                 role="region"
-                aria-labelledby="cactus-heading"
+                aria-labelledby="reality-nibbles"
             >
                 <div className={styles.featuresContent}>
                     <ParallaxElement speed={-0.3} amplify={1.5}>
-                        <h2 id="cactus-heading">I am a Cactus</h2>
+                        <h2 id="reality-nibbles">Reality Nibbles</h2>
                     </ParallaxElement>
 
                     {/* Replace the featuresList div with the StaggeredFeatures component */}
@@ -271,7 +265,7 @@ export default function Home() {
 
                 <ParallaxElement speed={0.6}>
                     <div className={styles.heroCtas}>
-                        <Link href="#" className="button button-up" aria-label="Return to top of page" onClick={handleScrollToTop}>Woosh</Link>
+                        <Link href="#footer" className="button" aria-label="Continue to Get In Touch section">Pssssht!</Link>
                     </div>
                 </ParallaxElement>
             </ParallaxSection>

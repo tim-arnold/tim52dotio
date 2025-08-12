@@ -126,7 +126,7 @@ export default function RootLayout({
             <Navigation data-component="navigation" />
             {children}
           </PageTransition>
-          <footer className="footer">
+          <footer id="footer" className="footer">
             <ContactForm />
             <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
           </footer>

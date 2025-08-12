@@ -88,9 +88,9 @@ const projects: Project[] = [
     title: 'Mildred Fox Arnold',
     url: 'https://mildredfoxarnold.com',
     screenshot: '/images/portfolio/mildred-fox-arnold.jpg',
-    description: 'A personal website showcasing the artistic work and creative endeavors of Mildred Fox Arnold. The site features a clean, gallery-focused design that highlights artwork, projects, and personal achievements with an emphasis on visual presentation and user experience.',
+    description: 'Showcasing the artistic work and creative endeavors of Mildred Fox Arnold, the site features a clean, gallery-focused design that highlights artwork, projects, and personal achievements with an emphasis on visual presentation and user experience.',
     tags: {
-      role: ['Full Stack', 'Design'],
+      role: ['Full Stack', 'Design', 'Project Management'],
       tech: ['WordPress', 'Bricks Theme'],
       company: 'Tim52.io'
     }
@@ -100,7 +100,7 @@ const projects: Project[] = [
     title: 'COVID Banking Relief',
     url: 'https://covidbanking.joinbankon.org/',
     screenshot: '/images/portfolio/covid-banking.jpg',
-    description: 'A static HTML resource site providing critical banking relief information during the COVID-19 pandemic. The site served as an informational hub for individuals and businesses seeking financial assistance and banking guidance during the crisis.',
+    description: 'A static HTML resource site providing critical banking relief information during the COVID-19 pandemic. The site serves as an informational hub for individuals and businesses seeking financial assistance and banking guidance during the crisis.',
     tags: {
       role: ['Front End'],
       tech: ['HTML', 'CSS', 'JavaScript'],

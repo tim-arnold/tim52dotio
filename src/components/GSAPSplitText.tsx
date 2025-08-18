@@ -118,12 +118,16 @@ export default function GSAPSplitText({
         // Small delay to let the "o" settle
         setTimeout(() => {
           // Create simple collision effect where letters fall to bottom of body
+          let oChar: HTMLSpanElement | null = null;
+          let iChar: HTMLSpanElement | null = null;
+          
           if (lastOIndex >= 0) {
-            const rect = chars[lastOIndex].getBoundingClientRect();
+            oChar = chars[lastOIndex];
+            const rect = oChar.getBoundingClientRect();
             const bodyRect = document.body.getBoundingClientRect();
             const bodyBottom = bodyRect.bottom + window.scrollY;
-            const fallDistance = bodyBottom - (rect.top + window.scrollY) - 10; // 10px inside body bottom
-            gsap.to(chars[lastOIndex], {
+            const fallDistance = bodyBottom - (rect.top + window.scrollY) - 20; // 20px inside body bottom (10px higher)
+            gsap.to(oChar, {
               y: fallDistance,
               rotation: 360,
               duration: 3,
@@ -132,19 +136,76 @@ export default function GSAPSplitText({
           }
           
           if (lastIIndex >= 0) {
+            iChar = chars[lastIIndex];
             // "i" gets bumped and falls too
             setTimeout(() => {
-              const rect = chars[lastIIndex].getBoundingClientRect();
+              const rect = iChar!.getBoundingClientRect();
               const bodyRect = document.body.getBoundingClientRect();
               const bodyBottom = bodyRect.bottom + window.scrollY;
               const fallDistance = bodyBottom - (rect.top + window.scrollY) + 10; // 10px past body for rotation
-              gsap.to(chars[lastIIndex], {
+              gsap.to(iChar!, {
                 y: fallDistance,
                 rotation: -270,
                 duration: 2.8,
                 ease: "power2.in"
               });
             }, 100); // Slight delay for collision reaction
+          }
+          
+          // Add scroll listener for bottom-of-page "o" teetering animation
+          if (oChar) {
+            const handleScroll = () => {
+              const scrollHeight = document.documentElement.scrollHeight;
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const clientHeight = window.innerHeight;
+              
+              // Check if user has scrolled to bottom (within 50px tolerance)
+              if (scrollHeight - scrollTop - clientHeight < 50) {
+                // Remove scroll listener to prevent multiple triggers
+                window.removeEventListener('scroll', handleScroll);
+                
+                // Create teetering and rolling animation
+                const teeteringTimeline = gsap.timeline();
+                
+                // First, teeter wobble without falling
+                teeteringTimeline
+                  .to(oChar, {
+                    rotation: "+=10", // slight tilt
+                    duration: 0.3,
+                    ease: "power2.out"
+                  })
+                  .to(oChar, {
+                    rotation: "-=20", // tilt the other way
+                    duration: 0.2,
+                    ease: "power2.inOut"
+                  })
+                  .to(oChar, {
+                    rotation: "+=15", // settle back
+                    duration: 0.15,
+                    ease: "power2.inOut"
+                  })
+                  // Then fall 15px down and 15px right with rotation
+                  .to(oChar, {
+                    y: "+=15", // 15 pixels further down
+                    x: "+=15", // 15 pixels to the right
+                    rotation: "+=180", // Half rotation during the fall
+                    duration: 0.4,
+                    ease: "power2.in"
+                  }, "+=0.2") // Small pause after wobble
+                  // Then roll off to the right edge of viewport
+                  .to(oChar, {
+                    x: window.innerWidth + 50, // Roll completely off screen
+                    rotation: "+=6840", // Continue rotating (total 3600 with the 180 above)
+                    duration: 8,
+                    ease: "none"
+                  }); // Seamless transition - no pause
+              }
+            };
+            
+            // Add scroll listener after letters have settled
+            setTimeout(() => {
+              window.addEventListener('scroll', handleScroll, { passive: true });
+            }, 1000);
           }
         }, 200); // Wait for "o" to settle
       }).delay(1.4); // When "o" finishes dropping (0.8s + 0.6s)

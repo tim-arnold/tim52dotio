@@ -250,12 +250,12 @@ export default function Navigation() {
                         </li>
                         <li role="none">
                             <Link
-                                href="/#reality-nibbles"
+                                href="/#reality"
                                 onClick={closeMenu}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
-                                Reality Nibbles
+                                Reality Gnaws
                             </Link>
                         </li>
                         <li role="none">

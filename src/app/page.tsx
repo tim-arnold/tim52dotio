@@ -187,25 +187,25 @@ export default function Home() {
                     </div>
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <Link href="#reality-nibbles" className="button" aria-label="Continue to Reality Nibbles section">Ka-Doink</Link>
+                            <Link href="#reality" className="button" aria-label="Continue to Reality Gnaws section">Ka-Doink</Link>
                         </div>
                     </ParallaxElement>
                 </ParallaxSection>
 
             {/* Features Section */}
             <ParallaxSection
-                id="reality-nibbles"
+                id="reality"
                 speed={0.3}
                 height="auto"
                 minHeight="100vh"
                 backgroundColor="var(--background-dark)"
                 className={styles.featuresSection}
                 role="region"
-                aria-labelledby="reality-nibbles"
+                aria-labelledby="reality"
             >
                 <div className={styles.featuresContent}>
                     <ParallaxElement speed={-0.3} amplify={1.5}>
-                        <h2 id="reality-nibbles">Reality Nibbles</h2>
+                        <h2 id="reality-nibbles">Reality Gnaws</h2>
                     </ParallaxElement>
 
                     {/* Replace the featuresList div with the StaggeredFeatures component */}

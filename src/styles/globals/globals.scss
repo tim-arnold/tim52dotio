@@ -6,6 +6,7 @@
   --background-rgb: 197, 205, 87;
   --foreground-rgb: 23, 23, 23;
   --primary: #c5cd57;
+  --primary-dark: #c5cd57;
   --social-hover: #333333;
   --secondary: #2ecc71;
   --accent: #e74c3c;
@@ -18,10 +19,17 @@
 :root.dark,
 html.dark {
   --background: #0a0a0a;
+  --background-dark: #0a0a0a;
   --foreground: var(--primary);
   --background-rgb: 10, 10, 10;
   --foreground-rgb: 237, 237, 237;
+  --primary: #c5cd57;
+  --primary-dark: #5a6324;
   --social-hover: #ffffff;
+  --secondary: #2ecc71;
+  --accent: #e74c3c;
+  --text-light: #f5f5f5;
+  --text-dark: #333333;
   color-scheme: dark;
 }
 
@@ -34,6 +42,7 @@ html.light {
   --background-rgb: 197, 205, 87;
   --foreground-rgb: 23, 23, 23;
   --primary: #c5cd57;
+  --primary-dark: #c5cd57;
   --social-hover: #333333;
   --secondary: #2ecc71;
   --accent: #e74c3c;
@@ -46,10 +55,17 @@ html.light {
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) {
     --background: #0a0a0a;
+    --background-dark: #0a0a0a;
     --foreground: var(--primary);
     --background-rgb: 10, 10, 10;
     --foreground-rgb: 237, 237, 237;
+    --primary: #c5cd57;
+    --primary-dark: #5a6324;
     --social-hover: #ffffff;
+    --secondary: #2ecc71;
+    --accent: #e74c3c;
+    --text-light: #f5f5f5;
+    --text-dark: #333333;
     color-scheme: dark;
   }
 }
@@ -299,6 +315,16 @@ p {
       border-bottom-color: var(--foreground);
     }
   }
+
+  &.button-right {
+
+    &:after {
+      top: 30%;
+      left: 94%;
+      rotate: -90deg;
+    }
+
+  }
 }
 
 /* Dark mode styles */
@@ -333,6 +359,7 @@ html.dark .button {
   &.button-up.secondary::after {
     border-bottom-color: var(--foreground);
   }
+
 }
 
 // Fallback for browser preference

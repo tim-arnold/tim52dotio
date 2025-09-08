@@ -203,7 +203,7 @@
   
   // Dark mode - override the primary background with a darker version
   :global(.dark) & {
-    background-color: #5a6324 !important; // Darker shade of the primary color (#c5cd57)
+    background-color: var(--primary-dark) !important;
   }
 }
 

@@ -238,7 +238,7 @@ export default function Home() {
             {/* Contact Section */}
             <ParallaxSection
                 id="findme"
-                backgroundColor="var(--primary)"
+                backgroundColor="var(--primary-dark)"
                 height="100vh"
                 className={styles.contactSection}
                 role="region"

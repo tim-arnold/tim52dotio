@@ -28,6 +28,24 @@
     animation-duration: 1s;
     animation-delay: 0.7s;
   }
+
+  &:nth-child(4) {
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-delay: 1.0s;
+  }
+
+  &:nth-child(5) {
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-delay: 1.3s;
+  }
+
+  &:nth-child(6) {
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-delay: 1.6s;
+  }
 }
 
 @keyframes slideUp {

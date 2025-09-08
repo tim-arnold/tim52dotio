@@ -165,6 +165,14 @@ export default function Navigation() {
             return;
         }
         
+        if (href === '/services' && pathname === '/services') {
+            // Already on services page, just scroll to top
+            e.preventDefault();
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
         // Only handle page transitions for different routes
         if (href.startsWith('/') && !href.startsWith('/#')) {
             e.preventDefault();
@@ -240,32 +248,12 @@ export default function Navigation() {
                         </li>
                         <li role="none">
                             <Link
-                                href="/#hello"
-                                onClick={closeMenu}
+                                href="/services"
+                                onClick={(e) => handleNavigation('/services', e)}
                                 role="menuitem"
                                 tabIndex={menuOpen ? 0 : -1}
                             >
-                                Hello
-                            </Link>
-                        </li>
-                        <li role="none">
-                            <Link
-                                href="/#reality"
-                                onClick={closeMenu}
-                                role="menuitem"
-                                tabIndex={menuOpen ? 0 : -1}
-                            >
-                                Reality Gnaws
-                            </Link>
-                        </li>
-                        <li role="none">
-                            <Link
-                                href="/#findme"
-                                onClick={closeMenu}
-                                role="menuitem"
-                                tabIndex={menuOpen ? 0 : -1}
-                            >
-                                Where to Find Me
+                                Services
                             </Link>
                         </li>
                         <li role="none">

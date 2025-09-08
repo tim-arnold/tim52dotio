@@ -5,6 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    // Force metadata to render in head instead of streaming to body
+    htmlLimitedBots: /.*/,
     // Other configurations like image optimization for Cloudflare
     images: {
         unoptimized: true,

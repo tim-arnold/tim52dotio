@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "../styles/globals/globals.scss";
 import ErrorBoundary from "../components/ErrorBoundary";
 import ContactForm from "../components/ContactForm";
@@ -69,9 +70,22 @@ export const metadata: Metadata = {
     creator: "@tim52pics",
   },
   // Additional metadata
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/images/tim-yelling.webp", type: "image/webp" },
+    ],
+  },
+  manifest: "/manifest.json",
   other: {
     "theme-color": "#c5cd57",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "tim52.io",
+    "mobile-web-app-capable": "yes",
+    "msapplication-TileColor": "#c5cd57",
   },
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
 };
 
 export default function RootLayout({
@@ -81,44 +95,8 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning={true}>
-      <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/webp" href="/images/tim-yelling.webp" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="tim52.io" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#c5cd57" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var savedTheme = localStorage.getItem('theme');
-                  if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-                    document.documentElement.classList.add(savedTheme);
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                  } else {
-                    // Default to browser preference
-                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    var theme = prefersDark ? 'dark' : 'light';
-                    document.documentElement.classList.add(theme);
-                    document.documentElement.setAttribute('data-theme', theme);
-                  }
-                } catch (e) {
-                  // Fallback to light theme if anything fails
-                  document.documentElement.classList.add('light');
-                  document.documentElement.setAttribute('data-theme', 'light');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
       <BodyClass />
       <ThemeProvider>
         <ErrorBoundary>

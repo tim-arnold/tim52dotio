@@ -67,7 +67,7 @@ export default function Services() {
                             >
                                 What I Actually Do
                             </GSAPSplitText>
-                            <p>(Besides Befriend Cows)</p>
+                            <p>(Besides take pictures of cows)</p>
                             <div className={styles.heroCtas}>
                                 <Link href="#what-i-do" className="button">Tell Me More</Link>
                             </div>

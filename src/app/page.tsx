@@ -120,7 +120,8 @@ export default function Home() {
                         >
                             Welcome to tim52.io
                         </GSAPSplitText>
-                        <p>It is website with Tim (but first: a cow).</p>
+                        <p>It is website about Tim and<br/> the Web tech work he does.</p>
+                        <p>But first: a cow.</p>
                         <div className={styles.heroCtas}>
                             <Link href="#hello" className="button" aria-describedby="hero-heading">Doink</Link>
                         </div>

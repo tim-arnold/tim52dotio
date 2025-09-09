@@ -9,18 +9,18 @@ export default function BodyClass() {
   useEffect(() => {
     // Initialize theme on first load
     try {
-      var savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem('theme');
       if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
         document.documentElement.classList.add(savedTheme);
         document.documentElement.setAttribute('data-theme', savedTheme);
       } else {
         // Default to browser preference
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var theme = prefersDark ? 'dark' : 'light';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = prefersDark ? 'dark' : 'light';
         document.documentElement.classList.add(theme);
         document.documentElement.setAttribute('data-theme', theme);
       }
-    } catch (e) {
+    } catch {
       // Fallback to light theme if anything fails
       document.documentElement.classList.add('light');
       document.documentElement.setAttribute('data-theme', 'light');

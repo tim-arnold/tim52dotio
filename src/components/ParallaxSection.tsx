@@ -41,14 +41,15 @@ export default function ParallaxSection({
     const [isVisible, setIsVisible] = useState(false);
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-    // Cache section position to avoid repeated getBoundingClientRect calls
-    const sectionMetrics = useRef({ top: 0, updated: false });
+    // Cache section position and height to avoid repeated getBoundingClientRect calls
+    const sectionMetrics = useRef({ top: 0, height: 0, updated: false });
 
     const updateSectionPosition = useCallback((): void => {
         if (sectionRef.current && !sectionMetrics.current.updated) {
             const rect = sectionRef.current.getBoundingClientRect();
             sectionMetrics.current = {
                 top: rect.top + window.scrollY,
+                height: rect.height,
                 updated: true
             };
         }
@@ -66,7 +67,7 @@ export default function ParallaxSection({
         // Special handling for negative speeds (sticky effect)
         if (speed < 0) {
             // Only start moving the background when we're close to the top of the viewport
-            const sectionHeight = sectionRef.current?.offsetHeight || 0;
+            const sectionHeight = sectionMetrics.current.height;
             const stickyThreshold = sectionHeight * 0.8; // Start moving when 80% scrolled
             
             if (scrollPastSection > stickyThreshold) {

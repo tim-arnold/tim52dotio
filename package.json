@@ -20,6 +20,12 @@
     "react-dom": "^19.0.0",
     "resend": "^6.0.0"
   },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^15.1.8",

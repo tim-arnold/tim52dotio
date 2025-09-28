@@ -22,7 +22,7 @@ const projects: Project[] = [
     id: 'ocean-conservancy',
     title: 'Ocean Conservancy - Shark Week',
     url: 'https://oceanconservancy.org/sharkweek',
-    screenshot: '/images/portfolio/ocean-conservancy-shark-week.jpg',
+    screenshot: '/images/portfolio/ocean-conservancy-shark-week.webp',
     screenshotPosition: 'center center',
     description: 'Landing page which was part of a comprehensive digital campaign for Ocean Conservancy and Discovery\'s Shark Week, focusing on marine conservation education and awareness. The page features interactive elements, educational content, and donation pathways to support shark conservation efforts.',
     tags: {
@@ -35,7 +35,7 @@ const projects: Project[] = [
     id: 'smoking-gun',
     title: 'The Smoking Gun',
     url: 'https://smokinggun.org/',
-    screenshot: '/images/portfolio/smoking-gun.jpg',
+    screenshot: '/images/portfolio/smoking-gun.webp',
     screenshotPosition: 'top left',
     description: 'The Smoking Gun is an online resource committed to exposing the gun industry\'s role in our gun violence epidemic today through news stories, in-depth research, profiles on firearm manufacturers and suppliers, data, and more.',
     tags: {
@@ -48,7 +48,7 @@ const projects: Project[] = [
     id: 'league-women-voters',
     title: 'League of Women Voters',
     url: 'https://www.lwv.org/',
-    screenshot: '/images/portfolio/lwv.jpg',
+    screenshot: '/images/portfolio/lwv.webp',
     screenshotPosition: 'top left',
     description: 'The national website for the League of Women Voters, featuring voter education resources, advocacy tools, and membership management. The site serves as a hub for democratic participation and civic engagement across the United States.',
     tags: {
@@ -62,7 +62,7 @@ const projects: Project[] = [
     title: 'Truth Campaign',
     url: 'https://www.thetruth.com/',
     screenshotPosition: 'top center',
-    screenshot: '/images/portfolio/truth-campaign.jpg',
+    screenshot: '/images/portfolio/truth-campaign.webp',
     description: 'The Truth Campaign\'s digital platform focusing on smoking and vaping prevention education for young adults. Features engaging interactive content, social media integration, and educational resources designed to prevent tobacco and nicotine use among teens and young adults.',
     tags: {
       role: ['Front End'],
@@ -74,7 +74,7 @@ const projects: Project[] = [
     id: 'avac',
     title: 'AVAC - Global Advocacy for HIV Prevention',
     url: 'https://avac.org/',
-    screenshot: '/images/portfolio/avac.jpg',
+    screenshot: '/images/portfolio/avac.webp',
     screenshotPosition: 'top center',
     description: 'AVAC\'s website serves as a comprehensive resource for HIV prevention advocacy, research, and global health initiatives. The platform features extensive research databases, advocacy tools, and educational materials for healthcare professionals and advocates worldwide.',
     tags: {
@@ -87,7 +87,7 @@ const projects: Project[] = [
     id: 'mildred-fox-arnold',
     title: 'Mildred Fox Arnold',
     url: 'https://mildredfoxarnold.com',
-    screenshot: '/images/portfolio/mildred-fox-arnold.jpg',
+    screenshot: '/images/portfolio/mildred-fox-arnold.webp',
     description: 'Showcasing the artistic work and creative endeavors of Mildred Fox Arnold, the site features a clean, gallery-focused design that highlights artwork, projects, and personal achievements with an emphasis on visual presentation and user experience.',
     tags: {
       role: ['Full Stack', 'Design', 'Project Management'],
@@ -99,7 +99,7 @@ const projects: Project[] = [
     id: 'covid-banking',
     title: 'COVID Banking Relief',
     url: 'https://covidbanking.joinbankon.org/',
-    screenshot: '/images/portfolio/covid-banking.jpg',
+    screenshot: '/images/portfolio/covid-banking.webp',
     description: 'A static HTML resource site providing critical banking relief information during the COVID-19 pandemic. The site serves as an informational hub for individuals and businesses seeking financial assistance and banking guidance during the crisis.',
     tags: {
       role: ['Front End'],
@@ -111,7 +111,7 @@ const projects: Project[] = [
     id: 'tim52-io',
     title: 'tim52.io',
     url: 'https://tim52.io',
-    screenshot: '/images/portfolio/tim52-io.jpg',
+    screenshot: '/images/portfolio/tim52-io.webp',
     screenshotPosition: 'center right',
     description: 'The very website you\'re viewing right now! A modern Next.js site featuring parallax animations, responsive design, and this self-aware portfolio page. Built with TypeScript, SCSS modules, and a healthy dose of recursive humor. Yes, this entry is describing itself. No, this isn\'t getting weird at all.',
     tags: {
@@ -138,13 +138,16 @@ export default function PortfolioPage() {
             {projects.map((project) => (
               <article key={project.id} className={styles.projectCard}>
                 <div className={styles.imageContainer}>
-                  <Image 
-                    src={project.screenshot} 
+                  <Image
+                    src={project.screenshot}
                     alt={`Screenshot of ${project.title}`}
                     className={styles.screenshot}
-                    width={800}
-                    height={600}
+                    width={1200}
+                    height={675}
                     unoptimized={true}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                     style={{
                       objectPosition: project.screenshotPosition || 'top center'
                     }}

@@ -21,10 +21,10 @@
     "resend": "^6.0.0"
   },
   "browserslist": [
-    ">0.3%",
-    "not ie 11",
-    "not dead",
-    "not op_mini all"
+    "chrome >= 91",
+    "firefox >= 90",
+    "safari >= 15",
+    "edge >= 91"
   ],
   "devDependencies": {
     "@eslint/eslintrc": "^3",

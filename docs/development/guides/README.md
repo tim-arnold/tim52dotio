@@ -4,7 +4,7 @@ This directory contains development guides and best practices for working with t
 
 ## Available Guides
 
-*Guides will be added as development patterns and best practices are established.*
+- **[Sanity CMS Setup](./sanity-cms-setup.md)** - Complete guide for setting up and managing content in Sanity.io, from initial login to deployment
 
 ## Guide Categories
 

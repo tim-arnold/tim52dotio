@@ -28,23 +28,48 @@ First, make sure you have [Node.js](https://nodejs.org) installed (v18 or newer 
 This will start the Next.js development server with Turbopack and the SASS watcher in parallel.
 Open http://localhost:3000 with your browser to see the result.
 
-📦 Scripts
+## 📦 Scripts
 
-Run the dev server (includes sass watching)
+### Development
 ```bash
+# Run the dev server
 npm run dev
+
+# Run Sanity Studio (CMS)
+npm run sanity
 ```
-Run a production-ready build
+
+### Build & Deploy
 ```bash
+# Run a production-ready build
 npm run build
-```
-Start up a server and run that production-ready build
-```bash
+
+# Start up a server and run that production-ready build
 npm run start
 ```
-Take a deep dive into linting errors 
+
+### Content Management (Sanity)
 ```bash
+# Start Sanity Studio locally
+npm run sanity
+
+# Deploy Sanity Studio to cloud
+npm run sanity:deploy
+
+# Open Sanity management dashboard
+npm run sanity:manage
+```
+
+### Testing & Quality
+```bash
+# Lint the codebase
 npm run lint
+
+# Run unit tests
+npm test
+
+# Run E2E tests
+npm run test:e2e
 ```
 
 ## 📚 Documentation
@@ -57,6 +82,7 @@ For comprehensive project documentation, including architecture details, develop
 - **React 19.0.0**: UI library with latest features
 - **TypeScript**: Type-safe development
 - **SCSS Modules**: Component-scoped styling
+- **Sanity CMS**: Headless CMS for content management
 - **Turbopack**: Fast development experience
 - **ESLint**: Code quality and consistency
 
@@ -67,6 +93,52 @@ For comprehensive project documentation, including architecture details, develop
 -  I am a Cactus: Information about Tim's life and family
 -  Where to Find Me: Links to Tim's various online presences
 
-🚀 Deployment
+## 🎨 Content Management
 
-This site is intended to be deployed on Cloudflare Pages. Simply push the 'cow' branch to GitHub and it will deploy.
+This site uses [Sanity.io](https://sanity.io) as a headless CMS for managing portfolio projects, service offerings, and page content.
+
+### Getting Started with Sanity
+
+1. **Start Sanity Studio locally**:
+   ```bash
+   npm run sanity
+   ```
+   Opens at http://localhost:3333
+
+2. **Access deployed Studio**:
+   Visit your deployed studio URL (run `npm run sanity:deploy` to get the URL)
+
+3. **Manage content**:
+   - Portfolio Projects: Add your project work
+   - Service Cards: Define your service offerings
+   - Feature Cards: Homepage feature highlights
+   - Page Content: Flexible content for various sections
+
+For detailed Sanity setup instructions, see the [Sanity CMS Setup Guide](docs/development/guides/sanity-cms-setup.md).
+
+## 🚀 Deployment
+
+This site is deployed on **Cloudflare Pages** with static export.
+
+### Deployment Flow
+
+1. Push code to the `cow` branch
+2. Cloudflare Pages automatically builds the site (`npm run build`)
+3. During build, content is fetched from Sanity CMS
+4. Static HTML is generated and deployed to CDN
+
+### Environment Variables
+
+Add these to Cloudflare Pages environment variables:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=gwofhlpz
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-11-25
+```
+
+### Updating Content
+
+Since this is a static site, content updates require a rebuild:
+- **Option 1**: Push any commit to trigger rebuild
+- **Option 2**: Manually trigger rebuild in Cloudflare Pages dashboard

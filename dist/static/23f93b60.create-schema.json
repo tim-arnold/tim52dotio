@@ -364,79 +364,11 @@
   {
     "fields": [
       {
-        "description": "Optional title for internal reference",
-        "name": "title",
-        "type": "string"
-      },
-      {
-        "rows": 3,
-        "validation": [
-          {
-            "rules": [
-              {
-                "flag": "presence",
-                "constraint": "required"
-              }
-            ],
-            "level": "error"
-          }
-        ],
-        "name": "mainText",
-        "type": "text"
-      },
-      {
-        "rows": 2,
-        "validation": [
-          {
-            "rules": [
-              {
-                "flag": "presence",
-                "constraint": "required"
-              }
-            ],
-            "level": "error"
-          }
-        ],
-        "name": "italicText",
-        "type": "text"
-      },
-      {
-        "validation": [
-          {
-            "rules": [
-              {
-                "flag": "presence",
-                "constraint": "required"
-              },
-              {
-                "flag": "min",
-                "constraint": 0
-              }
-            ],
-            "level": "error"
-          }
-        ],
-        "description": "Lower numbers appear first",
-        "name": "order",
-        "type": "number",
-        "title": "Display Order"
-      }
-    ],
-    "name": "featureCard",
-    "type": "document"
-  },
-  {
-    "fields": [
-      {
         "options": {
           "list": [
             {
               "title": "Home",
               "value": "home"
-            },
-            {
-              "title": "Services",
-              "value": "services"
             }
           ]
         },
@@ -446,8 +378,7 @@
               {
                 "flag": "valid",
                 "constraint": [
-                  "home",
-                  "services"
+                  "home"
                 ]
               },
               {

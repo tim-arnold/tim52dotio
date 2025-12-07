@@ -65,27 +65,6 @@ export async function getServiceCards(): Promise<ServiceCard[]> {
   return await client.fetch(query)
 }
 
-// Feature Cards
-export interface FeatureCard {
-  _id: string
-  title?: string
-  mainText: string
-  italicText: string
-  order: number
-}
-
-export async function getFeatureCards(): Promise<FeatureCard[]> {
-  const query = `*[_type == "featureCard"] | order(order asc) {
-    _id,
-    title,
-    mainText,
-    italicText,
-    order
-  }`
-
-  return await client.fetch(query)
-}
-
 // Page Content
 export interface PageContent {
   _id: string

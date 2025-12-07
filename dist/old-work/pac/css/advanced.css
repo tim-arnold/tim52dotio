@@ -1,0 +1,116 @@
+/* LOOK AND FEEL */
+
+/* Standard HTML styles */
+/* and basefont style and size */
+/* inherit from "redefine.css" */
+
+/* Nav and menu styles and behavior */
+/* inherit from "navigation.css" */
+
+/* ***************** */
+/* home page styles  */
+/* ****************  */
+
+@import "advanced-include.css";
+
+#homeFeature {
+	background-color: #dedede;
+}
+
+/* ************************ */
+/* ************************ */
+/* Subsection color schemes */
+/* ************************ */
+/* ************************ */
+
+/* learn */
+
+#learn {
+	color: #7f4c8c;
+	background-color: #d9c1d2;
+}
+
+#learn .header {
+	background-color: #7f4c8c;
+}
+
+#learn a, #subPageLearn a {
+	color: #7f4c8c;
+}
+
+#learn a:hover {
+	color: #609;
+}
+
+#subPageLearn .navHolder {
+	background-color: #7f4c8c;
+}
+
+/* share */
+
+#share {
+	color: #538b3d;
+	background-color: #cad9bc;
+}
+
+#share .header {
+	background-color: #538b3d;
+}
+
+#share a, #subPageShare a {
+	color: #538b3d;
+}
+
+#share a:hover {
+	color: #030;
+}
+
+#subPageShare .leftNavHolder {
+	background-color: #538b3d;
+}
+
+/* act */
+
+#act {
+	color: #c24a28;
+	background-color: #ebc6b9;
+}
+
+#act .header {
+	background-color: #c24a28;
+}
+
+#act a, #subPageAct a {
+	color: #c24a28;
+}
+
+#act a:hover {
+	color: #600;
+}
+
+#subPageAct .leftNavHolder {
+	background-color: #c24a28;
+}
+
+/* video */
+
+#videos {
+	color: #127484;
+	background-color: #bcd1d4;
+}
+
+#videos .header {
+	background-color: #127484;
+}
+
+#videos a, #subPageVideos a {
+	color: #127484;
+}
+
+#videos a:hover {
+	color: #033;
+}
+
+#subPageVideos .leftNavHolder {
+	background-color: #127484;
+}

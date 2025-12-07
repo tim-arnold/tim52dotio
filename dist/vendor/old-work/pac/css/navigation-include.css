@@ -1,0 +1,156 @@
+/* NAVIGATION AND MENU STYLES AND BEHAVIORS  */
+
+/* Main header styles  */
+
+#mainHeader, #mainHeader td {
+	padding: 0;
+	margin: 0;
+}
+
+#mainHeader .rowOne {
+	background-color: #fff;
+}
+
+#mainHeader .quickLinks {
+	text-align: right;
+	color: #fff;
+	background-color: #000;
+	padding: 0 1em 0 0;
+}
+
+#mainHeader .quickLinks a {
+	color: #fff;
+}
+
+#mainHeader .quickLinks a:hover {
+	color: #f00;
+	text-decoration: none;
+}
+
+/* box model hack for logo padding */
+
+/* this selector recognized by IE only */
+* html #mainHeader .logo {
+  padding-top: 0;   /* (only for IE5.x/Win) */
+  p\adding-top: 1px; 0;  /* (for other IE) */
+}
+/* (for other browsers) */
+#mainHeader .logo {
+  padding-top: 1px;   
+}
+/* end box model hack for logo padding */
+
+
+#mainHeader .logo { 
+  padding-top: 0; 
+  voice-family: "\"}\""; 
+  voice-family:inherit;
+  padding-top: 1px;
+} 
+
+#mainHeader .logo a {
+	text-decoration: none;
+}
+
+#mainHeader .search {
+	text-align: right;
+	padding: 1em 1em 0 0;
+}
+
+#subPageLearn #mainHeader .search, #subPageAct #mainHeader .search, #subPageShare #mainHeader .search, #subPageVideos #mainHeader .search {
+	background: #fff url(../images/header_formerly_subSectionBg.gif) left top no-repeat;
+}
+
+#homePage #mainHeader .search {
+	background: #fff url(../images/header_formerly_homePageBg.gif) left top no-repeat;
+}
+
+#mainHeader .search a {
+	color: #c00;
+	font-size: .9em;
+	font-weight: bold;
+}
+
+#mainNavHolder #mainNav {
+	border-bottom: 1px solid #fff;
+}
+
+#mainNav img {
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.leftNavHolder {
+	padding: 0;
+	margin: 0;
+	border-right: 1px solid #fff;
+}
+
+.leftNavHolder .item {
+	padding: .3em 5px .3em 1em;
+}
+
+.leftNavHolder .itemAlt {
+	padding: .5em;
+}
+
+.leftNavHolder .itemAlt input {
+	padding-top: .5em;
+}
+
+
+/* The following leftNav rules marked "!important" override */
+/* section-specific link colors which were set in "advanced.css" */
+/* previous to these declarations. */
+/* Without these overrides, the links in the left nav will */
+/* dissappear into the background colors */
+
+.leftNavHolder {
+	padding-top: 1em;
+	border-bottom: 1px solid #fff;
+}
+
+.leftNavHolder .subSection {
+	color: #fff !important;
+	font-weight: bold !important;
+}
+
+.leftNavHolder .topSection {
+	font-size: 1.2em;
+	padding: 0 0 0 .8em;
+	color: #fff !important;
+	font-weight: bold !important;
+}
+
+.leftNavHolder li {
+	color: #fff !important;
+}
+
+.leftNavHolder li ul {
+	list-style-type: none;
+}
+
+.leftNavHolder li a {
+	color: #fff !important; 
+	font-weight: normal !important;
+	text-decoration: underline !important;
+}
+
+.leftNavHolder li a:hover {
+	text-decoration: none !important;
+}
+
+/* "box" refers to the white video tease box in the leftnav */
+
+.leftNavHolder #box {
+	font-size: .9em;
+	background-color: #fff;
+}
+
+.leftNavHolder #box .content {
+	padding: 0 0 0 .2em;
+}
+
+.leftNavHolder .divider {
+	margin-top: 2px;
+}

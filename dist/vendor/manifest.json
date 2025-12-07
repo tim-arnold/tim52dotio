@@ -1,0 +1,27 @@
+{
+  "name": "tim52.io - Tim Arnold's Personal Website",
+  "short_name": "tim52.io",
+  "description": "A website that is about Tim. And a cow.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#c5cd57",
+  "orientation": "portrait-primary",
+  "categories": ["personalization", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/cow-698.webp",
+      "sizes": "698x698",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "scope": "/",
+  "id": "tim52-io",
+  "prefer_related_applications": false
+}

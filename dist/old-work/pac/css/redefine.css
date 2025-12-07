@@ -1,0 +1,94 @@
+/* HTML redefined */
+
+body, td, th {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	color: #000;
+}
+
+body {
+	margin: .5em 0 0 0;
+	background-color: #fff;
+}
+
+th {
+	font-weight: bold;
+}
+
+a {
+	color: #036;
+	text-decoration: none;
+}
+
+#mainContentHolder .content a {
+	color: #00f;
+	font-weight: bold;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+ul, ol	{
+	margin-top: .5em;
+	margin-bottom: 0;
+	padding-left: 3em;
+	margin-left: 1.5em;
+	padding-top: 0;
+}
+
+p {
+	margin: 0 0 .5em 0;
+}
+
+ul {
+	padding: 0 0 0 0;
+	color: #036;
+	list-style-type: disc;
+}
+
+li	{
+	padding-bottom: .2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: verdana, arial, helvetica, sans-serif;
+	text-decoration: none;
+}
+
+h1, td h1, h1 a	{
+	font-size: 1.2em;
+	margin-bottom: .2em;
+}
+
+h2, td h2, h2 a	{
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+h3, td h3, h3 a	{
+	font-size: 1em;
+	padding: 0px;
+	margin-top: 5px;
+	margin-left: 0px;
+	margin-bottom: 2px;
+	font-weight: bold;
+}
+
+form {
+	padding: 0;
+	margin: 0 0 0 0;
+}
+
+input, option, select {
+	font-size: .9em;
+	color: #000;
+}
+
+small, .small {
+	font-size: .8em;
+}

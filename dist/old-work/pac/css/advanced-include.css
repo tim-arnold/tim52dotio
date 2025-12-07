@@ -1,0 +1,480 @@
+/* LOOK AND FEEL */
+
+/* Standard HTML styles */
+/* and basefont style and size */
+/* inherit from "redefine.css" */
+
+/* Nav and menu styles and behavior */
+/* inherit from "navigation.css" */
+
+#homeFooter {
+	width: 760px;
+	padding: 1em;
+	text-align: center;
+}
+
+#mainFooter {
+	background-color: #eaeaea;
+	border-top: 20px #999 solid;
+	width: 760px;
+	padding: 1em;
+	text-align: center;
+}
+
+.spacer {
+	margin: 0;
+	padding: .1em;
+	clear: both;
+}
+
+/* ***************** */
+/* home page styles  */
+/* ****************  */
+
+#homeFeature {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #666;
+	/* Background color set in "advanced.css" for NS 4.7 etc. */
+}
+
+#homeFeature .image {
+	padding: 0;
+	margin: 0;
+}
+
+#homeFeature .content {
+	font-size: 1.2em;
+	padding: 1.5em 1em 1em 1em;
+}
+
+#homeFeature .content h1 {
+	font-size: 1.3em;
+	margin: 0;
+}
+
+#homeFeature .content li a {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+#homeFeature .readMore {
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	font-size: .8em;
+	font-weight: bold;
+}
+
+#homeFeature .nextIssue td {
+	text-align: right;
+	font-size: .95em;
+	padding: 0 1em .2em 0;
+	font-weight: bold;
+}
+
+#homeFeature .subscribe td {
+	text-align: right;
+	background: #036 url(../images/home_featureFooter_bg.jpg) left top repeat-y;
+}
+
+#homeFeature .subscribe a {
+	color: #fff;
+	font-size: .95em;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0 1em 0 0;
+}
+
+#homeFeature .subscribe a:hover {
+	text-decoration: underline;
+}
+
+/* ****************************************  */
+/* styles for subsection boxes on home page  */
+/* ****************************************  */
+
+/* Subsection-specific color schemes are set in "advanced.css" for NS 4.7 etc.  */
+
+/* COMMON ELEMENTS  */
+
+#subsectionColors td {
+	padding: 0 0 1em 0;
+	border-right: 2px solid #fff;
+}
+
+#subsectionColors .header {
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border-bottom: 2px solid #fff;
+}
+
+#subsectionColors .content {
+	padding: .5em;
+}
+
+#subsectionColors .content h1 {
+	font-size: .9em;
+	padding: .2em 0 .2em 0;
+	margin: 0;
+}
+
+#subsectionColors .content h1 a {
+	text-decoration: none;
+}
+
+#subsectionColors .content h2 {
+	font-size: .9em;
+	padding: .3em 0 .3em 0;
+	margin: 0;
+}
+
+#subsectionColors .content h2 a {
+	text-decoration: underline;
+}
+
+
+/* Area below colored boxes on home page  */
+
+#secondaryContent {
+	padding: 0;
+	margin: 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+#secondaryContent h1 {
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+}
+
+#secondaryContent a h1 {
+	text-decoration: underline;
+}
+
+#secondaryContent .leftContent {
+	border-right: 1px dotted #ccc;
+	padding: 0;
+	margin: 0;
+}
+
+#secondaryContent .rightContent {
+	padding: .5em .5em 1em .5em;
+}
+
+#secondaryContent .rightContent h1 {
+	font-size: 1.2em;
+	padding: 0;
+	margin: 0;
+}
+
+#secondaryContent .leftContent .actionForm {
+	background: #eaebd7;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	padding: .5em;
+}
+
+#secondaryContent .lowerLeftContent {
+	border-right: 1px dotted #ccc;
+	padding-left: .5em;
+}
+
+#secondaryContent .lowerLeftContent .right {
+	padding-left: .5em;
+}
+
+#subsectionColors a, #secondaryContent a {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#secondaryContent a {
+	font-size: 1em;
+	text-decoration:underline;
+}
+
+#secondaryContent a:hover, #secondaryContent a:hover {
+	text-decoration:none;
+}
+
+/* ************** */
+/* SUBPAGE STYLES */
+/* *************  */
+
+
+/* Sub Page header styles */
+
+#subPageheader td {
+	/* Image background is set in the sub-section specific styles elsewhere */
+	padding: 0;
+	margin: 0;
+	height: 77px;
+}
+
+#subPageheader #newsletter {
+	padding: 0;
+	font-size: .9em;
+	margin-top: .5em;
+	margin-left: 465px;
+	color: #fff;
+}
+
+#subPageheader #newsletter a {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#subPageheader #newsletter a:hover {
+	text-decoration: none;
+}
+
+#subPageheader #newsletter form {
+	margin-top: .5em;
+}
+
+/* Sub Page content area styles */
+
+#contentHolder #content {
+	padding: 1em 0 1em 1em ;
+	font-size: 1.2em;
+}
+
+#contentHolder #content a {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+/* h1, h2, and h3 colors are set in the sub-section specific styles elsewhere */
+
+#content h1 {
+	font-size: .8em;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+#content h2 {
+	padding-top: 0;
+	padding-bottom: .5em;
+	font-size: 1.5em;
+}
+
+#content h3 {
+	margin-bottom: .5em;
+	font-size: 1.3em;
+}
+
+#content img {
+	padding: 0;
+}
+
+#content #tools {
+	padding: 0 0 1em 0;
+}
+
+#contentHolder #breadcrumbs, #contentHolder #breadcrumbs a, #contentHolder #breadcrumbs strong {
+	font-size: .9em;
+}
+
+#contentHolder #breadcrumbs, #contentHolder #breadcrumbs a {
+	font-weight: normal;
+}
+
+#contentHolder #breadcrumbs strong {
+	font-weight: bold;
+}
+
+#contentHolder #breadcrumbs a {
+	color: #00f;
+}
+
+#contentHolder #iconTable td {
+	padding: .5em;
+	text-align: center;
+}
+
+#contentHolder #actionTable {
+	margin-bottom: 2em;
+}
+
+#contentHolder #actionTable td {
+	padding-right: 2em;
+}
+
+#contentHolder #actionTable td a {
+	color: #00f;
+}
+
+/* Sub Page header and content area styles. */
+/* These should only be colors.  Any sizing, in order /*
+/* to be uniform with other sections, should be made */
+/* in the COMMON sections above. */
+
+/* "Learn" section */
+
+#subPageLearn #subPageheader {
+	background: url(../images/subPage_learn_headerPhoto.jpg) left top no-repeat;
+}
+
+#subPageLearn .leftNavHolder {
+	background-color: #7f4c8c;
+}
+
+#subPageLearn .leftNavHolder .item {
+	border-bottom: 1px #ac76bd solid;
+}
+
+#subPageLearn .leftNavHolder .itemAlt {
+	background-color: #ac76bd;
+}
+
+#subPageLearn .leftNavHolder .divider {
+	border-bottom: 1px #ac76bd solid;
+}
+
+#subPageLearn #content h1, #subPageLearn #content h2, #subPageLearn #content h3 {
+	color: #7f4c8c;
+}
+
+#subPageLearn #content h1, #subPageLearn #content h3 {
+	border-bottom: 1px #7f4c8c solid;
+}
+
+/* "Share" section */
+
+#subPageShare #subPageheader {
+	background: url(../images/subPage_learn_headerPhoto.jpg) left top no-repeat;
+	/* background: url(../images/subPage_share_headerPhoto.jpg) left top no-repeat; */
+}
+
+#subPageShare #mainContentHolder .leftNavHolder {
+	background-color: #538b3d;
+}
+
+#subPageShare .leftNavHolder .item {
+	border-bottom: 1px #6fa55a solid;
+}
+
+#subPageShare .leftNavHolder .itemAlt {
+	padding: .5em;
+	background-color: #6fa55a;
+}
+
+#subPageShare .leftNavHolder .divider {
+	border-bottom: 1px #6fa55a solid;
+}
+
+#subPageShare #content h1, #subPageShare #content h2, #subPageShare #content h3 {
+	color: #538b3d;
+}
+
+#subPageShare #content h1, #subPageShare #content h3 {
+	border-bottom: 1px #538b3d solid;
+}
+
+/* "Act" section */
+
+#subPageAct #subPageheader {
+	background: url(../images/subPage_learn_headerPhoto.jpg) left top no-repeat;
+	/* background: url(../images/subPage_act_headerPhoto.jpg) left top no-repeat; */
+}
+
+#subPageAct #mainContentHolder .leftNavHolder {
+	background-color: #c24a28;
+}
+
+#subPageAct .leftNavHolder .item {
+	border-bottom: 1px #d1816a solid;
+}
+
+#subPageAct .leftNavHolder .itemAlt {
+	padding: .5em;
+	background-color: #d1816a;
+}
+
+#subPageAct .leftNavHolder .divider {
+	border-bottom: 1px #d1816a solid;
+}
+
+#subPageAct #content h1, #subPageAct #content h2, #subPageAct #content h3 {
+	color: #c24a28;
+}
+
+#subPageAct #content h1, #subPageAct #content h3 {
+	border-bottom: 1px #c24a28 solid;
+}
+
+/* "Videos" section */
+
+#subPageVideos #subPageheader {
+	background: url(../images/subPage_learn_headerPhoto.jpg) left top no-repeat;
+	/* background: url(../images/subPage_act_headerPhoto.jpg) left top no-repeat; */
+}
+
+#subPageVideos #mainContentHolder .leftNavHolder {
+	background-color: #127484;
+}
+
+#subPageVideos .leftNavHolder .item {
+	border-bottom: 1px #659da6 solid;
+}
+
+#subPageVideos .leftNavHolder .itemAlt {
+	padding: .5em;
+	background-color: #659da6;
+}
+
+#subPageVideos .leftNavHolder .divider {
+	border-bottom: 1px #659da6 solid;
+}
+
+#subPageVideos #content h1, #subPageVideos #content h2, #subPageVideos #content h3 {
+	color: #127484;
+}
+
+#subPageVideos #content h1, #subPageVideost #content h3 {
+	border-bottom: 1px #127484 solid;
+}
+
+
+/* Video Promo Box */
+
+#videoPromo .promoContent .left, #videoPromo .promoContent .right {
+	padding: .5em;
+}
+
+/* Learn */
+
+table#videoPromo {
+	width: 550px;
+}
+
+#subPageLearn #content #videoPromo .topBorder td {
+	background: url(../images/purpleTable_border_top.gif) left top repeat-x;
+}
+
+#subPageLearn #content #videoPromo .bottomBorder td {
+	background: url(../images/purpleTable_border_bottom.gif) left top repeat-x;
+}
+
+#subPageLearn #content #videoPromo .leftBorder {
+	background: url(../images/purpleTable_border_left.gif) left top repeat-y;
+}
+
+#subPageLearn #videoPromo .rightBorder {
+	background: url(../images/purpleTable_border_right.gif) left top repeat-y;
+}
+
+#subPageLearn #videoPromo .promoContent .left, #subPageLearn #videoPromo .promoContent .right {
+	background-color: #e6c2f1;
+}
+
+#subPageLearn #videoPromo .topBorder .right, #subPageLearn #videoPromo .promoContent .right, #subPageLearn #videoPromo .bottomBorder .right {
+	border-left: 1px #7f4c8c solid;
+}

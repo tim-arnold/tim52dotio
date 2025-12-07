@@ -142,3 +142,5 @@ NEXT_PUBLIC_SANITY_API_VERSION=2025-11-25
 Since this is a static site, content updates require a rebuild:
 - **Option 1**: Push any commit to trigger rebuild
 - **Option 2**: Manually trigger rebuild in Cloudflare Pages dashboard
+
+Update to trigger new build on professional sanity branch

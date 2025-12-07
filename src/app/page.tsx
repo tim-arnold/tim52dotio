@@ -7,6 +7,7 @@ import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
     // Fun console message for curious developers
@@ -92,10 +93,13 @@ export default function Home() {
                         <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
                             <h2 id="overview-heading">Fractional Director of Technology</h2>
 
-                            <img
+                            <Image
                                 src="/images/tim-and-the-wall-square.webp"
                                 alt="Tim Arnold"
+                                width={250}
+                                height={250}
                                 className={styles.profileImage}
+                                unoptimized
                             />
                             <p>
                                 I help progressive nonprofit organizations wrangle technology without losing their minds (or their values).

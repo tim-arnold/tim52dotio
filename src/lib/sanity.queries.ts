@@ -93,7 +93,7 @@ export interface PageContent {
   section: string
   heading?: string
   subheading?: string
-  content?: any[]
+  content?: unknown[]
 }
 
 export async function getPageContent(page: string, section: string): Promise<PageContent | null> {

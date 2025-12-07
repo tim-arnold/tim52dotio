@@ -12,7 +12,6 @@ export default defineType({
       options: {
         list: [
           { title: 'Home', value: 'home' },
-          { title: 'Services', value: 'services' },
         ],
       },
       validation: (Rule) => Rule.required(),

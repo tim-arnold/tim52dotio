@@ -25,19 +25,19 @@
 .title {
   font-size: 3rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--primary-dark);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
-  
+
   // Dark mode
   :global(.dark) & {
-    color: #e8e8e8;
+    color: var(--primary);
   }
-  
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
-  
+
   @media (max-width: 480px) {
     font-size: 2rem;
   }

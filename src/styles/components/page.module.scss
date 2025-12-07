@@ -29,55 +29,96 @@
 
 /* About Section */
 .aboutSection {
-  padding: 6rem 0;
+  padding: 4rem 0;
   margin-top: 64px;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
 }
 
 .aboutContent {
-  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
-  width: 100%;
-  padding: 0 1rem; /* Add padding for smaller screens */
 
-  @media (min-width: 768px) {
-    padding: 0; /* Remove extra padding on larger screens as parallaxContent handles it */
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+    gap: 2rem;
   }
 }
 
 .aboutText {
   flex: 1;
   position: relative;
-  background-color: white;
   color: var(--text-dark);
   padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  margin-right: 2rem;
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 40px solid white;
-    top: 44%;
-    right: -38px;
+  :global(.dark) & {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+    width: 100%;
   }
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    font-weight: 800;
-    color: #333;
+    color: var(--primary-dark);
+
+    :global(.dark) & {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    small {
+      display: block;
+      font-size: 0.6em;
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0.6);
+
+      :global(.dark) & {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      margin-top: 0.5rem;
+    }
   }
 
   p {
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+
+    :global(.dark) & {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    em {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    strong {
+      color: var(--text-dark);
+
+      :global(.dark) & {
+        color: white;
+      }
+
+      font-weight: 600;
+    }
   }
 }
 
@@ -99,8 +140,11 @@
 /* Features Section */
 .featuresSection {
   padding: 6rem 0;
-  color: white;
-  background: black;
+  color: var(--text-dark);
+
+  :global(.dark) & {
+    color: white;
+  }
 }
 
 .featuresContent {
@@ -109,6 +153,11 @@
   h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    color: var(--primary-dark);
+
+    :global(.dark) & {
+      color: var(--primary);
+    }
   }
 }
 
@@ -119,22 +168,37 @@
 }
 
 .featureCard {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background: transparent;
   padding: 2rem;
   border-radius: 8px;
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  :global(.dark) & {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 
   &:hover {
     transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    :global(.dark) & {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
   }
 
   h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
-    color: var(--primary);
+    color: var(--primary-dark);
     font-weight: 600;
+
+    :global(.dark) & {
+      color: var(--primary);
+    }
   }
 
   ul {
@@ -146,27 +210,43 @@
       position: relative;
       padding-left: 1.5rem;
       margin-bottom: 0.5rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--text-dark);
       line-height: 1.5;
+
+      :global(.dark) & {
+        color: rgba(255, 255, 255, 0.9);
+      }
 
       &:before {
         content: "→";
         position: absolute;
         left: 0;
-        color: var(--primary);
+        color: var(--primary-dark);
         font-weight: bold;
+
+        :global(.dark) & {
+          color: var(--primary);
+        }
       }
     }
   }
 
   p {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-style: italic;
     margin: 0;
     font-size: 0.95rem;
 
-    em {
+    :global(.dark) & {
       color: var(--primary);
+    }
+
+    em {
+      color: var(--primary-dark);
+
+      :global(.dark) & {
+        color: var(--primary);
+      }
     }
   }
 }
@@ -215,16 +295,16 @@
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--background-dark);
+    color: var(--primary-dark);
 
     @media (max-width: 768px) {
       font-size: 2rem;
       margin-bottom: 1.5rem;
     }
 
-    // Dark mode - white text for better contrast
+    // Dark mode - light green text for consistency
     :global(.dark) & {
-      color: white;
+      color: var(--primary);
     }
   }
 }
@@ -269,40 +349,28 @@
 
   // Override button colors for primary background section
   :global(.button) {
-    background-color: var(--background-dark) !important;
-    color: var(--primary) !important;
-    border: 2px solid var(--background-dark) !important;
+    // Light theme - white buttons on green background
+    background-color: white !important;
+    color: var(--text-dark) !important;
+    border: none !important;
 
     &::after {
-      border-top-color: var(--background-dark) !important;
+      border-top-color: white !important;
+    }
+
+    &.button-up::after {
+      border-bottom-color: white !important;
     }
 
     &:hover {
-      background-color: var(--background-dark) !important;
-      color: var(--primary) !important;
-      border-color: var(--background-dark) !important;
+      background-color: white !important;
+      color: var(--text-dark) !important;
     }
 
     &.secondary {
-      background-color: var(--background-dark) !important;
-      border: 2px solid var(--background-dark) !important;
-      color: var(--primary) !important;
-
-      &::after {
-        border-top-color: var(--background-dark) !important;
-      }
-
-      &:hover {
-        background-color: var(--background-dark) !important;
-        color: var(--primary) !important;
-      }
-    }
-
-    // Dark theme button adjustments
-    :global(.dark) & {
       background-color: white !important;
-      color: var(--background-dark) !important;
-      border-color: white !important;
+      color: var(--text-dark) !important;
+      border: none !important;
 
       &::after {
         border-top-color: white !important;
@@ -310,14 +378,33 @@
 
       &:hover {
         background-color: white !important;
+        color: var(--text-dark) !important;
+      }
+    }
+
+    // Dark theme button adjustments for primary background
+    :global(.dark) & {
+      background-color: white !important;
+      color: var(--background-dark) !important;
+      border: none !important;
+
+      &::after {
+        border-top-color: white !important;
+      }
+
+      &.button-up::after {
+        border-bottom-color: white !important;
+      }
+
+      &:hover {
+        background-color: white !important;
         color: var(--background-dark) !important;
-        border-color: white !important;
       }
 
       &.secondary {
         background-color: white !important;
         color: var(--background-dark) !important;
-        border-color: white !important;
+        border: none !important;
 
         &::after {
           border-top-color: white !important;
@@ -407,28 +494,6 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
-  .aboutContent {
-    flex-direction: column;
-  }
-
-  .aboutText {
-    margin-right: 0;
-    margin-bottom: 3rem;
-    margin-left: 0; /* Remove the offset that might cause it to shift left */
-    width: 100%; /* Ensure full width */
-
-    &::before {
-      border-top: 40px solid white;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 0;
-      top: auto;
-      right: auto;
-      bottom: -38px;
-      left: 70%;
-    }
-  }
-
   .featuresContent h2,
   .contactContent h2,
   .aboutText h2 {

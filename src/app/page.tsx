@@ -81,7 +81,6 @@ export default function Home() {
                 {/* Main Overview */}
                 <ParallaxSection
                     id="what-i-do"
-                    backgroundColor="var(--background-dark)"
                     height="auto"
                     minHeight="100vh"
                     className={styles.aboutSection}
@@ -118,7 +117,6 @@ export default function Home() {
                     speed={0.3}
                     height="auto"
                     minHeight="100vh"
-                    backgroundColor="var(--background-dark)"
                     className={styles.featuresSection}
                     role="region"
                     aria-labelledby="services-detail-heading"
@@ -209,9 +207,9 @@ export default function Home() {
                 </ParallaxSection>
 
                 {/* Contact/CTA Section */}
-                <ParallaxSection
+<ParallaxSection
                     id="contact"
-                    backgroundColor="var(--primary-dark)"
+                    backgroundColor="var(--primary)"
                     height="100vh"
                     className={styles.contactSection}
                     role="region"

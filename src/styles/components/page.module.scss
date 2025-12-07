@@ -29,8 +29,7 @@
 
 /* About Section */
 .aboutSection {
-  padding: 4rem 2rem;
-  margin-top: 64px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,6 +147,22 @@
 
       font-weight: 600;
     }
+  }
+}
+
+.profileImage {
+  float: right;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  shape-outside: circle();
+  margin: 0 0 1rem 1rem;
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+    margin: 0 0 1rem 1rem;
   }
 }
 

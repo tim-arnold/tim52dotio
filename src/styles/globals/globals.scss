@@ -273,21 +273,6 @@ p {
     animation-play-state: paused;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 10%;
-    right: 10%;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    filter: blur(3px);
-    opacity: 0.6;
-    z-index: -1;
-    animation: shadowChange 2s infinite ease-in-out;
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -352,16 +337,6 @@ p {
       animation-play-state: paused;
     }
 
-    &::before {
-      animation: shadowChangeHorizontal 2s infinite ease-in-out;
-      bottom: 10%;
-      top: 10%;
-      left: -3px;
-      right: auto;
-      width: 6px;
-      height: auto;
-    }
-
     &::after {
       top: 30%;
       left: 94%;
@@ -392,10 +367,6 @@ p {
 html.dark .button {
   animation-name: buttonPulseDark;
 
-  &::before {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
   &.secondary::after {
     border-top-color: var(--foreground);
   }
@@ -410,10 +381,6 @@ html.dark .button {
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) .button {
     animation-name: buttonPulseDark;
-
-    &::before {
-      background: rgba(255, 255, 255, 0.2);
-    }
 
     &.secondary::after {
       border-top-color: var(--foreground);

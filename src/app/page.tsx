@@ -91,6 +91,12 @@ export default function Home() {
                     <div className={styles.aboutContent}>
                         <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
                             <h2 id="overview-heading">Fractional Director of Technology</h2>
+
+                            <img
+                                src="/images/tim-and-the-wall-square.webp"
+                                alt="Tim Arnold"
+                                className={styles.profileImage}
+                            />
                             <p>
                                 I help progressive nonprofit organizations wrangle technology without losing their minds (or their values).
                             </p>
@@ -101,7 +107,7 @@ export default function Home() {
                             <p>
                                 <em>Spoiler alert: Usually it&apos;s the computers that are the problem, not the people.</em>
                             </p>
-                            <p>My current role is <strong>&ldquo;Fractional Director of Technology&rdquo;</strong> — which is a fancy way of saying
+                            <p><strong>&ldquo;Fractional Director of Technology&rdquo;</strong> is a fancy way of saying
                             I do the tech leadership stuff without requiring you to pay for a full-time salary, benefits, and my questionable tea brewing habits (I sometimes put 2 or 3 bags in a cup to brew).</p>
                         </ParallaxElement>
                     </div>

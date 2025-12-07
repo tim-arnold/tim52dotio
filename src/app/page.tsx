@@ -1,53 +1,15 @@
 // src/app/page.tsx
-'use client';
-
-import { useEffect, useState } from 'react';
 import styles from '../styles/components/page.module.scss';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getServiceCards, type ServiceCard } from '../lib/sanity.queries';
+import { getServiceCards } from '@/lib/sanity.queries';
+import ConsoleMessage from '../components/ConsoleMessage';
 
-export default function Home() {
-    const [serviceCards, setServiceCards] = useState<ServiceCard[]>([]);
-
-    // Fetch service cards from Sanity
-    useEffect(() => {
-        getServiceCards().then(setServiceCards);
-    }, []);
-
-    // Fun console message for curious developers
-    useEffect(() => {
-        console.log(`
-    🐄 Well hello there, fellow developer! 🐄
-
-                   ^__^
-                   (oo)\\_______
-                   (__)\\       )\\/\\
-                       ||----w |
-                       ||     ||
-
-    You found the secret cow! This means you're probably the kind
-    of person who appreciates good code AND good humor.
-
-    👋 I'm Tim Arnold - a web developer and tech leader with 25+ years
-    of experience building websites for nonprofits and agencies.
-
-    🚀 Looking for someone who can:
-       • Build accessible, performant websites
-       • Lead development teams with empathy and humor
-       • Wrangle complex projects without losing their mind
-       • Make your users (and your cows) happy
-
-    📧 Let's chat about your next exciting web project!
-       tim@tim52.io | https://tim52.io/portfolio
-
-    P.S. - This cow was photographed in County Kerry, Ireland.
-           She's available for consulting but charges in grass.
-        `);
-    }, []); // Empty dependency array ensures this only runs once
+export default async function Home() {
+    const serviceCards = await getServiceCards();
 
     const jsonLd = {
         '@context': 'https://schema.org',
@@ -82,6 +44,7 @@ export default function Home() {
 
     return (
         <div className={styles.page}>
+            <ConsoleMessage />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

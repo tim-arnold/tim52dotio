@@ -1,15 +1,23 @@
 // src/app/page.tsx
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/components/page.module.scss';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getServiceCards, type ServiceCard } from '../lib/sanity.queries';
 
 export default function Home() {
+    const [serviceCards, setServiceCards] = useState<ServiceCard[]>([]);
+
+    // Fetch service cards from Sanity
+    useEffect(() => {
+        getServiceCards().then(setServiceCards);
+    }, []);
+
     // Fun console message for curious developers
     useEffect(() => {
         console.log(`
@@ -138,76 +146,17 @@ export default function Home() {
                         </ParallaxElement>
 
                         <StaggeredFeatures className={styles.featuresList}>
-                            <div className={styles.featureCard}>
-                                <h3>Technology Leadership &amp; Strategy</h3>
-                                <ul>
-                                    <li>Overall direction of web tech initiatives</li>
-                                    <li>Technology roadmap development</li>
-                                    <li>Budget planning and resource allocation</li>
-                                    <li>Vendor evaluation and selection</li>
-                                    <li>Internal technical audits</li>
-                                </ul>
-                                <p><em>Translation: I make the big tech decisions so you don&apos;t have to.</em></p>
-                            </div>
-
-                            <div className={styles.featureCard}>
-                                <h3>Team Management &amp; Development</h3>
-                                <ul>
-                                    <li>Managing development teams (Junior Developers all the way up to Tech Leads and Directors)</li>
-                                    <li>Hiring and vetting technical talent</li>
-                                    <li>Performance management with empathy</li>
-                                    <li>Process improvement and team culture building</li>
-                                    <li>Training and professional development</li>
-                                </ul>
-                                <p><em>Because good people deserve good management, not just &ldquo;figuring it out.&rdquo;</em></p>
-                            </div>
-
-                            <div className={styles.featureCard}>
-                                <h3>Business Development &amp; Sales Support</h3>
-                                <ul>
-                                    <li>Technical sales pursuit support</li>
-                                    <li>Proposal writing and technical scoping</li>
-                                    <li>Client consultation on technical requirements</li>
-                                    <li>Competitive analysis and positioning</li>
-                                </ul>
-                                <p><em>I can talk to clients without making them wish they&apos;d never asked about &ldquo;the tech stuff.&rdquo;</em></p>
-                            </div>
-
-                            <div className={styles.featureCard}>
-                                <h3>Web Development &amp; Technical Execution</h3>
-                                <ul>
-                                    <li>Full-stack web development (25+ years experience)</li>
-                                    <li>Accessibility and performance optimization</li>
-                                    <li>CMS implementation and customization</li>
-                                    <li>Modern frontend frameworks and tools</li>
-                                    <li>Server administration and DevOps</li>
-                                </ul>
-                                <p><em>I still write code because I actually like it, and I&apos;m pretty good at it too.</em></p>
-                            </div>
-
-                            <div className={styles.featureCard}>
-                                <h3>Systems Administration &amp; Operations</h3>
-                                <ul>
-                                    <li>Google Workspace administration</li>
-                                    <li>Task tracking tools (Jira, Monday.com, etc.)</li>
-                                    <li>Version control systems (GitLab, GitHub)</li>
-                                    <li>Security audits and compliance</li>
-                                    <li>Backup and disaster recovery planning</li>
-                                </ul>
-                                <p><em>The boring but essential stuff that keeps everything running smoothly.</em></p>
-                            </div>
-
-                            <div className={styles.featureCard}>
-                                <h3>Progressive Nonprofit Specialization</h3>
-                                <ul>
-                                    <li>Deep understanding of nonprofit organizational culture</li>
-                                    <li>Experience with progressive political campaigns and advocacy</li>
-                                    <li>Sensitivity to budget constraints and mission alignment</li>
-                                    <li>Knowledge of nonprofit-specific compliance requirements</li>
-                                    <li>Understanding of accessibility as a social justice issue</li>
-                                </ul>
-                                <p><em>I get it. Your mission matters more than the latest JavaScript framework.</em></p>
-                            </div>
+                            {serviceCards.map((card) => (
+                                <div key={card._id} className={styles.featureCard}>
+                                    <h3>{card.title}</h3>
+                                    <ul>
+                                        {card.bulletPoints.map((point, index) => (
+                                            <li key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p><em>{card.tagline}</em></p>
+                                </div>
+                            ))}
                         </StaggeredFeatures>
                     </div>
                     <ParallaxElement speed={0.6}>

@@ -81,6 +81,7 @@ export default function Home() {
                 {/* Main Overview */}
                 <ParallaxSection
                     id="what-i-do"
+                    backgroundColor="var(--primary)"
                     height="auto"
                     minHeight="100vh"
                     className={styles.aboutSection}

@@ -51,6 +51,39 @@ export default function StaggeredFeatures({
         };
     }, [threshold]); // Only re-run if threshold changes
 
+    // Masonry layout calculation
+    useEffect(() => {
+        const resizeMasonryItem = (item: HTMLElement) => {
+            const grid = item.parentElement;
+            if (!grid) return;
+
+            const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+            const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+
+            if (rowHeight === 0) return; // Skip on mobile
+
+            const rowSpan = Math.ceil((item.querySelector('div')?.getBoundingClientRect().height ?? 0 + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = `span ${rowSpan}`;
+        };
+
+        const resizeAllMasonryItems = () => {
+            const container = containerRef.current;
+            if (!container) return;
+
+            const allItems = container.querySelectorAll<HTMLElement>(`.${styles.staggerItem}`);
+            allItems.forEach(resizeMasonryItem);
+        };
+
+        // Resize on mount and window resize
+        const timeoutId = setTimeout(resizeAllMasonryItems, 100);
+        window.addEventListener('resize', resizeAllMasonryItems);
+
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener('resize', resizeAllMasonryItems);
+        };
+    }, [isInView]);
+
     return (
         <div
             ref={containerRef}

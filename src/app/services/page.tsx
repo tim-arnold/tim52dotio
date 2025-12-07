@@ -56,9 +56,9 @@ export default function Services() {
                                 I know what works, what doesn&apos;t, and what makes people want to throw their computers out the window.
                             </p>
                             <p>
-                                <em>Spoiler alert: Usually it&apos;s the computers that are the problem, not the people.</em>
+                                <em>Spoiler alert: Iit&apos;s almost always the tech that is the problem, not the people.</em>
                             </p>
-                            <p>My current role is <strong>&ldquo;Fractional Director of Technology&rdquo;</strong> — which is a fancy way of saying 
+                            <p><strong>&ldquo;Fractional Director of Technology&rdquo;</strong> is a fancy way of saying
                             I do the tech leadership stuff without requiring you to pay for a full-time salary, benefits, and my questionable tea brewing habits (I sometimes put 2 or 3 bags in a cup to brew).</p>
                         </ParallaxElement>
                     </div>
@@ -95,11 +95,11 @@ export default function Services() {
                                     <li>Vendor evaluation and selection</li>
                                     <li>Internal technical audits</li>
                                 </ul>
-                                <p><em>Translation: I make the big tech decisions so you don&apos;t have to.</em></p>
+                                <p><em>Translation: I help make the big tech decisions and put them into practice.</em></p>
                             </div>
 
                             <div className={styles.serviceCard}>
-                                <h3>Team Management & Development</h3>
+                                <h3>Team Management &amp; Development</h3>
                                 <ul>
                                     <li>Managing development teams (Junior Developers all the way up to Tech Leads and Directors)</li>
                                     <li>Hiring and vetting technical talent</li>

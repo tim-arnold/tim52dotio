@@ -6,18 +6,9 @@ import styles from '../styles/components/page.module.scss';
 import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
-import FadeImageTransition from '../components/FadeImageTransition';
 import Link from 'next/link';
-import { useTransitionNavigation } from '../hooks/useTransitionNavigation';
 
 export default function Home() {
-    const { navigate } = useTransitionNavigation();
-
-    const handlePortfolioClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
-        e.preventDefault();
-        navigate('/portfolio');
-    };
-
     // Fun console message for curious developers
     useEffect(() => {
         console.log(`
@@ -87,147 +78,162 @@ export default function Home() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <main id="main-content">
-                {/* About Section */}
+                {/* Main Overview */}
                 <ParallaxSection
-                    id="hello"
+                    id="what-i-do"
                     backgroundColor="var(--background-dark)"
                     height="auto"
                     minHeight="100vh"
                     className={styles.aboutSection}
                     role="region"
-                    aria-labelledby="about-heading"
+                    aria-labelledby="overview-heading"
                 >
                     <div className={styles.aboutContent}>
                         <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
-                            <h2 id="about-heading">Hello, I am Tim <small>(he/him)</small></h2>
+                            <h2 id="overview-heading">Fractional Director of Technology</h2>
                             <p>
-                                I have been building websites and managing the teams that build websites —
-                                mainly at agencies serving non-profit organizations — since 1998. It doesn&#39;t feel that long.</p>
-                            <p>
-                                <em>I dunno, time is an illusion.</em>
+                                I help progressive nonprofit organizations wrangle technology without losing their minds (or their values).
                             </p>
                             <p>
-                                Before that I mostly served delicious coffee drinks to make ends meet
-                                while I was playing drums for a bunch of bands in <a href="https://rawheadrex.bandcamp.com/album/tang-o-the-void" target="_blank" rel="noopener noreferrer" aria-label="Rawhead Rex band album on Bandcamp - opens in new window">Eugene</a> (which is in <a href="https://youtu.be/Eo8FmXeuS0A?si=jghw6fvf2gh9Z3fs" target="_blank" rel="noopener noreferrer" aria-label="Oregon reference on YouTube - opens in new window">Oregon</a>), <a href="https://bestkissersintheworld.com/" target="_blank" rel="noopener noreferrer" aria-label="Best Kissers in the World band website - opens in new window">Seattle</a> (duh), and <a href="https://open.spotify.com/album/2dU05NqgZNleqtvpMe8jXO?si=GtpmjeB9SV-hqBm2aHJcPA" target="_blank" rel="noopener noreferrer" aria-label="Cincinnati band album on Spotify - opens in new window">Cincinnati</a> (don&#39;t worry about it).</p>
-                            <p>
-                                <em>Ohio is also an illusion.</em>
+                                After 25+ years building websites and leading tech teams at agencies serving nonprofits,
+                                I know what works, what doesn&apos;t, and what makes people want to throw their computers out the window.
                             </p>
-                            <p>Check out this <a href="/portfolio" onClick={handlePortfolioClick}>portfolio of my work</a>.</p>
-
+                            <p>
+                                <em>Spoiler alert: Usually it&apos;s the computers that are the problem, not the people.</em>
+                            </p>
+                            <p>My current role is <strong>&ldquo;Fractional Director of Technology&rdquo;</strong> — which is a fancy way of saying
+                            I do the tech leadership stuff without requiring you to pay for a full-time salary, benefits, and my questionable tea brewing habits (I sometimes put 2 or 3 bags in a cup to brew).</p>
                         </ParallaxElement>
-
-                        {/* In the About Section of page.tsx */}
-                        <div className={styles.aboutImage}>
-                            <ParallaxElement
-                                speed={0.5}
-                                direction="left"
-                                rotate={true}
-                                rotationRange={10}
-                                rotationOffset={20}
-                                reverseRotation={true}
-                            >
-                                <FadeImageTransition
-                                    image1={{
-                                        src: "/images/tim-yelling.webp",
-                                        alt: "A very excited young Tim, shouting at the top of his lungs. Photographed by his fathner.",
-                                        blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                                    }}
-                                    image2={{
-                                        src: "/images/tim-and-the-wall-square.webp",
-                                        alt: "A significantly older Tim who never yells. Photographed by himself."
-                                    }}
-                                    width={300}
-                                    height={300}
-                                    className={styles.floatingImage}
-                                />
-                            </ParallaxElement>
-                        </div>
-
                     </div>
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <Link href="#reality" className="button" aria-label="Continue to Reality Gnaws section">Ka-Doink</Link>
+                            <Link href="#services-detail" className="button">The Details</Link>
                         </div>
                     </ParallaxElement>
                 </ParallaxSection>
 
-            {/* Features Section */}
-            <ParallaxSection
-                id="reality"
-                speed={0.3}
-                height="auto"
-                minHeight="100vh"
-                backgroundColor="var(--background-dark)"
-                className={styles.featuresSection}
-                role="region"
-                aria-labelledby="reality"
-            >
-                <div className={styles.featuresContent}>
-                    <ParallaxElement speed={-0.3} amplify={1.5}>
-                        <h2 id="reality-nibbles">Reality Gnaws</h2>
-                    </ParallaxElement>
+                {/* Detailed Services */}
+                <ParallaxSection
+                    id="services-detail"
+                    speed={0.3}
+                    height="auto"
+                    minHeight="100vh"
+                    backgroundColor="var(--background-dark)"
+                    className={styles.featuresSection}
+                    role="region"
+                    aria-labelledby="services-detail-heading"
+                >
+                    <div className={styles.featuresContent}>
+                        <ParallaxElement speed={-0.3} amplify={1.5}>
+                            <h2 id="services-detail-heading">How I Can Help Your Organization</h2>
+                        </ParallaxElement>
 
-                    {/* Replace the featuresList div with the StaggeredFeatures component */}
-                    <StaggeredFeatures className={styles.featuresList}>
-                        {/* Remove the ParallaxElement wrappers from each card */}
-                        <div className={styles.featureCard}>
-                            <p><strong>My partner</strong> of nearly 30 years and I live with our two dogs in Maryland.
-                                She is a therapist and I&apos;m currently in the market for one.</p>
-                            <p><em>Am I an illusion?</em></p>
-                        </div>
+                        <StaggeredFeatures className={styles.featuresList}>
+                            <div className={styles.featureCard}>
+                                <h3>Technology Leadership &amp; Strategy</h3>
+                                <ul>
+                                    <li>Overall direction of web tech initiatives</li>
+                                    <li>Technology roadmap development</li>
+                                    <li>Budget planning and resource allocation</li>
+                                    <li>Vendor evaluation and selection</li>
+                                    <li>Internal technical audits</li>
+                                </ul>
+                                <p><em>Translation: I make the big tech decisions so you don&apos;t have to.</em></p>
+                            </div>
 
-                        <div className={styles.featureCard}>
-                            <p><strong>The two kids</strong> are out in the world making lives of their own.</p>
-                            <p><em>We delight in seeing them do their things and assure you that both kids are quite real.</em></p>
-                        </div>
+                            <div className={styles.featureCard}>
+                                <h3>Team Management &amp; Development</h3>
+                                <ul>
+                                    <li>Managing development teams (Junior Developers all the way up to Tech Leads and Directors)</li>
+                                    <li>Hiring and vetting technical talent</li>
+                                    <li>Performance management with empathy</li>
+                                    <li>Process improvement and team culture building</li>
+                                    <li>Training and professional development</li>
+                                </ul>
+                                <p><em>Because good people deserve good management, not just &ldquo;figuring it out.&rdquo;</em></p>
+                            </div>
 
-                        <div className={styles.featureCard}>
-                            <p><strong>The photo of the cow</strong> was taken by me in <a href={"https://maps.app.goo.gl/S14myK6WuNNFC1bF8"}>County Kerry, Ireland</a> in July 2023.</p>
-                            <p><em>Cows are an illusion and this illusory cow would like you to move along, thank you very much!</em></p>
-                        </div>
-                    </StaggeredFeatures>
-                </div>
-                <ParallaxElement speed={0.6}>
-                    <div className={styles.heroCtas}>
-                        <Link href="#findme" className="button" aria-label="Continue to Where to Find Me section">Dink</Link>
+                            <div className={styles.featureCard}>
+                                <h3>Business Development &amp; Sales Support</h3>
+                                <ul>
+                                    <li>Technical sales pursuit support</li>
+                                    <li>Proposal writing and technical scoping</li>
+                                    <li>Client consultation on technical requirements</li>
+                                    <li>Competitive analysis and positioning</li>
+                                </ul>
+                                <p><em>I can talk to clients without making them wish they&apos;d never asked about &ldquo;the tech stuff.&rdquo;</em></p>
+                            </div>
+
+                            <div className={styles.featureCard}>
+                                <h3>Web Development &amp; Technical Execution</h3>
+                                <ul>
+                                    <li>Full-stack web development (25+ years experience)</li>
+                                    <li>Accessibility and performance optimization</li>
+                                    <li>CMS implementation and customization</li>
+                                    <li>Modern frontend frameworks and tools</li>
+                                    <li>Server administration and DevOps</li>
+                                </ul>
+                                <p><em>I still write code because I actually like it, and I&apos;m pretty good at it too.</em></p>
+                            </div>
+
+                            <div className={styles.featureCard}>
+                                <h3>Systems Administration &amp; Operations</h3>
+                                <ul>
+                                    <li>Google Workspace administration</li>
+                                    <li>Task tracking tools (Jira, Monday.com, etc.)</li>
+                                    <li>Version control systems (GitLab, GitHub)</li>
+                                    <li>Security audits and compliance</li>
+                                    <li>Backup and disaster recovery planning</li>
+                                </ul>
+                                <p><em>The boring but essential stuff that keeps everything running smoothly.</em></p>
+                            </div>
+
+                            <div className={styles.featureCard}>
+                                <h3>Progressive Nonprofit Specialization</h3>
+                                <ul>
+                                    <li>Deep understanding of nonprofit organizational culture</li>
+                                    <li>Experience with progressive political campaigns and advocacy</li>
+                                    <li>Sensitivity to budget constraints and mission alignment</li>
+                                    <li>Knowledge of nonprofit-specific compliance requirements</li>
+                                    <li>Understanding of accessibility as a social justice issue</li>
+                                </ul>
+                                <p><em>I get it. Your mission matters more than the latest JavaScript framework.</em></p>
+                            </div>
+                        </StaggeredFeatures>
                     </div>
-                </ParallaxElement>
-            </ParallaxSection>
-
-            {/* Contact Section */}
-            <ParallaxSection
-                id="findme"
-                backgroundColor="var(--primary-dark)"
-                height="100vh"
-                className={styles.contactSection}
-                role="region"
-                aria-labelledby="contact-heading"
-            >
-                <div className={styles.contactContent}>
-                    <ParallaxElement speed={0.3}>
-                        <h2 id="contact-heading">Where to Find Me</h2>
-                    </ParallaxElement>
-
-                    <ParallaxElement speed={0.5}>
-                        <div className={styles.socialLinks}>
-                            {/* External links with accessibility indicators */}
-                            <a href="https://weareoutright.com/" target="_blank" rel="noopener noreferrer" aria-label="Outright work website - opens in new window">Outright (work) <span aria-hidden="true">↗</span></a>
-                            <a href="https://instagram.com/tim52pics/" target="_blank" rel="noopener noreferrer" aria-label="Tim's Instagram profile - opens in new window">Instagram (a bit) <span aria-hidden="true">↗</span></a>
-                            <a href="https://linkedin.com/in/timarnold/" target="_blank" rel="noopener noreferrer" aria-label="Tim Arnold's LinkedIn profile - opens in new window">LinkedIn (professionally) <span aria-hidden="true">↗</span></a>
-                            <a href="https://bsky.app/profile/tim52.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Tim's Bluesky profile - opens in new window">Bluesky (blue moon) <span aria-hidden="true">↗</span></a>
-                            <a href="https://twit.social/@tim52" target="_blank" rel="noopener noreferrer" aria-label="Tim's Mastodon profile - opens in new window">Mastodon (long ago) <span aria-hidden="true">↗</span></a>
-                            <a href="https://tiktok.com/@tim5.2" target="_blank" rel="noopener noreferrer" aria-label="Tim's TikTok profile - opens in new window">TikTok (no time) <span aria-hidden="true">↗</span></a>
-                            <a href="https://insurmountableopportunities.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim's old blog - opens in new window">Old Blog (blog?) <span aria-hidden="true">↗</span></a>
+                    <ParallaxElement speed={0.6}>
+                        <div className={styles.heroCtas}>
+                            <Link href="#contact" className="button">Let&apos;s Work Together</Link>
                         </div>
                     </ParallaxElement>
-                </div>
+                </ParallaxSection>
 
-                <ParallaxElement speed={0.6}>
-                    <div className={styles.heroCtas}>
-                        <Link href="#footer" className="button" aria-label="Continue to Get In Touch section">Pssssht!</Link>
+                {/* Contact/CTA Section */}
+                <ParallaxSection
+                    id="contact"
+                    backgroundColor="var(--primary-dark)"
+                    height="100vh"
+                    className={styles.contactSection}
+                    role="region"
+                    aria-labelledby="contact-heading"
+                >
+                    <div className={styles.contactContent}>
+                        <ParallaxElement speed={0.3}>
+                            <h2 id="contact-heading">Ready to Stop Wrestling with Technology?</h2>
+                        </ParallaxElement>
+
+                        <ParallaxElement speed={0.5}>
+                            <div className={styles.contactText}>
+                                <p>Whether you need someone to lead your tech team, build your website, or just figure out why nothing works the way it&apos;s supposed to, I&apos;m here to help.</p>
+                                <p><strong>Currently available for fractional or project-based work.</strong></p>
+                                <div className={styles.contactLinks}>
+                                    <Link href="#footer" className="button">Get In Touch</Link>
+                                    <Link href="/portfolio" className="button secondary button-right">See My Work</Link>
+                                </div>
+                            </div>
+                        </ParallaxElement>
                     </div>
-                </ParallaxElement>
-            </ParallaxSection>
+                </ParallaxSection>
 
             </main>
         </div>

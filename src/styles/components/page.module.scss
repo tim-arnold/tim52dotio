@@ -132,13 +132,70 @@
 
   h3 {
     margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+
+      &:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+      }
+    }
+  }
+
+  p {
+    color: var(--primary);
+    font-style: italic;
+    margin: 0;
+    font-size: 0.95rem;
+
+    em {
+      color: var(--primary);
+    }
   }
 }
 
 /* Contact Section */
 .contactSection {
-  /* Contact section styles */
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+    min-height: 80vh;
+  }
+
+  // Theme-responsive text colors
+  h2, p, strong {
+    color: var(--background-dark);
+
+    // In dark mode, use white text for better contrast
+    :global(.dark) & {
+      color: white;
+    }
+  }
+
   // Dark mode - override the primary background with a darker version
   :global(.dark) & {
     background-color: var(--primary-dark) !important;
@@ -146,25 +203,131 @@
 }
 
 .contactContent {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   text-align: center;
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    
+    margin-bottom: 2rem;
+    color: var(--background-dark);
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
     // Dark mode - white text for better contrast
     :global(.dark) & {
       color: white;
     }
   }
+}
+
+.contactText {
+  color: var(--background-dark);
+  text-align: center;
+  width: 100%;
 
   p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
     // Dark mode - white text for better contrast
     :global(.dark) & {
       color: white;
+    }
+  }
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Override button colors for primary background section
+  :global(.button) {
+    background-color: var(--background-dark) !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--background-dark) !important;
+
+    &::after {
+      border-top-color: var(--background-dark) !important;
+    }
+
+    &:hover {
+      background-color: var(--background-dark) !important;
+      color: var(--primary) !important;
+      border-color: var(--background-dark) !important;
+    }
+
+    &.secondary {
+      background-color: var(--background-dark) !important;
+      border: 2px solid var(--background-dark) !important;
+      color: var(--primary) !important;
+
+      &::after {
+        border-top-color: var(--background-dark) !important;
+      }
+
+      &:hover {
+        background-color: var(--background-dark) !important;
+        color: var(--primary) !important;
+      }
+    }
+
+    // Dark theme button adjustments
+    :global(.dark) & {
+      background-color: white !important;
+      color: var(--background-dark) !important;
+      border-color: white !important;
+
+      &::after {
+        border-top-color: white !important;
+      }
+
+      &:hover {
+        background-color: white !important;
+        color: var(--background-dark) !important;
+        border-color: white !important;
+      }
+
+      &.secondary {
+        background-color: white !important;
+        color: var(--background-dark) !important;
+        border-color: white !important;
+
+        &::after {
+          border-top-color: white !important;
+        }
+
+        &:hover {
+          background-color: white !important;
+          color: var(--background-dark) !important;
+        }
+      }
     }
   }
 }

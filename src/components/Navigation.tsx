@@ -165,14 +165,6 @@ export default function Navigation() {
             return;
         }
         
-        if (href === '/services' && pathname === '/services') {
-            // Already on services page, just scroll to top
-            e.preventDefault();
-            closeMenu();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return;
-        }
-        
         // Only handle page transitions for different routes
         if (href.startsWith('/') && !href.startsWith('/#')) {
             e.preventDefault();
@@ -244,16 +236,6 @@ export default function Navigation() {
                                 tabIndex={menuOpen ? 0 : -1}
                             >
                                 Home
-                            </Link>
-                        </li>
-                        <li role="none">
-                            <Link
-                                href="/services"
-                                onClick={(e) => handleNavigation('/services', e)}
-                                role="menuitem"
-                                tabIndex={menuOpen ? 0 : -1}
-                            >
-                                Services
                             </Link>
                         </li>
                         <li role="none">

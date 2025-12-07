@@ -20,70 +20,7 @@
   }
 }
 
-/* Hero Section */
-.heroSection {
-  margin-top: 64px;
-  text-align: center;
-  position: relative;
-  background-color: var(--background-dark);
-}
-
-/* Hero Content */
-.heroContent {
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  position: relative;
-  z-index: 2;
-
-  h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    
-    // Ensure better line breaking on mobile - force tim52.io to new line
-    @media (max-width: 480px) {
-      font-size: 2.8rem;
-      line-height: 1.1;
-      
-      // Force line break before tim52.io container
-      :global(.domain-container) {
-        display: block !important;
-        text-align: center;
-      }
-      
-      // Keep all domain characters inline within container
-      :global(.domain-char) {
-        display: inline-block !important;
-      }
-    }
-    
-    // Even smaller screens
-    @media (max-width: 400px) {
-      font-size: 2.4rem;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-  }
-}
-
-.heroCow {
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20vh;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--background-dark));
-    pointer-events: none;
-    z-index: 1;
-  }
-}
-
+/* Button CTAs */
 .heroCtas {
   display: flex;
   gap: 1rem;
@@ -93,6 +30,7 @@
 /* About Section */
 .aboutSection {
   padding: 6rem 0;
+  margin-top: 64px;
 }
 
 .aboutContent {
@@ -306,10 +244,6 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
-  .heroContent h1 {
-    font-size: 2.5rem;
-  }
-
   .aboutContent {
     flex-direction: column;
   }

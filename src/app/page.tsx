@@ -7,8 +7,6 @@ import ParallaxSection from '../components/ParallaxSection';
 import ParallaxElement from '../components/ParallaxElement';
 import StaggeredFeatures from '../components/StaggeredFeatures';
 import FadeImageTransition from '../components/FadeImageTransition';
-import GSAPSplitText from '../components/GSAPSplitText';
-import StickyBackground from '../components/StickyBackground';
 import Link from 'next/link';
 import { useTransitionNavigation } from '../hooks/useTransitionNavigation';
 
@@ -24,28 +22,28 @@ export default function Home() {
     useEffect(() => {
         console.log(`
     🐄 Well hello there, fellow developer! 🐄
-    
+
                    ^__^
                    (oo)\\_______
                    (__)\\       )\\/\\
                        ||----w |
                        ||     ||
-    
+
     You found the secret cow! This means you're probably the kind
     of person who appreciates good code AND good humor.
-    
+
     👋 I'm Tim Arnold - a web developer and tech leader with 25+ years
     of experience building websites for nonprofits and agencies.
-    
+
     🚀 Looking for someone who can:
        • Build accessible, performant websites
-       • Lead development teams with empathy and humor  
+       • Lead development teams with empathy and humor
        • Wrangle complex projects without losing their mind
        • Make your users (and your cows) happy
-    
+
     📧 Let's chat about your next exciting web project!
        tim@tim52.io | https://tim52.io/portfolio
-    
+
     P.S. - This cow was photographed in County Kerry, Ireland.
            She's available for consulting but charges in grass.
         `);
@@ -89,47 +87,7 @@ export default function Home() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <main id="main-content">
-                {/* Hero Section */}
-                <ParallaxSection
-                id="hero"
-                speed={0}  // No background parallax
-                horizontalSpeed={0}  // No horizontal movement
-                height="100vh"
-                minHeight="70vh"
-                className={styles.heroSection}
-                role="banner"
-                aria-labelledby="hero-heading"
-            >
-                {/* Sticky cow background that stays fixed until text is near top */}
-                <StickyBackground 
-                    src="/images/cow-fullwidth.webp"
-                    alt="Cow in County Kerry, Ireland"
-                    objectPosition="center right"
-                    stickyUntilElement="#findme"
-                    className={styles.heroCow}
-                />
-                
-                <div className={styles.heroContent}>
-                    <ParallaxElement speed={2.2} direction="up">
-                        <GSAPSplitText 
-                            tag="h1" 
-                            id="hero-heading"
-                            speed={1.5}
-                            stagger={0.02}
-                            direction="up"
-                        >
-                            Welcome to tim52.io
-                        </GSAPSplitText>
-                        <p>It is website about Tim and<br/> the Web tech work he does.</p>
-                        <p>But first: a cow.</p>
-                        <div className={styles.heroCtas}>
-                            <Link href="#hello" className="button" aria-describedby="hero-heading">Doink</Link>
-                        </div>
-                    </ParallaxElement>
-                </div>
-            </ParallaxSection>
-
-            {/* About Section */}
+                {/* About Section */}
                 <ParallaxSection
                     id="hello"
                     backgroundColor="var(--background-dark)"

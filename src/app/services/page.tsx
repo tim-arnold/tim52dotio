@@ -11,8 +11,6 @@ import styles from '../../styles/components/services.module.scss';
 import ParallaxSection from '../../components/ParallaxSection';
 import ParallaxElement from '../../components/ParallaxElement';
 import StaggeredFeatures from '../../components/StaggeredFeatures';
-import GSAPSplitText from '../../components/GSAPSplitText';
-import StickyBackground from '../../components/StickyBackground';
 import Link from 'next/link';
 
 export default function Services() {
@@ -21,13 +19,13 @@ export default function Services() {
         if (!window.servicesConsoleLogged) {
             console.log(`
     🐄 Services page loaded! 🐄
-    
+
     Looking for a Fractional Director of Technology who can:
     • Lead your tech team with empathy and expertise
     • Navigate complex projects without losing their mind
     • Actually understand what nonprofits need
     • Make decisions that don't make you want to hide under your desk
-    
+
     📧 Let's talk: tim@tim52.io
         `);
             window.servicesConsoleLogged = true;
@@ -37,44 +35,6 @@ export default function Services() {
     return (
         <div className={styles.page}>
             <main id="main-content">
-                {/* Hero Section */}
-                <ParallaxSection
-                    id="services-hero"
-                    speed={0}
-                    horizontalSpeed={0}
-                    height="100vh"
-                    minHeight="70vh"
-                    className={styles.heroSection}
-                    role="banner"
-                    aria-labelledby="services-heading"
-                >
-                    <StickyBackground 
-                        src="/images/cow2-fullwidth.webp"
-                        alt="Cow in County Kerry, Ireland - providing moral support for your technology decisions"
-                        objectPosition="center right"
-                        stickyUntilElement="#contact"
-                        className={styles.heroCow}
-                    />
-                    
-                    <div className={styles.heroContent}>
-                        <ParallaxElement speed={2.2} direction="up">
-                            <GSAPSplitText 
-                                tag="h1" 
-                                id="services-heading"
-                                speed={1.5}
-                                stagger={0.02}
-                                direction="up"
-                            >
-                                What I Actually Do
-                            </GSAPSplitText>
-                            <p>(Besides take pictures of cows)</p>
-                            <div className={styles.heroCtas}>
-                                <Link href="#what-i-do" className="button">Tell Me More</Link>
-                            </div>
-                        </ParallaxElement>
-                    </div>
-                </ParallaxSection>
-
                 {/* Main Services Overview */}
                 <ParallaxSection
                     id="what-i-do"

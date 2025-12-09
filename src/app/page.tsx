@@ -62,7 +62,7 @@ export default async function Home() {
                 >
                     <div className={styles.aboutContent}>
                         <ParallaxElement speed={0.3} direction="right" className={styles.aboutText}>
-                            <h2 id="overview-heading">Fractional Director of Technology</h2>
+                            <h2 id="overview-heading">Web Developer and Tech Leader</h2>
 
                             <Image
                                 src="/images/tim-and-the-wall-square.webp"
@@ -73,17 +73,16 @@ export default async function Home() {
                                 unoptimized
                             />
                             <p>
-                                I help progressive nonprofit organizations wrangle technology without losing their minds (or their values).
+                                I help progressive nonprofit organizations wrangle technology without losing their
+                                minds (or their values).
                             </p>
                             <p>
                                 After 25+ years building websites and leading tech teams at agencies serving nonprofits,
-                                I know what works, what doesn&apos;t, and what makes people want to throw their computers out the window.
+                                I know what actually works and what&apos;s just going to waste your time and money.
                             </p>
-                            <p>
-                                <em>Spoiler alert: Usually it&apos;s the computers that are the problem, not the people.</em>
-                            </p>
-                            <p><strong>&ldquo;Fractional Director of Technology&rdquo;</strong> is a fancy way of saying
-                            I do the tech leadership stuff without requiring you to pay for a full-time salary, benefits, and my questionable tea brewing habits (I sometimes put 2 or 3 bags in a cup to brew).</p>
+                            <p>Whether you need someone to lead your tech team, build your website, architect a solution,
+                            or just figure out why nothing works the way it&apos;s supposed to&mdash;I can help.
+                            Available for fractional leadership, project-based work, or ongoing consulting.</p>
                         </ParallaxElement>
                     </div>
                     <ParallaxElement speed={0.6}>

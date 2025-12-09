@@ -145,10 +145,9 @@ export default async function Home() {
                         <ParallaxElement speed={0.5}>
                             <div className={styles.contactText}>
                                 <p>Whether you need someone to lead your tech team, build your website, or just figure out why nothing works the way it&apos;s supposed to, I&apos;m here to help.</p>
-                                <p><strong>Currently available for fractional or project-based work.</strong></p>
+                                <p><strong>Currently available for fractional or project-based work.</strong> <Link href="/portfolio">See my work</Link>.</p>
                                 <div className={styles.contactLinks}>
                                     <Link href="#footer" className="button">Get In Touch</Link>
-                                    <Link href="/portfolio" className="button secondary button-right">See My Work</Link>
                                 </div>
                             </div>
                         </ParallaxElement>

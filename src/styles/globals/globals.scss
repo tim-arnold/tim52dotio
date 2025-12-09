@@ -3,10 +3,44 @@
 /* Base color palette - these don't change between themes */
 :root {
   /* Core brand colors */
-  --color-primary: #c5cd57;
+  /* Original Green - RGB: 197, 205, 87 / 90, 99, 36 */
+  /*--color-primary: #c5cd57;
   --color-primary-dark: #5a6324;
   --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;*/
+
+  /* Alternative Palettes - uncomment to try different color schemes */
+  /* IMPORTANT: When changing palettes, also update --background-alt-rgb in the light/dark theme sections below */
+
+  /* Option 1: Warm Coral/Rust - RGB: 217, 120, 84 / 139, 74, 46 */
+  /* --color-primary: #d97854; */
+  /* --color-primary-dark: #8b4a2e; */
+  /* --color-secondary: #e67e22; */
+  /* --color-accent: #e74c3c; */
+
+  /* Option 2: Ocean Teal - RGB: 87, 197, 184 / 46, 107, 99 */
+  /* --color-primary: #57c5b8; */
+  /* --color-primary-dark: #2e6b63; */
+  /* --color-secondary: #1abc9c; */
+  /* --color-accent: #3498db; */
+
+  /* Option 3: Lavender Purple - RGB: 184, 141, 219 / 107, 74, 125 */
+  --color-primary: #b88ddb;
+  --color-primary-dark: #6b4a7d;
+  --color-secondary: #9b59b6;
   --color-accent: #e74c3c;
+
+  /* Option 4: Sky Blue - RGB: 107, 163, 217 / 58, 90, 125 */
+  /* --color-primary: #6ba3d9; */
+  /* --color-primary-dark: #3a5a7d; */
+  /* --color-secondary: #3498db; */
+  /* --color-accent: #f39c12; */
+
+  /* Option 5: Warm Amber - RGB: 219, 168, 86 / 139, 106, 50 */
+  /* --color-primary: #dba856; */
+  /* --color-primary-dark: #8b6a32; */
+  /* --color-secondary: #f39c12; */
+  /* --color-accent: #c0392b; */
 
   /* Neutral colors */
   --color-white: #ffffff;
@@ -39,7 +73,7 @@ html.light {
 
   /* RGB values for rgba usage */
   --background-rgb: 255, 255, 255;
-  --background-alt-rgb: 197, 205, 87;
+  --background-alt-rgb: 184, 141, 219; /* Update this when changing color palette - see RGB values in comments above */
   --foreground-rgb: 23, 23, 23;
 
   /* Text colors */
@@ -86,7 +120,7 @@ html.dark {
 
   /* RGB values for rgba usage */
   --background-rgb: 10, 10, 10;
-  --background-alt-rgb: 90, 99, 36;
+  --background-alt-rgb: 107, 74, 125; /* Update this when changing color palette - see RGB values in comments above */
   --foreground-rgb: 237, 237, 237;
 
   /* Text colors */
@@ -133,7 +167,7 @@ html.dark {
 
     /* RGB values for rgba usage */
     --background-rgb: 10, 10, 10;
-    --background-alt-rgb: 90, 99, 36;
+    --background-alt-rgb: 107, 74, 125; /* Update this when changing color palette - see RGB values in comments above */
     --foreground-rgb: 237, 237, 237;
 
     /* Text colors */

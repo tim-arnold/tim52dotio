@@ -84,10 +84,10 @@
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-dark);
+    color: var(--text-dark);
 
     :global(.dark) & {
-      color: var(--primary);
+      color: var(--color-white);
     }
 
     @media (max-width: 768px) {
@@ -336,16 +336,16 @@
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--primary-dark);
+    color: var(--background-dark);
 
     @media (max-width: 768px) {
       font-size: 2rem;
       margin-bottom: 1.5rem;
     }
 
-    // Dark mode - light green text for consistency
+    // Dark mode - white text for better contrast
     :global(.dark) & {
-      color: var(--primary);
+      color: var(--color-white);
     }
   }
 }

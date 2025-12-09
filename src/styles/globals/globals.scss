@@ -1,71 +1,171 @@
 /* src/styles/globals/globals.scss */
+
+/* Base color palette - these don't change between themes */
 :root {
-  --background: #ffffff;
-  --background-dark: #0a0a0a;
-  --foreground: #171717;
-  --background-rgb: 197, 205, 87;
-  --foreground-rgb: 23, 23, 23;
-  --primary: #c5cd57;
-  --primary-dark: #c5cd57;
-  --social-hover: #333333;
-  --secondary: #2ecc71;
-  --accent: #e74c3c;
-  --text-light: #f5f5f5;
-  --text-dark: #333333;
+  /* Core brand colors */
+  --color-primary: #c5cd57;
+  --color-primary-dark: #5a6324;
+  --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;
+
+  /* Neutral colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-lightest: #f5f5f5;
+  --color-gray-lighter: #f2f2f2;
+  --color-gray-light: #cccccc;
+  --color-gray: #383838;
+  --color-gray-dark: #333333;
+  --color-gray-darker: #1a1a1a;
+  --color-gray-darkest: #171717;
+  --color-gray-near-black: #0a0a0a;
+
+  /* Focus and interaction colors */
+  --color-focus: #005fcc;
+
+  /* Font family */
   --font-geist-sans: system-ui, sans-serif;
 }
 
-// Dark mode styles - now controlled by class instead of media query
-:root.dark,
-html.dark {
-  --background: #0a0a0a;
-  --background-dark: #0a0a0a;
-  --foreground: var(--primary);
-  --background-rgb: 10, 10, 10;
-  --foreground-rgb: 237, 237, 237;
-  --primary: #c5cd57;
-  --primary-dark: #5a6324;
-  --social-hover: #ffffff;
-  --secondary: #2ecc71;
-  --accent: #e74c3c;
-  --text-light: #f5f5f5;
-  --text-dark: #333333;
-  color-scheme: dark;
-}
-
-// Light mode styles (explicit for manual switching)
+/* Light theme (default) */
+:root,
 :root.light,
 html.light {
-  --background: #ffffff;
-  --background-dark: #0a0a0a;
-  --foreground: #171717;
-  --background-rgb: 197, 205, 87;
+  /* Semantic colors - light theme */
+  --background: var(--color-white);
+  --background-alt: var(--color-primary);
+  --background-alt-dark: var(--color-primary-dark);
+  --foreground: var(--color-gray-darkest);
+
+  /* RGB values for rgba usage */
+  --background-rgb: 255, 255, 255;
+  --background-alt-rgb: 197, 205, 87;
   --foreground-rgb: 23, 23, 23;
-  --primary: #c5cd57;
-  --primary-dark: #5a6324;
-  --social-hover: #333333;
-  --secondary: #2ecc71;
-  --accent: #e74c3c;
-  --text-light: #f5f5f5;
-  --text-dark: #333333;
+
+  /* Text colors */
+  --text-primary: var(--color-gray-darkest);
+  --text-secondary: var(--color-gray-dark);
+  --text-on-primary: var(--color-gray-dark);
+  --text-on-primary-contrast: var(--color-white);
+
+  /* Interactive colors */
+  --link-hover: var(--color-gray-dark);
+  --button-hover: var(--color-gray);
+  --button-hover-secondary: var(--color-gray-lighter);
+
+  /* Border and surface colors */
+  --border-color: var(--color-gray-dark);
+  --surface-overlay: var(--color-white);
+  --shadow-color: 0, 0, 0;
+
+  /* Skip link */
+  --skip-link-bg: var(--color-black);
+  --skip-link-text: var(--color-white);
+
+  /* Legacy compatibility variables */
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+  --secondary: var(--color-secondary);
+  --accent: var(--color-accent);
+  --text-dark: var(--color-gray-dark);
+  --text-light: var(--color-gray-lightest);
+  --background-dark: var(--color-gray-near-black);
+  --social-hover: var(--link-hover);
+
   color-scheme: light;
 }
 
-// Fallback for browser preference (when no manual theme is set)
+/* Dark theme */
+:root.dark,
+html.dark {
+  /* Semantic colors - dark theme */
+  --background: var(--color-gray-near-black);
+  --background-alt: var(--color-primary-dark);
+  --background-alt-dark: var(--color-primary-dark);
+  --foreground: var(--color-primary);
+
+  /* RGB values for rgba usage */
+  --background-rgb: 10, 10, 10;
+  --background-alt-rgb: 90, 99, 36;
+  --foreground-rgb: 237, 237, 237;
+
+  /* Text colors */
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-lightest);
+  --text-on-primary: var(--color-white);
+  --text-on-primary-contrast: var(--color-gray-near-black);
+
+  /* Interactive colors */
+  --link-hover: var(--color-white);
+  --button-hover: var(--color-gray-light);
+  --button-hover-secondary: var(--color-gray-darker);
+
+  /* Border and surface colors */
+  --border-color: var(--color-white);
+  --surface-overlay: var(--color-white);
+  --shadow-color: 0, 0, 0;
+
+  /* Skip link */
+  --skip-link-bg: var(--color-gray-near-black);
+  --skip-link-text: var(--color-white);
+
+  /* Legacy compatibility variables */
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+  --secondary: var(--color-secondary);
+  --accent: var(--color-accent);
+  --text-dark: var(--color-gray-dark);
+  --text-light: var(--color-gray-lightest);
+  --background-dark: var(--color-gray-near-black);
+  --social-hover: var(--link-hover);
+
+  color-scheme: dark;
+}
+
+/* Fallback for browser preference (when no manual theme is set) */
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) {
-    --background: #0a0a0a;
-    --background-dark: #0a0a0a;
-    --foreground: var(--primary);
+    /* Semantic colors - dark theme */
+    --background: var(--color-gray-near-black);
+    --background-alt: var(--color-primary-dark);
+    --background-alt-dark: var(--color-primary-dark);
+    --foreground: var(--color-primary);
+
+    /* RGB values for rgba usage */
     --background-rgb: 10, 10, 10;
+    --background-alt-rgb: 90, 99, 36;
     --foreground-rgb: 237, 237, 237;
-    --primary: #c5cd57;
-    --primary-dark: #5a6324;
-    --social-hover: #ffffff;
-    --secondary: #2ecc71;
-    --accent: #e74c3c;
-    --text-light: #f5f5f5;
-    --text-dark: #333333;
+
+    /* Text colors */
+    --text-primary: var(--color-white);
+    --text-secondary: var(--color-gray-lightest);
+    --text-on-primary: var(--color-white);
+    --text-on-primary-contrast: var(--color-gray-near-black);
+
+    /* Interactive colors */
+    --link-hover: var(--color-white);
+    --button-hover: var(--color-gray-light);
+    --button-hover-secondary: var(--color-gray-darker);
+
+    /* Border and surface colors */
+    --border-color: var(--color-white);
+    --surface-overlay: var(--color-white);
+    --shadow-color: 0, 0, 0;
+
+    /* Skip link */
+    --skip-link-bg: var(--color-gray-near-black);
+    --skip-link-text: var(--color-white);
+
+    /* Legacy compatibility variables */
+    --primary: var(--color-primary);
+    --primary-dark: var(--color-primary-dark);
+    --secondary: var(--color-secondary);
+    --accent: var(--color-accent);
+    --text-dark: var(--color-gray-dark);
+    --text-light: var(--color-gray-lightest);
+    --background-dark: var(--color-gray-near-black);
+    --social-hover: var(--link-hover);
+
     color-scheme: dark;
   }
 }
@@ -121,18 +221,18 @@ a {
 // Ensure visible focus states with better contrast
 a, button, [tabindex] {
   &:focus-visible {
-    outline: 3px solid #005fcc;
+    outline: 3px solid var(--color-focus);
     outline-offset: 3px;
     outline-style: solid;
     border-radius: 4px;
     transition: outline-color 0.2s ease;
   }
-  
+
   // Fallback for browsers that don't support focus-visible
   &:focus:not(:focus-visible) {
     outline: none;
   }
-  
+
   // High contrast mode support
   @media (prefers-contrast: high) {
     &:focus-visible {
@@ -147,16 +247,16 @@ a, button, [tabindex] {
   position: absolute;
   top: -50px;
   left: 20px;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--skip-link-bg);
+  color: var(--skip-link-text);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   z-index: 1000;
   transition: top 0.3s ease;
-  border: 2px solid var(--primary);
-  
+  border: 2px solid var(--color-primary);
+
   &:focus {
     top: 20px;
   }
@@ -259,8 +359,8 @@ p {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
-  background-color: var(--primary);
-  color: var(--text-dark);
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
   font-weight: 600;
   text-align: center;
   transition: all 0.3s ease;
@@ -269,7 +369,7 @@ p {
 
   &:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(var(--shadow-color), 0.15);
     animation-play-state: paused;
   }
 
@@ -284,14 +384,14 @@ p {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 12px solid var(--primary);
+    border-top: 12px solid var(--color-primary);
     transition: transform 0.3s ease;
     z-index: 10;
   }
 
   &:hover::after {
     transform: translateX(-50%) scaleY(2);
-    border-top: 12px solid var(--primary);
+    border-top: 12px solid var(--color-primary);
   }
 
   &.secondary {
@@ -305,7 +405,7 @@ p {
   }
 
   &.button-up {
-    // Inherits background-color from parent .button (var(--primary))
+    // Inherits background-color from parent .button (var(--color-primary))
     // Only change the arrow direction to point up
 
     &::after {
@@ -313,7 +413,7 @@ p {
       bottom: 100%;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-bottom: 12px solid var(--primary);
+      border-bottom: 12px solid var(--color-primary);
       border-top: 0;
       transform-origin: bottom;
       transform: translateX(-50%) scaleY(0);
@@ -321,7 +421,7 @@ p {
 
     &:hover::after {
       transform: translateX(-50%) scaleY(2);
-      border-bottom: 12px solid var(--primary);
+      border-bottom: 12px solid var(--color-primary);
     }
 
     &.secondary::after {

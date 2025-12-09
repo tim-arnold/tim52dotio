@@ -1,23 +1,7 @@
 /* src/styles/modules/page.module.scss */
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   min-height: 100vh;
   font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
 }
 
 /* Button CTAs */
@@ -34,6 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-alt);
 
   @media (max-width: 768px) {
     padding: 3rem 1.5rem;
@@ -41,26 +26,26 @@
 
   // Dark mode - override the primary background with a darker version
   :global(.dark) & {
-    background-color: var(--primary-dark) !important;
+    background-color: var(--background-alt-dark) !important;
   }
 
   // Override button colors for primary background section
   .heroCtas :global(.button) {
-    background-color: white !important;
+    background-color: var(--color-white) !important;
     color: var(--text-dark) !important;
     border: none !important;
 
     &::after {
-      border-top-color: white !important;
+      border-top-color: var(--color-white) !important;
     }
 
     &:hover {
-      background-color: white !important;
+      background-color: var(--color-white) !important;
       color: var(--text-dark) !important;
     }
 
     :global(.dark) & {
-      background-color: white !important;
+      background-color: var(--color-white) !important;
       color: var(--background-dark) !important;
     }
   }
@@ -88,7 +73,7 @@
   padding: 2rem;
 
   :global(.dark) & {
-    color: white;
+    color: var(--color-white);
   }
 
   @media (max-width: 768px) {
@@ -142,7 +127,7 @@
       color: var(--text-dark);
 
       :global(.dark) & {
-        color: white;
+        color: var(--color-white);
       }
 
       font-weight: 600;
@@ -187,7 +172,7 @@
   color: var(--text-dark);
 
   :global(.dark) & {
-    color: white;
+    color: var(--color-white);
   }
 }
 
@@ -385,7 +370,7 @@
 
     // Dark mode - white text for better contrast
     :global(.dark) & {
-      color: white;
+      color: var(--color-white);
     }
   }
 }
@@ -406,68 +391,68 @@
   // Override button colors for primary background section
   :global(.button) {
     // Light theme - white buttons on green background
-    background-color: white !important;
+    background-color: var(--color-white) !important;
     color: var(--text-dark) !important;
     border: none !important;
 
     &::after {
-      border-top-color: white !important;
+      border-top-color: var(--color-white) !important;
     }
 
     &.button-up::after {
-      border-bottom-color: white !important;
+      border-bottom-color: var(--color-white) !important;
     }
 
     &:hover {
-      background-color: white !important;
+      background-color: var(--color-white) !important;
       color: var(--text-dark) !important;
     }
 
     &.secondary {
-      background-color: white !important;
+      background-color: var(--color-white) !important;
       color: var(--text-dark) !important;
       border: none !important;
 
       &::after {
-        border-top-color: white !important;
+        border-top-color: var(--color-white) !important;
       }
 
       &:hover {
-        background-color: white !important;
+        background-color: var(--color-white) !important;
         color: var(--text-dark) !important;
       }
     }
 
     // Dark theme button adjustments for primary background
     :global(.dark) & {
-      background-color: white !important;
+      background-color: var(--color-white) !important;
       color: var(--background-dark) !important;
       border: none !important;
 
       &::after {
-        border-top-color: white !important;
+        border-top-color: var(--color-white) !important;
       }
 
       &.button-up::after {
-        border-bottom-color: white !important;
+        border-bottom-color: var(--color-white) !important;
       }
 
       &:hover {
-        background-color: white !important;
+        background-color: var(--color-white) !important;
         color: var(--background-dark) !important;
       }
 
       &.secondary {
-        background-color: white !important;
+        background-color: var(--color-white) !important;
         color: var(--background-dark) !important;
         border: none !important;
 
         &::after {
-          border-top-color: white !important;
+          border-top-color: var(--color-white) !important;
         }
 
         &:hover {
-          background-color: white !important;
+          background-color: var(--color-white) !important;
           color: var(--background-dark) !important;
         }
       }

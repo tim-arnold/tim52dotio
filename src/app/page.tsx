@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getServiceCards } from '@/lib/sanity.queries';
 import ConsoleMessage from '../components/ConsoleMessage';
+import AIInterface from '../components/AIInterface';
 
 export default async function Home() {
     const serviceCards = await getServiceCards();
@@ -126,6 +127,30 @@ export default async function Home() {
                             <Link href="#contact" className="button">Let&apos;s Work Together</Link>
                         </div>
                     </ParallaxElement>
+                </ParallaxSection>
+
+                {/* AI Interface Section */}
+                <ParallaxSection
+                    id="ask-ai"
+                    speed={0.3}
+                    height="auto"
+                    minHeight="100vh"
+                    className={styles.aiSection}
+                    role="region"
+                    aria-labelledby="ai-heading"
+                >
+                    <div className={styles.aiContent}>
+                        <ParallaxElement speed={0.3}>
+                            <h2 id="ai-heading">Learn More About Me</h2>
+                            <p className={styles.aiIntro}>
+                                Want to know if I&apos;m the right fit? Ask my AI assistant anything about my background,
+                                or paste a job description for an honest assessment.
+                            </p>
+                        </ParallaxElement>
+                        <ParallaxElement speed={0.1}>
+                            <AIInterface />
+                        </ParallaxElement>
+                    </div>
                 </ParallaxSection>
 
                 {/* Contact/CTA Section */}

@@ -292,6 +292,61 @@
   }
 }
 
+/* AI Interface Section */
+.aiSection {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.aiContent {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+
+  > h2,
+  > p {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+
+    :global(.dark) & {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.aiIntro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+  opacity: 0.85;
+
+  :global(.dark) & {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
 /* Contact Section */
 .contactSection {
   display: flex;

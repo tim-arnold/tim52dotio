@@ -1,0 +1,13 @@
+# Cloudflare Pages configuration
+name = "tim52io"
+compatibility_date = "2024-01-01"
+
+# KV namespace for rate limiting
+# You'll need to create this namespace in Cloudflare dashboard:
+# 1. Go to Workers & Pages > KV
+# 2. Create a namespace called "RATE_LIMIT_KV"
+# 3. Copy the namespace ID below
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "e10f3c8163524a2c952bb1d379484605I"  # Replace with actual ID from Cloudflare dashboard

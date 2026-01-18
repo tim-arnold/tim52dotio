@@ -19,7 +19,7 @@
   "dependencies": {
     "@sanity/client": "^7.13.0",
     "@sanity/image-url": "^1.2.0",
-    "@sanity/vision": "^4.20.3",
+    "@sanity/vision": "^4.22.0",
     "gsap": "^3.13.0",
     "next": "^15.5.7",
     "next-sanity": "^11.6.9",
@@ -27,7 +27,7 @@
     "react-dom": "^19.0.0",
     "react-is": "^19.2.0",
     "resend": "^6.0.0",
-    "sanity": "^4.20.3",
+    "sanity": "^4.22.0",
     "styled-components": "^6.1.19"
   },
   "browserslist": [

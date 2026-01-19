@@ -13,9 +13,9 @@ interface AskAIProps {
 }
 
 const SUGGESTED_QUESTIONS = [
-  "What's Tim's experience leading tech teams?",
-  "How has Tim worked with nonprofit organizations?",
-  "What CMS platforms does Tim know well?",
+  "Tell me about Tim's WordPress expertise",
+  "What's Tim's experience with AI development?",
+  "How has Tim led tech teams at agencies?",
 ];
 
 const HEADER_HEIGHT = 80; // Account for sticky header

@@ -56,6 +56,9 @@ export default function AIInterface({ className, defaultTab = 'chat' }: AIInterf
           {activeTab === 'fit' && <FitAssessment />}
         </div>
       </div>
+      <p className={styles.privacyNotice}>
+        Your input is not stored. Content is processed through Anthropic&apos;s Claude API subject to their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+      </p>
     </div>
   );
 }

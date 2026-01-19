@@ -52,6 +52,28 @@
   }
 }
 
+.privacyNotice {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--foreground);
+  opacity: 0.5;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  :global(.dark) & {
+    color: var(--primary);
+    opacity: 0.6;
+  }
+}
+
 // Responsive
 @media (max-width: 768px) {
   .tabs {

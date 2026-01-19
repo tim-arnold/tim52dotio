@@ -65,7 +65,8 @@ Washington DC Metro Area
 - **Accessibility**: WCAG 2.1 AA compliance, auditing, remediation, inclusive design practices
 - **Development Tools**: Git workflows, code review, CI/CD pipelines, Docker/Docksal/Lando
 - **Cloud Hosting**: Platform.sh, Pantheon, WPEngine, Vercel, Cloudflare Pages, Netlify
-- **Cloudflare Ecosystem**: Cloudflare Workers, Pages Functions, D1 (SQLite database), R2 (object storage), KV (key-value store), CDN configuration
+- **Cloudflare Ecosystem**: Cloudflare Workers, Pages Functions, D1 (SQLite database), R2 (object storage), KV (key-value store), AI workers, CDN configuration
+- **AI-Assisted Development**: Claude Code as development agent, Anthropic Claude API integration, MCP server integrations (Figma, Google Drive, Google Workspace)
 - **Non-Profit Tech**: CRM platforms (Engaging Networks, Luminate Online, Salsa), email marketing (Constant Contact, Mailchimp)
 
 ### Working Knowledge (Can Contribute But Not Expert)
@@ -74,9 +75,22 @@ Washington DC Metro Area
 - **Infrastructure**: DNS management, security implementation
 - **APIs**: REST API integration
 
+### AI Development Experience
+- **Claude Code (Anthropic)**: Extensive use of Claude Code as an AI-powered development agent for building applications
+- **LibraryCard Application**: Built a full-stack library management system using Claude Code as primary development tool:
+  - Next.js 14 frontend with Material-UI, TypeScript, and complex state management
+  - Cloudflare Workers backend with 80+ REST API endpoints
+  - Cloudflare D1 database with 40+ migrations and sophisticated multi-user schema
+  - Cloudflare AI integration for image verification (book cover validation)
+  - Advanced authentication: OAuth, 2FA/TOTP, WebAuthn/Passkeys
+  - Features include: barcode scanning, book series management, checkout system, admin dashboards, real-time notifications
+  - Cloudflare R2 for image storage, KV for caching with 70-80% query reduction
+- **Claude API Integration**: This portfolio site's AI chat and fit assessment features use the Anthropic Claude API via Cloudflare Pages Functions
+- **MCP Servers**: Experience with Model Context Protocol servers including Figma, Google Drive, and Google Workspace integrations
+
 ### Gaps (Honest About Not Having Deep Experience)
 - **Native Mobile Development**: No iOS/Android native app experience
-- **Data Engineering**: No experience with data pipelines, ML/AI infrastructure, big data systems
+- **Data Engineering**: No experience with data pipelines, ML infrastructure, big data systems
 - **Enterprise Cloud**: Limited experience with AWS/Azure/GCP at scale (DevOps, infrastructure-as-code)
 - **Consumer Products**: Career has been B2B agency/nonprofit focused, not consumer product development
 - **High-Scale Systems**: Hasn't built systems handling millions of concurrent users

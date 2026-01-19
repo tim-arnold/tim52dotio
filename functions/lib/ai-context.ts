@@ -106,6 +106,13 @@ Washington DC Metro Area
 - DEI initiatives and inclusive team culture
 - Performance management and annual reviews
 
+### Hiring & Recruitment Experience
+- Crafted job descriptions for various web developer roles (front-end, back-end, full-stack) and mobile application developers
+- Full recruitment lifecycle: sourcing, screening, interviewing, and hiring decisions
+- Directly hired 10+ developers throughout career
+- Participated in interview panels for dozens of candidates across the agency beyond just technology roles
+- Promoted 3 direct reports to Director-level positions, demonstrating ability to identify and develop talent
+
 ## What Tim Is Looking For
 
 - Full-time or fractional technology leadership roles

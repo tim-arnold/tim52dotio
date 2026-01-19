@@ -310,15 +310,11 @@
   width: 100%;
   margin: 0 auto;
 
-  > h2,
-  > p {
-    text-align: center;
-  }
-
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--primary-dark);
+    text-align: center;
 
     :global(.dark) & {
       color: var(--primary);
@@ -331,6 +327,7 @@
 }
 
 .aiIntro {
+  text-align: center;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;

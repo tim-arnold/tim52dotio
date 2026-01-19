@@ -32,12 +32,17 @@ Open http://localhost:3000 with your browser to see the result.
 
 ### Development
 ```bash
-# Run the dev server
+# Run the dev server (basic Next.js)
 npm run dev
+
+# Run with AI features (Cloudflare Pages Functions)
+npm run build && npx wrangler pages dev out
 
 # Run Sanity Studio (CMS)
 npm run sanity
 ```
+
+> **Note:** The standard `npm run dev` won't connect to the AI chat and fit assessment features since they use Cloudflare Pages Functions. Use the wrangler command above to test AI functionality locally.
 
 ### Build & Deploy
 ```bash

@@ -122,11 +122,6 @@ export default async function Home() {
                             ))}
                         </StaggeredFeatures>
                     </div>
-                    <ParallaxElement speed={0.6}>
-                        <div className={styles.heroCtas}>
-                            <Link href="#contact" className="button">Let&apos;s Work Together</Link>
-                        </div>
-                    </ParallaxElement>
                 </ParallaxSection>
 
                 {/* AI Interface Section */}

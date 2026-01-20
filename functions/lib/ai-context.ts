@@ -130,6 +130,30 @@ Washington DC Metro Area
 - Organizations misaligned with progressive values
 - Heavily travel-dependent positions
 
+## Organizations Tim Has Worked With
+
+A partial list of clients and organizations Tim has supported throughout his career:
+- AFL-CIO
+- AFSCME
+- Aids Volunteers of Chicago
+- American Federation of Teachers
+- AVAC
+- Candid
+- Center for Applied Linguistics
+- Commonwealth Fund
+- Everytown for Gun Safety
+- Foundation Center
+- Heifer International
+- INOVA
+- League of Women Voters
+- Moms Demand Action
+- The Nature Conservancy
+- New York State Nurses Association
+- Ocean Conservancy
+- truth
+- Union of Concerned Scientists
+- Worldview Magazine
+
 ## Values & Mission Alignment
 
 Tim is passionate about leveraging technology to amplify non-profit missions and create positive social change. He's committed to building inclusive, diverse teams that reflect the communities they serve. He has 20+ years dedicated to technology supporting social justice, civil rights, democracy, and public service initiatives.

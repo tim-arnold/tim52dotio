@@ -97,6 +97,13 @@ export default defineType({
       description: 'Lower numbers appear first',
       validation: (Rule) => Rule.required().min(0),
     }),
+    defineField({
+      name: 'published',
+      title: 'Published',
+      type: 'boolean',
+      description: 'Only published projects appear on the site',
+      initialValue: true,
+    }),
   ],
   orderings: [
     {

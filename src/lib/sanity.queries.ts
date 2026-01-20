@@ -53,7 +53,7 @@ export interface ServiceCard {
 }
 
 export async function getServiceCards(): Promise<ServiceCard[]> {
-  const query = `*[_type == "serviceCard"] | order(order asc) {
+  const query = `*[_type == "serviceCard" && published == true] | order(order asc) {
     _id,
     title,
     slug,

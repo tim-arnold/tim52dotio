@@ -115,15 +115,10 @@ export default function AskAI({ className }: AskAIProps) {
 
   return (
     <div ref={containerRef} className={`${styles.askAI} ${className || ''}`}>
-      <div className={styles.header}>
-        <h3>Ask AI About Tim</h3>
-        <p>Ask questions about my background, experience, and expertise.</p>
-      </div>
-
       <div ref={chatContainerRef} className={styles.chatContainer}>
         {messages.length === 0 ? (
           <div className={styles.welcome}>
-            <p>Hi! I&apos;m an AI assistant trained on Tim&apos;s professional background. Ask me anything about his experience, projects, or skills.</p>
+            <p>What would you like to know?</p>
             <div className={styles.suggestedQuestions}>
               <p className={styles.suggestedLabel}>Try asking:</p>
               {SUGGESTED_QUESTIONS.map((question, index) => (

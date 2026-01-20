@@ -11,13 +11,8 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1200px;
-    padding: 0 2rem; /* Increased horizontal padding */
-    margin: 0 auto; /* Center the content horizontally */
-
-    @media (min-width: 768px) {
-      padding: 0 4rem; /* More padding on larger screens */
-    }
+    max-width: 900px;
+    margin: 0 auto;
   }
 }
 

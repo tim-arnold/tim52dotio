@@ -52,16 +52,14 @@
 }
 
 .aboutContent {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
 
   @media (max-width: 768px) {
-    padding: 0 1.5rem;
     gap: 2rem;
   }
 }
@@ -70,7 +68,6 @@
   flex: 1;
   position: relative;
   color: var(--text-dark);
-  padding: 2rem;
 
   :global(.dark) & {
     color: var(--color-white);
@@ -110,7 +107,7 @@
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     color: var(--text-dark);

@@ -74,15 +74,15 @@ export default async function Home() {
                                 unoptimized
                             />
                             <p>
-                                I help organizations wrangle technology without losing their minds (or their values).
+                                I help nonprofits build websites and make technology work for them.
                             </p>
                             <p>
-                                After 25+ years building websites and leading tech teams at agencies serving nonprofits,
-                                I know what actually works and what&apos;s just going to waste your time and money.
+                                25 years leading tech teams at agencies taught me what succeeds and what just burns budget. Now I work directly with organizations who need senior help without the
+                                agency overhead.
                             </p>
-                            <p>Whether you need someone to lead your tech team, build your website, architect a solution,
-                            or just figure out why nothing works the way it&apos;s supposed to&mdash;I can help.
-                            Available for fractional leadership, project-based work, or ongoing consulting.</p>
+                            <p>
+                                Available for fractional leadership, project work, or consulting.
+                            </p>
                         </ParallaxElement>
                     </div>
                     <ParallaxElement speed={0.6}>

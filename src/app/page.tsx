@@ -88,9 +88,33 @@ export default async function Home() {
                     </div>
                     <ParallaxElement speed={0.6}>
                         <div className={styles.heroCtas}>
-                            <Link href="#services-detail" className="button">The Details</Link>
+                            <Link href="#ask-ai" className="button">Ask about me</Link>
                         </div>
                     </ParallaxElement>
+                </ParallaxSection>
+
+                {/* AI Interface Section */}
+                <ParallaxSection
+                    id="ask-ai"
+                    speed={0.3}
+                    height="auto"
+                    minHeight="100vh"
+                    className={styles.aiSection}
+                    role="region"
+                    aria-labelledby="ai-heading"
+                >
+                    <div className={styles.aiContent}>
+                        <ParallaxElement speed={0.3}>
+                            <h2 id="ai-heading">Am I the Right Fit?</h2>
+                            <p className={styles.aiIntro}>
+                                Ask my AI assistant anything about my background,
+                                or paste a job description for an honest assessment.
+                            </p>
+                        </ParallaxElement>
+                        <ParallaxElement speed={0.1}>
+                            <AIInterface />
+                        </ParallaxElement>
+                    </div>
                 </ParallaxSection>
 
                 {/* Detailed Services */}
@@ -121,30 +145,6 @@ export default async function Home() {
                                 </div>
                             ))}
                         </StaggeredFeatures>
-                    </div>
-                </ParallaxSection>
-
-                {/* AI Interface Section */}
-                <ParallaxSection
-                    id="ask-ai"
-                    speed={0.3}
-                    height="auto"
-                    minHeight="100vh"
-                    className={styles.aiSection}
-                    role="region"
-                    aria-labelledby="ai-heading"
-                >
-                    <div className={styles.aiContent}>
-                        <ParallaxElement speed={0.3}>
-                            <h2 id="ai-heading">Learn More About Me</h2>
-                            <p className={styles.aiIntro}>
-                                Want to know if I&apos;m the right fit? Ask my AI assistant anything about my background,
-                                or paste a job description for an honest assessment.
-                            </p>
-                        </ParallaxElement>
-                        <ParallaxElement speed={0.1}>
-                            <AIInterface />
-                        </ParallaxElement>
                     </div>
                 </ParallaxSection>
 

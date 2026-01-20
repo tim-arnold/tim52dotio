@@ -60,7 +60,7 @@ Washington DC Metro Area
 ## Technical Skills
 
 ### Strong (Deep Experience)
-- **CMS Platforms**: WordPress (10+ years custom themes, plugins, Gutenberg blocks), Drupal (10+ years)
+- **CMS Platforms**: WordPress (10+ years custom themes, plugins, Gutenberg blocks), Drupal (10+ years). Also front-end development experience with Sitecore, Netfinity, Commonspot, RedDot, HotBanana, and several legacy CMS platforms that no longer exist.
 - **Front-End**: HTML, CSS/SASS, JavaScript, responsive frameworks (Bootstrap)
 - **Accessibility**: WCAG 2.1 AA compliance, auditing, remediation, inclusive design practices
 - **Development Tools**: Git workflows, code review, CI/CD pipelines, Docker/Docksal/Lando

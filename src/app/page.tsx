@@ -74,8 +74,7 @@ export default async function Home() {
                                 unoptimized
                             />
                             <p>
-                                I help progressive nonprofit organizations wrangle technology without losing their
-                                minds (or their values).
+                                I help organizations wrangle technology without losing their minds (or their values).
                             </p>
                             <p>
                                 After 25+ years building websites and leading tech teams at agencies serving nonprofits,

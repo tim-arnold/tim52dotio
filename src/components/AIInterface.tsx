@@ -57,7 +57,7 @@ export default function AIInterface({ className, defaultTab = 'chat' }: AIInterf
         </div>
       </div>
       <p className={styles.privacyNotice}>
-        Your input is not stored. Content is processed through Anthropic&apos;s Claude API subject to their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+        Nothing you type here is stored, and you&apos;re completely anonymous. Content is processed via Anthropic&apos;s Claude API under their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
       </p>
     </div>
   );

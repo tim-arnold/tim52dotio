@@ -84,7 +84,7 @@ export default function FitAssessment({ className }: FitAssessmentProps) {
     <div className={`${styles.fitAssessment} ${className || ''}`}>
       <div className={styles.header}>
         <h3>Fit Assessment</h3>
-        <p>Paste a job description and I&apos;ll give you an honest assessment of whether I&apos;m the right fit.</p>
+        <p>Paste a job description and AI will give you an honest assessment of whether Tim might be the right fit. Tim never sees what you submit.</p>
       </div>
 
       {!assessment ? (

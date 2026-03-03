@@ -71,12 +71,22 @@ Washington DC Metro Area
 
 ### Working Knowledge (Can Contribute But Not Expert)
 - **Back-End**: PHP/MySQL
-- **Modern Frameworks**: React, NextJS (building skills, like this portfolio site)
+- **Modern Frameworks**: React, Next.js (App Router, multiple shipped projects including this portfolio site and By Torchlight)
 - **Infrastructure**: DNS management, security implementation
 - **APIs**: REST API integration
 
 ### AI Development Experience
 - **Claude Code (Anthropic)**: Extensive use of Claude Code as an AI-powered development agent for building applications
+- **By Torchlight (bytorchlight.com)**: A fully-playable AI-powered Game Master for the Shadowdark RPG — Tim's first substantial application with AI as a core product feature (not just a development tool):
+  - **Claude Sonnet 4** for live gameplay narration with real-time streaming responses
+  - **Claude Haiku** for guided character creation flows and automated session summarization
+  - **3-tier prompt caching architecture**: static GM frame → context-aware rules → dynamic game state, dramatically reducing token costs across long sessions
+  - **Context-aware rules loading**: 20+ markdown rule files (~2,000 lines) selected dynamically based on game context flags (combat, spellcasting, shopping, leveling up, etc.)
+  - **Structured game state extraction**: AI embeds typed JSON blocks within narrative text; client parses and applies 12 update types (character changes, dice rolls, NPC events, companion actions, etc.)
+  - **Token metering system**: free tier (20 turns on server key) with bring-your-own Anthropic API key for unlimited play
+  - **Session continuity**: AI-generated summaries enable multi-week campaigns with persistent GM memory across sessions
+  - Full-stack: Next.js 16 App Router, React 19, Tailwind CSS v4, Cloudflare Workers/D1, BetterAuth, Drizzle ORM
+  - Features include: animated dice rolls, companion NPC system with soul-transfer mechanic, torch timer with mechanical consequences, combat tracker, adventure modules with GM-only maps, admin panel with beta key management
 - **LibraryCard Application**: Built a full-stack library management system using Claude Code as primary development tool:
   - Next.js 14 frontend with Material-UI, TypeScript, and complex state management
   - Cloudflare Workers backend with 80+ REST API endpoints
@@ -85,7 +95,7 @@ Washington DC Metro Area
   - Advanced authentication: OAuth, 2FA/TOTP, WebAuthn/Passkeys
   - Features include: barcode scanning, book series management, checkout system, admin dashboards, real-time notifications
   - Cloudflare R2 for image storage, KV for caching with 70-80% query reduction
-- **Claude API Integration**: This portfolio site's AI chat and fit assessment features use the Anthropic Claude API via Cloudflare Pages Functions
+- **Claude API Integration**: This portfolio site's AI chat and fit assessment features, and By Torchlight's full gameplay engine, use the Anthropic Claude API via Cloudflare Pages/Workers Functions
 - **MCP Servers**: Experience with Model Context Protocol servers including Figma, Google Drive, and Google Workspace integrations
 
 ### Gaps (Honest About Not Having Deep Experience)

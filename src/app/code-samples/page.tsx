@@ -74,6 +74,14 @@ export default function DemoCodePage() {
             plugin architecture, and GitHub Actions CI/CD workflows. Downloadable zip archives
             contain README.md files with more detailed descriptions.
           </p>
+          <a
+            href={GITHUB_REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.repoLink}
+          >
+            View all samples on GitHub &rarr;
+          </a>
         </header>
 
         <div className={styles.grid}>

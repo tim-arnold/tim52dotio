@@ -22,7 +22,7 @@ export interface Project {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const query = `*[_type == "project" && published == true] | order(order asc) {
+  const query = `*[_type == "project" && published != false] | order(order asc) {
     _id,
     title,
     slug,

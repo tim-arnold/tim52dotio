@@ -39,7 +39,7 @@ export async function getProjects(): Promise<Project[]> {
     order
   }`
 
-  return await client.fetch(query, {}, { cache: 'no-store' })
+  return await client.fetch(query)
 }
 
 // Service Cards
@@ -62,7 +62,7 @@ export async function getServiceCards(): Promise<ServiceCard[]> {
     order
   }`
 
-  return await client.fetch(query, {}, { cache: 'no-store' })
+  return await client.fetch(query)
 }
 
 // Page Content
@@ -85,7 +85,7 @@ export async function getPageContent(page: string, section: string): Promise<Pag
     content
   }`
 
-  return await client.fetch(query, { page, section }, { cache: 'no-store' })
+  return await client.fetch(query, { page, section })
 }
 
 export async function getAllPageContent(page: string): Promise<PageContent[]> {
@@ -98,5 +98,5 @@ export async function getAllPageContent(page: string): Promise<PageContent[]> {
     content
   }`
 
-  return await client.fetch(query, { page }, { cache: 'no-store' })
+  return await client.fetch(query, { page })
 }

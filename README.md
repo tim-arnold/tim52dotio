@@ -127,7 +127,7 @@ This site is deployed on **Cloudflare Pages** with static export.
 
 ### Deployment Flow
 
-1. Push code to the `cow` branch
+1. Push code to the `production` branch
 2. Cloudflare Pages automatically builds the site (`npm run build`)
 3. During build, content is fetched from Sanity CMS
 4. Static HTML is generated and deployed to CDN

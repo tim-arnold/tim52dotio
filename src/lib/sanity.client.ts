@@ -8,7 +8,6 @@ export const client = createClient({
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03',
   useCdn: false, // Set to false for static export to get fresh data at build time
   token: process.env.SANITY_API_READ_TOKEN,
-  fetchOptions: { cache: 'no-store' }, // Bypass Next.js fetch cache so builds always get fresh Sanity data
 })
 
 // Helper function to build image URLs

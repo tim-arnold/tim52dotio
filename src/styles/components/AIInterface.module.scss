@@ -30,19 +30,6 @@
     color: var(--foreground);
     border-bottom-color: var(--color-primary);
   }
-
-  :global(.dark) & {
-    color: rgba(var(--foreground-rgb), 0.5);
-
-    &:hover:not(.active) {
-      color: var(--foreground);
-    }
-
-    &.active {
-      background: var(--primary);
-      color: #1a1a1a;
-    }
-  }
 }
 
 .tabContent {
@@ -65,11 +52,6 @@
     &:hover {
       opacity: 0.8;
     }
-  }
-
-  :global(.dark) & {
-    color: var(--primary);
-    opacity: 0.6;
   }
 }
 

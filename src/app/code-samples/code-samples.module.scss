@@ -3,10 +3,6 @@
   min-height: 100vh;
   padding-top: 6rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-
-  :global(.dark) & {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  }
 }
 
 .container {
@@ -28,10 +24,6 @@
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 
-  :global(.dark) & {
-    color: var(--primary);
-  }
-
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -45,10 +37,6 @@
   font-size: 1.25rem;
   color: #6c757d;
   line-height: 1.6;
-
-  :global(.dark) & {
-    color: #b8b8b8;
-  }
 
   @media (max-width: 768px) {
     font-size: 1.125rem;
@@ -65,10 +53,6 @@
 
   &:hover {
     transform: translateX(4px);
-  }
-
-  :global(.dark) & {
-    color: #c5cd57;
   }
 }
 
@@ -93,19 +77,9 @@
   display: flex;
   flex-direction: column;
 
-  :global(.dark) & {
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-
-    :global(.dark) & {
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    }
   }
 }
 
@@ -120,10 +94,6 @@
   color: #2c3e50;
   margin-bottom: 0.75rem;
   line-height: 1.3;
-
-  :global(.dark) & {
-    color: #e8e8e8;
-  }
 }
 
 .description {
@@ -131,10 +101,6 @@
   line-height: 1.6;
   margin-bottom: 1.25rem;
   font-size: 0.95rem;
-
-  :global(.dark) & {
-    color: #b8b8b8;
-  }
 }
 
 .features {
@@ -159,10 +125,6 @@
     font-weight: 700;
     font-size: 1.1rem;
   }
-
-  :global(.dark) & {
-    color: #c0c0c0;
-  }
 }
 
 .tags {
@@ -179,11 +141,6 @@
   font-weight: 500;
   background: #f3e5f5;
   color: #7b1fa2;
-
-  :global(.dark) & {
-    background: #4a148c;
-    color: #ce93d8;
-  }
 }
 
 .cardFooter {
@@ -193,11 +150,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  :global(.dark) & {
-    background: #1a1a1a;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
 }
 
 .footerLink {

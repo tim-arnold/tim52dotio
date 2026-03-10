@@ -6,8 +6,6 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import ContactForm from "../components/ContactForm";
 import Navigation from "../components/Navigation";
 import PageTransition from "../components/PageTransition";
-import { ThemeProvider } from "../contexts/ThemeContext";
-import BodyClass from "../components/BodyClass";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -98,21 +96,18 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
-      <BodyClass />
-      <ThemeProvider>
-        <ErrorBoundary>
-          <PageTransition>
-            <Navigation data-component="navigation" />
-            {children}
-          </PageTransition>
-          <footer id="footer" className="footer">
-            <div className="container">
-              <ContactForm />
-              <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
-            </div>
-          </footer>
-        </ErrorBoundary>
-      </ThemeProvider>
+      <ErrorBoundary>
+        <PageTransition>
+          <Navigation data-component="navigation" />
+          {children}
+        </PageTransition>
+        <footer id="footer" className="footer">
+          <div className="container">
+            <ContactForm />
+            <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+          </div>
+        </footer>
+      </ErrorBoundary>
       </body>
       </html>
   );

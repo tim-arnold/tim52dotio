@@ -6,7 +6,6 @@ import { useRouter, usePathname } from 'next/navigation';
 import styles from '../styles/components/Navigation.module.scss';
 import { useThrottledScroll } from '../hooks/useThrottledScroll';
 import { usePageTransition } from './PageTransition';
-import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
@@ -197,8 +196,6 @@ export default function Navigation() {
                 </Link>
 
                 <div className={styles.navControls}>
-                    <ThemeToggle />
-                    
                     {/* Hamburger Menu Button */}
                 <button
                     className={`${styles.hamburger} ${menuOpen ? styles.active : ''}`}

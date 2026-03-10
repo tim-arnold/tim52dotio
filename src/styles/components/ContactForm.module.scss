@@ -67,16 +67,8 @@
       color: #e74c3c;
       transition: color 0.3s ease;
 
-      :global(.dark) & {
-        color: #ff6b6b;
-      }
-
       &.valid {
         color: #28a745;
-
-        :global(.dark) & {
-          color: #4ade80;
-        }
       }
     }
   }
@@ -92,23 +84,7 @@
     background-color: var(--background);
     color: var(--foreground);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    
-    // Dark mode
-    :global(.dark) & {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: var(--foreground);
-      border-color: var(--border-color);
 
-      &::placeholder {
-        color: rgba(var(--foreground-rgb), 0.4);
-      }
-
-      &:focus {
-        border-color: var(--color-primary);
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-      }
-    }
-    
     &:focus {
       outline: none;
       border-color: var(--primary);
@@ -134,39 +110,20 @@
   input.valid,
   textarea.valid {
     border-color: #28a745 !important;
-    
+
     &:focus {
       border-color: #28a745 !important;
       box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2) !important;
     }
-    
-    :global(.dark) & {
-      border-color: #4ade80 !important;
-
-      &:focus {
-        border-color: #4ade80 !important;
-        box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2) !important;
-      }
-    }
   }
-  
+
   input.error,
   textarea.error {
     border-color: #dc3545 !important;
-    
+
     &:focus {
       border-color: #dc3545 !important;
       box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
-    }
-    
-    // Dark mode - use a brighter red for better visibility
-    :global(.dark) & {
-      border-color: #ff6b6b !important;
-      
-      &:focus {
-        border-color: #ff6b6b !important;
-        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3) !important;
-      }
     }
   }
 }
@@ -175,11 +132,6 @@
   color: #dc3545;
   font-size: 0.875rem;
   margin-top: 0.25rem;
-  
-  // Dark mode
-  :global(.dark) & {
-    color: #ff6b6b;
-  }
 }
 
 .turnstileContainer {

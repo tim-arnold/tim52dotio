@@ -10,16 +10,6 @@
   font-family: var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
 /* Button CTAs */
 .heroCtas {
   display: flex;
@@ -239,11 +229,6 @@
   // Theme-responsive text colors
   h2, p, strong {
     color: var(--background-dark);
-    
-    // In dark mode, use white text for better contrast
-    :global(.dark) & {
-      color: white;
-    }
   }
 }
 
@@ -307,61 +292,29 @@
     background-color: var(--background-dark) !important;
     color: var(--primary) !important;
     border: 2px solid var(--background-dark) !important;
-    
+
     &::after {
       border-top-color: var(--background-dark) !important;
     }
-    
+
     &:hover {
       background-color: var(--background-dark) !important;
       color: var(--primary) !important;
       border-color: var(--background-dark) !important;
     }
-    
+
     &.secondary {
       background-color: var(--background-dark) !important;
       border: 2px solid var(--background-dark) !important;
       color: var(--primary) !important;
-      
+
       &::after {
         border-top-color: var(--background-dark) !important;
       }
-      
+
       &:hover {
         background-color: var(--background-dark) !important;
         color: var(--primary) !important;
-      }
-    }
-    
-    // Dark theme button adjustments
-    :global(.dark) & {
-      background-color: white !important;
-      color: var(--background-dark) !important;
-      border-color: white !important;
-      
-      &::after {
-        border-top-color: white !important;
-      }
-      
-      &:hover {
-        background-color: white !important;
-        color: var(--background-dark) !important;
-        border-color: white !important;
-      }
-      
-      &.secondary {
-        background-color: white !important;
-        color: var(--background-dark) !important;
-        border-color: white !important;
-        
-        &::after {
-          border-top-color: white !important;
-        }
-        
-        &:hover {
-          background-color: white !important;
-          color: var(--background-dark) !important;
-        }
       }
     }
   }
@@ -373,61 +326,29 @@
     background-color: var(--background-dark) !important;
     color: var(--primary) !important;
     border: 2px solid var(--background-dark) !important;
-    
+
     &::after {
       border-top-color: var(--background-dark) !important;
     }
-    
+
     &:hover {
       background-color: var(--background-dark) !important;
       color: var(--primary) !important;
       border-color: var(--background-dark) !important;
     }
-    
+
     &.secondary {
       background-color: var(--background-dark) !important;
       border: 2px solid var(--background-dark) !important;
       color: var(--primary) !important;
-      
+
       &::after {
         border-top-color: var(--background-dark) !important;
       }
-      
+
       &:hover {
         background-color: var(--background-dark) !important;
         color: var(--primary) !important;
-      }
-    }
-    
-    // Dark theme button adjustments
-    :global(.dark) & {
-      background-color: white !important;
-      color: var(--background-dark) !important;
-      border-color: white !important;
-      
-      &::after {
-        border-top-color: white !important;
-      }
-      
-      &:hover {
-        background-color: white !important;
-        color: var(--background-dark) !important;
-        border-color: white !important;
-      }
-      
-      &.secondary {
-        background-color: white !important;
-        color: var(--background-dark) !important;
-        border-color: white !important;
-        
-        &::after {
-          border-top-color: white !important;
-        }
-        
-        &:hover {
-          background-color: white !important;
-          color: var(--background-dark) !important;
-        }
       }
     }
   }

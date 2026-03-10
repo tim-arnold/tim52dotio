@@ -7,10 +7,6 @@
   background: var(--background);
   text-align: left !important;
 
-  :global(.dark) & {
-    background: rgba(0, 0, 0, 0.2);
-  }
-
   * {
     text-align: left !important;
   }
@@ -23,21 +19,12 @@
     font-size: 1.25rem;
     margin: 0 0 0.25rem 0;
     color: var(--foreground);
-
-    :global(.dark) & {
-      color: var(--primary);
-    }
   }
 
   p {
     margin: 0;
     font-size: 0.875rem;
     opacity: 0.7;
-
-    :global(.dark) & {
-      color: var(--primary);
-      opacity: 0.8;
-    }
   }
 }
 
@@ -56,10 +43,6 @@
     line-height: 1.6;
     color: var(--foreground);
     opacity: 0.8;
-
-    :global(.dark) & {
-      color: var(--primary);
-    }
   }
 }
 
@@ -74,10 +57,6 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
   opacity: 0.7;
-
-  :global(.dark) & {
-    color: var(--primary);
-  }
 }
 
 .suggestedButton {
@@ -129,11 +108,6 @@
       background: rgba(var(--foreground-rgb), 0.08);
       color: var(--foreground);
       border-bottom-left-radius: 4px;
-
-      :global(.dark) & {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--primary);
-      }
     }
   }
 }
@@ -164,11 +138,6 @@
   background: #fee;
   color: #c00;
   font-size: 0.875rem;
-
-  :global(.dark) & {
-    background: rgba(200, 0, 0, 0.2);
-    color: #ff6b6b;
-  }
 }
 
 .inputForm {
@@ -195,16 +164,6 @@
 
     &:disabled {
       opacity: 0.6;
-    }
-
-    :global(.dark) & {
-      background: rgba(0, 0, 0, 0.2);
-      border-color: var(--primary);
-      color: var(--primary);
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
     }
   }
 

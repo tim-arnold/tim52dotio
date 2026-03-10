@@ -19,11 +19,6 @@
   height: 100%;
   z-index: 1;
   opacity: 0.3;
-  
-  // Dark mode - make cow more visible
-  :global(.dark) & {
-    opacity: 0.2;
-  }
 }
 
 .cow {
@@ -43,13 +38,7 @@
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  
-  // Dark mode
-  :global(.dark) & {
-    background: rgba(10, 10, 10, 0.9);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
-  
+
   h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;

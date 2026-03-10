@@ -2,9 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import styles from '../styles/components/ContactForm.module.scss';
-import Link from "next/link";
-import ParallaxElement from "@/components/ParallaxElement";
-import {smoothScrollToTop} from "@/utils/smoothScroll";
 
 interface ContactFormData {
     name: string;
@@ -41,10 +38,6 @@ export default function ContactForm({ className }: ContactFormProps) {
         email: '',
         message: ''
     });
-    const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>): void => {
-        e.preventDefault();
-        smoothScrollToTop(1500); // 1.5 seconds for smooth scroll to top
-    };
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [turnstileToken, setTurnstileToken] = useState<string>('');
@@ -255,8 +248,12 @@ export default function ContactForm({ className }: ContactFormProps) {
 
     return (
         <div className={`${styles.contactForm} ${className || ''}`}>
-            <h3>Get in Touch</h3>
-            <p>Have a project in mind? Let&apos;s chat about it.</p>
+            <h2>Ready to Stop Wrestling with Technology?</h2>
+            <p>
+                Whether you need someone to lead your tech team, build your website,
+                or just figure out why nothing works the way it&apos;s supposed to —
+                I&apos;m here to help. Currently available for fractional or project-based work.
+            </p>
             
             {submitStatus === 'success' && (
                 <div className={styles.successMessage} role="alert">
@@ -361,11 +358,6 @@ export default function ContactForm({ className }: ContactFormProps) {
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
             </form>
-            <ParallaxElement speed={0.6}>
-                <div className={styles.heroCtas}>
-                    <Link href="#" className="button button-up" aria-label="Return to top of page" onClick={handleScrollToTop}>Woosh</Link>
-                </div>
-            </ParallaxElement>
         </div>
     );
 }

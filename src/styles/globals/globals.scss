@@ -1,61 +1,27 @@
 /* src/styles/globals/globals.scss */
 
-/* Base color palette - these don't change between themes */
+/* Base color palette */
 :root {
-  /* Core brand colors */
-  /* Original Green - RGB: 197, 205, 87 / 90, 99, 36 */
-  /*--color-primary: #c5cd57;
-  --color-primary-dark: #5a6324;
-  --color-secondary: #2ecc71;
-  --color-accent: #e74c3c;*/
+  /* Core brand colors - Slate + Indigo */
+  --color-primary: #4f46e5;        /* indigo-600 */
+  --color-primary-dark: #3730a3;   /* indigo-800 */
+  --color-secondary: #6366f1;      /* indigo-500 */
+  --color-accent: #0ea5e9;         /* sky-500 */
 
-  /* Alternative Palettes - uncomment to try different color schemes */
-  /* IMPORTANT: When changing palettes, also update --background-alt-rgb in the light/dark theme sections below */
-
-  /* Option 1: Warm Coral/Rust - RGB: 217, 120, 84 / 139, 74, 46 */
-  /* --color-primary: #d97854; */
-  /* --color-primary-dark: #8b4a2e; */
-  /* --color-secondary: #e67e22; */
-  /* --color-accent: #e74c3c; */
-
-  /* Option 2: Ocean Teal - RGB: 87, 197, 184 / 46, 107, 99 */
-  /* --color-primary: #57c5b8; */
-  /* --color-primary-dark: #2e6b63; */
-  /* --color-secondary: #1abc9c; */
-  /* --color-accent: #3498db; */
-
-  /* Option 3: Lavender Purple - RGB: 184, 141, 219 / 107, 74, 125 */
-  --color-primary: #b88ddb;
-  --color-primary-dark: #6b4a7d;
-  --color-secondary: #9b59b6;
-  --color-accent: #e74c3c;
-
-  /* Option 4: Sky Blue - RGB: 107, 163, 217 / 58, 90, 125 */
-  /* --color-primary: #6ba3d9; */
-  /* --color-primary-dark: #3a5a7d; */
-  /* --color-secondary: #3498db; */
-  /* --color-accent: #f39c12; */
-
-  /* Option 5: Warm Amber - RGB: 219, 168, 86 / 139, 106, 50 */
-  /* --color-primary: #dba856; */
-  /* --color-primary-dark: #8b6a32; */
-  /* --color-secondary: #f39c12; */
-  /* --color-accent: #c0392b; */
-
-  /* Neutral colors */
+  /* Neutral colors - Tailwind gray scale */
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-gray-lightest: #f5f5f5;
-  --color-gray-lighter: #f2f2f2;
-  --color-gray-light: #cccccc;
-  --color-gray: #383838;
-  --color-gray-dark: #333333;
-  --color-gray-darker: #1a1a1a;
-  --color-gray-darkest: #171717;
-  --color-gray-near-black: #1a1a1a;
+  --color-gray-lightest: #f9fafb;
+  --color-gray-lighter: #f3f4f6;
+  --color-gray-light: #d1d5db;
+  --color-gray: #6b7280;
+  --color-gray-dark: #374151;
+  --color-gray-darker: #1f2937;
+  --color-gray-darkest: #111827;
+  --color-gray-near-black: #111827;
 
   /* Focus and interaction colors */
-  --color-focus: #005fcc;
+  --color-focus: #4f46e5;
 
   /* Font family */
   --font-geist-sans: system-ui, sans-serif;
@@ -66,29 +32,29 @@
 :root.light,
 html.light {
   /* Semantic colors - light theme */
-  --background: var(--color-white);
+  --background: #fafafa;
   --background-alt: var(--color-primary);
   --background-alt-dark: var(--color-primary-dark);
   --foreground: var(--color-gray-darkest);
 
   /* RGB values for rgba usage */
-  --background-rgb: 255, 255, 255;
-  --background-alt-rgb: 184, 141, 219; /* Update this when changing color palette - see RGB values in comments above */
-  --foreground-rgb: 23, 23, 23;
+  --background-rgb: 250, 250, 250;
+  --background-alt-rgb: 79, 70, 229;  /* indigo-600 */
+  --foreground-rgb: 17, 24, 39;
 
   /* Text colors */
   --text-primary: var(--color-gray-darkest);
   --text-secondary: var(--color-gray-dark);
-  --text-on-primary: var(--color-gray-dark);
-  --text-on-primary-contrast: var(--color-white);
+  --text-on-primary: var(--color-white);
+  --text-on-primary-contrast: var(--color-gray-darkest);
 
   /* Interactive colors */
-  --link-hover: var(--color-gray-dark);
-  --button-hover: var(--color-gray);
+  --link-hover: var(--color-primary-dark);
+  --button-hover: var(--color-primary-dark);
   --button-hover-secondary: var(--color-gray-lighter);
 
   /* Border and surface colors */
-  --border-color: var(--color-gray-dark);
+  --border-color: var(--color-gray-light);
   --surface-overlay: var(--color-white);
   --shadow-color: 0, 0, 0;
 
@@ -113,29 +79,29 @@ html.light {
 :root.dark,
 html.dark {
   /* Semantic colors - dark theme */
-  --background: var(--color-gray-near-black);
-  --background-alt: var(--color-primary-dark);
-  --background-alt-dark: var(--color-primary-dark);
-  --foreground: var(--color-primary);
+  --background: #111827;
+  --background-alt: #1e1b4b;
+  --background-alt-dark: #1e1b4b;
+  --foreground: #f9fafb;
 
   /* RGB values for rgba usage */
-  --background-rgb: 26, 26, 26;
-  --background-alt-rgb: 107, 74, 125; /* Update this when changing color palette - see RGB values in comments above */
-  --foreground-rgb: 237, 237, 237;
+  --background-rgb: 17, 24, 39;
+  --background-alt-rgb: 30, 27, 75;  /* indigo-950 */
+  --foreground-rgb: 249, 250, 251;
 
   /* Text colors */
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-gray-lightest);
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
   --text-on-primary: var(--color-white);
-  --text-on-primary-contrast: var(--color-gray-near-black);
+  --text-on-primary-contrast: var(--color-gray-darkest);
 
   /* Interactive colors */
-  --link-hover: var(--color-white);
-  --button-hover: var(--color-gray-light);
+  --link-hover: #818cf8;
+  --button-hover: #6366f1;
   --button-hover-secondary: var(--color-gray-darker);
 
   /* Border and surface colors */
-  --border-color: var(--color-white);
+  --border-color: var(--color-gray-darker);
   --surface-overlay: var(--color-white);
   --shadow-color: 0, 0, 0;
 
@@ -160,29 +126,29 @@ html.dark {
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) {
     /* Semantic colors - dark theme */
-    --background: var(--color-gray-near-black);
-    --background-alt: var(--color-primary-dark);
-    --background-alt-dark: var(--color-primary-dark);
-    --foreground: var(--color-primary);
+    --background: #111827;
+    --background-alt: #1e1b4b;
+    --background-alt-dark: #1e1b4b;
+    --foreground: #f9fafb;
 
     /* RGB values for rgba usage */
-    --background-rgb: 26, 26, 26;
-    --background-alt-rgb: 107, 74, 125; /* Update this when changing color palette - see RGB values in comments above */
-    --foreground-rgb: 237, 237, 237;
+    --background-rgb: 17, 24, 39;
+    --background-alt-rgb: 30, 27, 75;
+    --foreground-rgb: 249, 250, 251;
 
     /* Text colors */
-    --text-primary: var(--color-white);
-    --text-secondary: var(--color-gray-lightest);
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
     --text-on-primary: var(--color-white);
-    --text-on-primary-contrast: var(--color-gray-near-black);
+    --text-on-primary-contrast: var(--color-gray-darkest);
 
     /* Interactive colors */
-    --link-hover: var(--color-white);
-    --button-hover: var(--color-gray-light);
+    --link-hover: #818cf8;
+    --button-hover: #6366f1;
     --button-hover-secondary: var(--color-gray-darker);
 
     /* Border and surface colors */
-    --border-color: var(--color-white);
+    --border-color: var(--color-gray-darker);
     --surface-overlay: var(--color-white);
     --shadow-color: 0, 0, 0;
 
@@ -213,7 +179,7 @@ html {
 body {
   max-width: 100vw;
   scroll-behavior: smooth;
-  
+
   // Ensure scroll works on mobile devices
   -webkit-overflow-scrolling: touch;
 }
@@ -236,7 +202,7 @@ a {
   color: inherit;
   font-weight: 500;
   text-decoration: underline;
-  
+
   /* Style external link indicators */
   span[aria-hidden="true"] {
     display: block;
@@ -246,7 +212,7 @@ a {
     margin-top: 0.2em;
     transition: opacity 0.2s ease;
   }
-  
+
   &:hover span[aria-hidden="true"] {
     opacity: 1;
   }
@@ -317,211 +283,41 @@ p {
   padding: 0 2rem;
 }
 
-/* Define button animations */
-@keyframes buttonPulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.15);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-  }
-}
-
-@keyframes buttonBounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes buttonSlide {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(10px);
-  }
-  60% {
-    transform: translateX(5px);
-  }
-}
-
-@keyframes shadowChange {
-  0%, 20%, 50%, 80%, 100% {
-    transform: scaleX(1);
-    opacity: 0.6;
-  }
-  40% {
-    transform: scaleX(0.8);
-    opacity: 0.3;
-  }
-  60% {
-    transform: scaleX(0.9);
-    opacity: 0.4;
-  }
-}
-
-@keyframes shadowChangeHorizontal {
-  0%, 20%, 50%, 80%, 100% {
-    transform: scaleY(1);
-    opacity: 0.6;
-  }
-  40% {
-    transform: scaleY(0.8);
-    opacity: 0.3;
-  }
-  60% {
-    transform: scaleY(0.9);
-    opacity: 0.4;
-  }
-}
-
-/* Button styles with proper SCSS nesting */
+/* Button styles */
 .button {
   position: relative;
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
   background-color: var(--color-primary);
-  color: var(--text-on-primary);
+  color: var(--color-white);
   font-weight: 600;
   text-align: center;
-  transition: all 0.3s ease;
   text-decoration: none;
-  animation: buttonBounce 2s infinite ease-in-out;
+  letter-spacing: 0.01em;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 12px rgba(var(--shadow-color), 0.15);
-    animation-play-state: paused;
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(var(--shadow-color), 0.18);
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 98%;
-    left: 50%;
-    transform: translateX(-50%) scaleY(1);
-    transform-origin: top;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 12px solid var(--color-primary);
-    transition: transform 0.3s ease;
-    z-index: 10;
-  }
-
-  &:hover::after {
-    transform: translateX(-50%) scaleY(2);
-    border-top: 12px solid var(--color-primary);
+  &:active {
+    transform: translateY(0);
+    transition-duration: 0.05s;
+    box-shadow: none;
   }
 
   &.secondary {
     background-color: transparent;
-    border: 2px solid var(--foreground);
+    border: 1.5px solid var(--foreground);
     color: var(--foreground);
 
-    &::after {
-      border-top-color: var(--foreground);
-    }
-  }
-
-  &.button-up {
-    // Inherits background-color from parent .button (var(--color-primary))
-    // Only change the arrow direction to point up
-
-    &::after {
-      top: auto;
-      bottom: 100%;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-bottom: 12px solid var(--color-primary);
-      border-top: 0;
-      transform-origin: bottom;
-      transform: translateX(-50%) scaleY(0);
-    }
-
-    &:hover::after {
-      transform: translateX(-50%) scaleY(2);
-      border-bottom: 12px solid var(--color-primary);
-    }
-
-    &.secondary::after {
-      border-bottom-color: var(--foreground);
-    }
-  }
-
-  &.button-right {
-    animation: buttonSlide 2s infinite ease-in-out;
-
     &:hover {
-      transform: translateX(2px) scale(1.05);
-      animation-play-state: paused;
-    }
-
-    &::after {
-      top: 30%;
-      left: 94%;
-      rotate: -90deg;
-    }
-
-  }
-}
-
-/* Dark mode styles */
-@keyframes buttonPulseDark {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.1);
-  }
-}
-
-// Apply dark mode button styles when dark class is present
-:root.dark .button,
-html.dark .button {
-  animation-name: buttonPulseDark;
-
-  &.secondary::after {
-    border-top-color: var(--foreground);
-  }
-
-  &.button-up.secondary::after {
-    border-bottom-color: var(--foreground);
-  }
-
-}
-
-// Fallback for browser preference
-@media (prefers-color-scheme: dark) {
-  :root:not(.light):not(.dark) .button {
-    animation-name: buttonPulseDark;
-
-    &.secondary::after {
-      border-top-color: var(--foreground);
-    }
-
-    &.button-up.secondary::after {
-      border-bottom-color: var(--foreground);
+      background-color: var(--foreground);
+      color: var(--background);
+      box-shadow: none;
     }
   }
 }
@@ -534,29 +330,13 @@ html.dark .button {
 
 /* Accessibility: Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  /* Disable all animations for users who prefer reduced motion */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
-  /* Specifically disable button animations */
-  .button {
-    animation: none !important;
-    
-    &::before {
-      animation: none !important;
-    }
-    
-    &:hover {
-      transform: none !important;
-      animation-play-state: initial !important;
-    }
-  }
-  
-  /* Disable smooth scroll */
+
   html {
     scroll-behavior: auto !important;
   }
@@ -570,10 +350,9 @@ html.dark .button {
   background-color: var(--background);
   border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
   min-height: 100px;
-  
+
   > p {
     margin-top: 6rem;
     opacity: 0.7;
   }
 }
-

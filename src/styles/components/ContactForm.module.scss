@@ -1,27 +1,21 @@
 .contactForm {
-  max-width: 500px;
+  max-width: 560px;
   margin: 0 auto;
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
     color: var(--foreground);
-    
-    // Dark mode - white text for better contrast
-    :global(.dark) & {
-      color: var(--primary);
-    }
   }
-  
+
   > p {
     margin-bottom: 2rem;
-    opacity: 0.8;
-    
-    // Dark mode - white text for better contrast
-    :global(.dark) & {
-      color: var(--primary);
-      opacity: 0.9;
-    }
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
   }
 }
 
@@ -55,27 +49,19 @@
     font-weight: 500;
     color: var(--foreground);
     
-    // Dark mode - white text for better contrast
-    :global(.dark) & {
-      color: var(--primary);
-    }
-    
     .required {
       color: #e74c3c;
       transition: color 0.3s ease;
-      
-      // Dark mode - brighter red for better visibility
+
       :global(.dark) & {
         color: #ff6b6b;
       }
-      
-      // Valid state - green checkmark
+
       &.valid {
         color: #28a745;
-        
-        // Dark mode - brighter green for better visibility
+
         :global(.dark) & {
-          color: var(--primary);
+          color: #4ade80;
         }
       }
     }
@@ -93,19 +79,19 @@
     color: var(--foreground);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     
-    // Dark mode - swap border and background colors
+    // Dark mode
     :global(.dark) & {
-      background-color: rgba(0, 0, 0, 0.2);
-      color: var(--primary);
-      border-color: var(--primary);
-      
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--foreground);
+      border-color: var(--border-color);
+
       &::placeholder {
-        color: rgba(197, 205, 87, 0.6);
+        color: rgba(var(--foreground-rgb), 0.4);
       }
-      
+
       &:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(197, 205, 87, 0.2);
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
       }
     }
     
@@ -140,13 +126,12 @@
       box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2) !important;
     }
     
-    // Dark mode - use a brighter green for better visibility
     :global(.dark) & {
-      border-color: var(--primary) !important;
-      
+      border-color: #4ade80 !important;
+
       &:focus {
-        border-color: #40c057 !important;
-        box-shadow: 0 0 0 3px rgba(64, 192, 87, 0.3) !important;
+        border-color: #4ade80 !important;
+        box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2) !important;
       }
     }
   }
@@ -221,9 +206,9 @@
 @media (max-width: 768px) {
   .contactForm {
     max-width: none;
-    
-    h3 {
-      font-size: 1.25rem;
+
+    h2 {
+      font-size: 1.5rem;
     }
   }
   

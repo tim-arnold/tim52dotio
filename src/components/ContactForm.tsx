@@ -248,12 +248,16 @@ export default function ContactForm({ className }: ContactFormProps) {
 
     return (
         <div className={`${styles.contactForm} ${className || ''}`}>
-            <h2>Ready to Stop Wrestling with Technology?</h2>
-            <p>
-                Whether you need someone to lead your tech team, build your website,
-                or just figure out why nothing works the way it&apos;s supposed to —
-                I&apos;m here to help. Currently available for fractional or project-based work.
-            </p>
+            <div className={styles.formLayout}>
+            <div className={styles.formLabel}>
+                <h2>Ready to Stop Wrestling with Technology?</h2>
+                <p>
+                    Whether you need someone to lead your tech team, build your website,
+                    or just figure out why nothing works the way it&apos;s supposed to —
+                    I&apos;m here to help. Currently available for fractional or project-based work.
+                </p>
+            </div>
+            <div className={styles.formContent}>
             
             {submitStatus === 'success' && (
                 <div className={styles.successMessage} role="alert">
@@ -358,6 +362,8 @@ export default function ContactForm({ className }: ContactFormProps) {
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
             </form>
+            </div>{/* formContent */}
+            </div>{/* formLayout */}
         </div>
     );
 }

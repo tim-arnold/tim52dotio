@@ -82,10 +82,8 @@ export default function FitAssessment({ className }: FitAssessmentProps) {
 
   return (
     <div className={`${styles.fitAssessment} ${className || ''}`}>
-      <div className={styles.header}>
-        <h3>Fit Assessment</h3>
-        <p>Paste a job description and AI will give you an honest assessment of whether Tim might be the right fit. Tim never sees what you submit.</p>
-      </div>
+
+      <p>Paste a job description and AI will give you an honest assessment of whether Tim might be the right fit. Tim never sees what you submit.</p>
 
       {!assessment ? (
         <form onSubmit={handleSubmit} className={styles.form}>

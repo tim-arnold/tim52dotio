@@ -1,23 +1,37 @@
 .contactForm {
-  max-width: 560px;
-  margin: 0 auto;
+  width: 100%;
+}
 
+.formLayout {
+  display: grid;
+  grid-template-columns: 1fr 2.3fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.formLabel {
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
     color: var(--foreground);
   }
 
-  > p {
-    margin-bottom: 2rem;
+  p {
     color: var(--text-secondary);
     line-height: 1.7;
-    font-size: 1rem;
+    margin-bottom: 0;
   }
 }
+
+.formContent {}
 
 .successMessage,
 .errorMessage {
@@ -204,12 +218,8 @@
 
 // Responsive design
 @media (max-width: 768px) {
-  .contactForm {
-    max-width: none;
-
-    h2 {
-      font-size: 1.5rem;
-    }
+  .formLabel h2 {
+    font-size: 1.25rem;
   }
   
   .formGroup {

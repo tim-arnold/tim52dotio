@@ -4,6 +4,37 @@
   min-height: 100vh;
 }
 
+/* ── Shared two-column section layout ────────────────────────── */
+
+.sectionColumns {
+  display: grid;
+  grid-template-columns: 1fr 2.3fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.sectionLabel {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+}
+
 /* ── Hero ─────────────────────────────────────────────────────── */
 
 .hero {
@@ -15,36 +46,33 @@
   }
 }
 
-.heroContent {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
+.heroHeading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+
+  @media (max-width: 1024px) {
+    font-size: 2.75rem;
+  }
 
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    gap: 2.5rem;
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
   }
 }
 
-.heroText {
-  flex: 1;
+.heroBody {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
 
-  h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--foreground);
-    margin-bottom: 1.5rem;
-
-    @media (max-width: 1024px) {
-      font-size: 2.75rem;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 2.25rem;
-      letter-spacing: -0.02em;
-    }
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
@@ -52,14 +80,12 @@
   font-size: 1.125rem;
   line-height: 1.75;
   color: var(--text-secondary);
-  max-width: 52ch;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
 }
 
-
 .profileImage {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -76,25 +102,9 @@
   padding: 6rem 0;
   border-bottom: 1px solid var(--border-color);
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-    margin-bottom: 0.75rem;
-  }
-
   @media (max-width: 768px) {
     padding: 4rem 0;
   }
-}
-
-.aiIntro {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  max-width: 56ch;
-  margin-bottom: 2.5rem;
 }
 
 /* ── Services Section ─────────────────────────────────────────── */
@@ -103,39 +113,27 @@
   padding: 6rem 0;
   border-bottom: 1px solid var(--border-color);
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-    margin-bottom: 3rem;
-  }
-
   @media (max-width: 768px) {
     padding: 4rem 0;
-
-    h2 {
-      margin-bottom: 2rem;
-    }
   }
 }
 
 .featuresList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 3rem 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2.5rem 2rem;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 }
 
 .featureCard {
   h3 {
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-primary);
     margin-bottom: 0.75rem;
@@ -151,7 +149,6 @@
       padding-left: 1.25rem;
       margin-bottom: 0.4rem;
       color: var(--text-secondary);
-      font-size: 0.95rem;
       line-height: 1.6;
 
       &:before {
@@ -159,7 +156,7 @@
         position: absolute;
         left: 0;
         color: var(--color-primary);
-        opacity: 0.5;
+        opacity: 0.4;
       }
     }
   }
@@ -171,4 +168,3 @@
     font-style: italic;
   }
 }
-

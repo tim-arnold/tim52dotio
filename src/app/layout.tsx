@@ -106,8 +106,10 @@ export default function RootLayout({
             {children}
           </PageTransition>
           <footer id="footer" className="footer">
-            <ContactForm />
-            <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+            <div className="container">
+              <ContactForm />
+              <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+            </div>
           </footer>
         </ErrorBoundary>
       </ThemeProvider>

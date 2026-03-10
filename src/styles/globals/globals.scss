@@ -268,6 +268,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -345,14 +346,13 @@ p {
 /* Global Footer Styles */
 .footer {
   position: relative;
-  padding: 8rem 2rem 4rem;
-  text-align: center;
+  padding: 6rem 2rem 3rem;
   background-color: var(--background);
   border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
-  min-height: 100px;
 
   > p {
-    margin-top: 6rem;
-    opacity: 0.7;
+    margin-top: 4rem;
+    font-size: 0.875rem;
+    opacity: 0.5;
   }
 }

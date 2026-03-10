@@ -128,7 +128,6 @@ a, button, [tabindex] {
   &:focus-visible {
     outline: 3px solid var(--color-focus);
     outline-offset: 3px;
-    outline-style: solid;
     border-radius: 4px;
     transition: outline-color 0.2s ease;
   }
@@ -139,7 +138,7 @@ a, button, [tabindex] {
   }
 
   // High contrast mode support
-  @media (prefers-contrast: high) {
+  @media (prefers-contrast: more) {
     &:focus-visible {
       outline: 4px solid currentColor;
       outline-offset: 2px;

@@ -104,7 +104,7 @@ export default function RootLayout({
         <footer id="footer" className="footer">
           <div className="container">
             <ContactForm />
-            <p>&copy; 2024 Tim Arnold. All rights reserved.</p>
+            <p>&copy; 2026 Tim Arnold. All rights reserved.</p>
           </div>
         </footer>
       </ErrorBoundary>

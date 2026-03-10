@@ -1,6 +1,3 @@
-'use client';
-
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import styles from './code-samples.module.scss';
 
 interface DemoCardProps {
@@ -10,21 +7,11 @@ interface DemoCardProps {
   tags: string[];
   zipUrl: string;
   githubUrl: string;
-  index: number;
 }
 
-export default function DemoCard({ title, description, features, tags, zipUrl, githubUrl, index }: DemoCardProps) {
-  const { elementRef, isIntersecting } = useIntersectionObserver({
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-  });
-
+export default function DemoCard({ title, description, features, tags, zipUrl, githubUrl }: DemoCardProps) {
   return (
-    <article
-      ref={elementRef}
-      className={`${styles.card} ${isIntersecting ? styles.fadeIn : styles.fadeOut}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
+    <article className={styles.card}>
       <div className={styles.content}>
         <h2 className={styles.cardTitle}>{title}</h2>
         <p className={styles.description}>{description}</p>

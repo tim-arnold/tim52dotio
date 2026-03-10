@@ -251,13 +251,15 @@ p {
 /* Global Footer Styles */
 .footer {
   position: relative;
+  margin-top: 6rem;
   padding: 6rem 2rem 3rem;
   background-color: var(--background);
   border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
 
-  > p {
+  p:last-child {
     margin-top: 4rem;
     font-size: 0.875rem;
     opacity: 0.5;
+    text-align: center;
   }
 }

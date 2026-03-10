@@ -65,7 +65,7 @@ const demos = [
 export default function DemoCodePage() {
   return (
     <main className={styles.demoCode} id="main-content">
-      <div className={styles.container}>
+      <div className="container">
         <header className={styles.header}>
           <h1 className={styles.title}>Code Samples</h1>
           <p className={styles.subtitle}>
@@ -85,8 +85,8 @@ export default function DemoCodePage() {
         </header>
 
         <div className={styles.grid}>
-          {demos.map((demo, index) => (
-            <DemoCard key={demo.title} {...demo} index={index} />
+          {demos.map((demo) => (
+            <DemoCard key={demo.title} {...demo} />
           ))}
         </div>
       </div>

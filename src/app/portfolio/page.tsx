@@ -8,7 +8,7 @@ export default async function PortfolioPage() {
 
   return (
     <main className={styles.portfolio} id="main-content">
-      <div className={styles.container}>
+      <div className="container">
         <header className={styles.header}>
           <h1 className={styles.title}>Professional Portfolio</h1>
           <p className={styles.subtitle}>
@@ -18,11 +18,10 @@ export default async function PortfolioPage() {
         </header>
 
         <div className={styles.projectGrid}>
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard
               key={project._id}
               project={project}
-              index={index}
               screenshotUrl={urlFor(project.screenshot).width(1200).url()}
             />
           ))}

@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import styles from './portfolio.module.scss';
 
 interface Project {
@@ -24,26 +23,16 @@ interface Project {
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
   screenshotUrl: string;
 }
 
-export default function ProjectCard({ project, index, screenshotUrl }: ProjectCardProps) {
-  const { elementRef, isIntersecting } = useIntersectionObserver({
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-  });
-
+export default function ProjectCard({ project, screenshotUrl }: ProjectCardProps) {
   return (
     <>
       <link rel="prefetch" href={project.url} />
       <article
-        ref={elementRef}
         key={project._id}
-        className={`${styles.projectCard} ${isIntersecting ? styles.fadeIn : styles.fadeOut}`}
-        style={{
-          transitionDelay: `${index * 100}ms`
-        }}
+        className={styles.projectCard}
       >
         <div className={styles.imageContainer}>
           <Image
@@ -53,8 +42,7 @@ export default function ProjectCard({ project, index, screenshotUrl }: ProjectCa
             width={1200}
             height={675}
             unoptimized={true}
-            priority={index === 0}
-            loading={index === 0 ? undefined : "lazy"}
+            loading="lazy"
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
             style={{
@@ -88,7 +76,7 @@ export default function ProjectCard({ project, index, screenshotUrl }: ProjectCa
                     href="https://weareoutright.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.tag} ${styles.companyTag} ${styles.companyLink}`}
+                    className={`${styles.tag} ${styles.companyLink}`}
                   >
                     {project.company}
                   </a>
@@ -97,12 +85,12 @@ export default function ProjectCard({ project, index, screenshotUrl }: ProjectCa
                     href="https://teamallegiance.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.tag} ${styles.companyTag} ${styles.companyLink}`}
+                    className={`${styles.tag} ${styles.companyLink}`}
                   >
                     {project.company}
                   </a>
                 ) : (
-                  <span className={`${styles.tag} ${styles.companyTag}`}>
+                  <span className={styles.tag}>
                     {project.company}
                   </span>
                 )}
@@ -113,7 +101,7 @@ export default function ProjectCard({ project, index, screenshotUrl }: ProjectCa
               <h3 className={styles.tagLabel}>Role:</h3>
               <div className={styles.tagList}>
                 {project.role.map((role) => (
-                  <span key={role} className={`${styles.tag} ${styles.roleTag}`}>
+                  <span key={role} className={styles.tag}>
                     {role}
                   </span>
                 ))}
@@ -124,7 +112,7 @@ export default function ProjectCard({ project, index, screenshotUrl }: ProjectCa
               <h3 className={styles.tagLabel}>Tech:</h3>
               <div className={styles.tagList}>
                 {project.tech.map((tech) => (
-                  <span key={tech} className={`${styles.tag} ${styles.techTag}`}>
+                  <span key={tech} className={styles.tag}>
                     {tech}
                   </span>
                 ))}

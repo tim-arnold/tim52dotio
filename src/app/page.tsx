@@ -101,7 +101,6 @@ export default async function Home() {
                                                 <li key={index}>{point}</li>
                                             ))}
                                         </ul>
-                                        <p><em>{card.tagline}</em></p>
                                     </div>
                                 ))}
                             </div>

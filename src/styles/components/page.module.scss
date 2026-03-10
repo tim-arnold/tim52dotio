@@ -145,19 +145,9 @@
     margin-bottom: 1rem;
 
     li {
-      position: relative;
-      padding-left: 1.25rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
       color: var(--text-secondary);
       line-height: 1.6;
-
-      &:before {
-        content: "–";
-        position: absolute;
-        left: 0;
-        color: var(--color-primary);
-        opacity: 0.4;
-      }
     }
   }
 

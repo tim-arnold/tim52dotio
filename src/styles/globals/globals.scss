@@ -89,6 +89,12 @@ body {
 
   // Ensure scroll works on mobile devices
   -webkit-overflow-scrolling: touch;
+
+
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 body {
@@ -228,12 +234,6 @@ p {
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-}
-
 /* Accessibility: Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -251,7 +251,7 @@ p {
 /* Global Footer Styles */
 .footer {
   position: relative;
-  padding: 3rem 2rem;
+  padding: 3rem 0;
   background-color: var(--background);
 
   p:last-child {

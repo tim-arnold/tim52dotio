@@ -54,12 +54,16 @@ export default async function Home() {
                     <div className="container">
                         <h1 id="hero-heading" className={styles.heroHeading}>Web Developer &amp; Tech Leader</h1>
                         <div className={styles.heroBody}>
-                            <p className={styles.heroLead}>
-                                I help nonprofits make technology work for them.
-                                25 years working at, and leading tech teams, at agencies taught me what succeeds and
-                                what just burns budget. Available for fractional leadership, project
-                                work, or consulting.
-                            </p>
+                            <div className={styles.heroLead}>
+                                <p><strong>I help nonprofits make technology work for them.</strong></p>
+                                <p>
+                                    20+ years at DC agencies working with  some of the
+                                    largest NPs in the US taught me what succeeds and
+                                    what just burns budget. Available for fractional
+                                    leadership, project work, or consulting.
+                                </p>
+                            </div>
+
                             <Image
                                 src="/images/tim52.png"
                                 alt="Tim Arnold"

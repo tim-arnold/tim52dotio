@@ -50,6 +50,10 @@
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
 
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 2px solid var(--border-color);
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;

@@ -54,7 +54,7 @@ html.light {
   --button-hover-secondary: var(--color-gray-lighter);
 
   /* Border and surface colors */
-  --border-color: var(--color-gray-light);
+  --border-color: var(--color-black);
   --surface-overlay: var(--color-white);
   --shadow-color: 0, 0, 0;
 
@@ -84,6 +84,8 @@ html {
 body {
   max-width: 100vw;
   scroll-behavior: smooth;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   // Ensure scroll works on mobile devices
   -webkit-overflow-scrolling: touch;
@@ -185,7 +187,6 @@ p {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
 /* Button styles */
@@ -250,10 +251,8 @@ p {
 /* Global Footer Styles */
 .footer {
   position: relative;
-  margin-top: 6rem;
-  padding: 6rem 2rem 3rem;
+  padding: 3rem 2rem;
   background-color: var(--background);
-  border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
 
   p:last-child {
     margin-top: 4rem;

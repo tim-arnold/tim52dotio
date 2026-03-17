@@ -61,7 +61,7 @@ export default async function Home() {
                                 work, or consulting.
                             </p>
                             <Image
-                                src="/images/tim-and-the-wall-square.webp"
+                                src="/images/tim52.png"
                                 alt="Tim Arnold"
                                 width={200}
                                 height={200}

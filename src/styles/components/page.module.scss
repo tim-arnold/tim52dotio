@@ -38,8 +38,7 @@
 /* ── Hero ─────────────────────────────────────────────────────── */
 
 .hero {
-  padding: 6rem 0;
-  border-bottom: 1px solid var(--border-color);
+  padding: 6rem 0 3rem;
 
   @media (max-width: 768px) {
     padding: 7rem 0 4rem;
@@ -68,10 +67,10 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4rem;
-  align-items: center;
+  align-items: flex-start;
+  border-bottom: 2px solid black;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
@@ -80,27 +79,31 @@
   font-size: 1.125rem;
   line-height: 1.75;
   color: var(--text-secondary);
-  margin-bottom: 0;
+  margin-bottom: 2rem;
+  align-self: center;
 }
 
 .profileImage {
   width: 240px;
-  height: 240px;
-  border-radius: 50%;
+  height: auto;
   object-fit: cover;
   flex-shrink: 0;
+  align-self: flex-end;
 
   @media (max-width: 768px) {
-    width: 100px;
-    height: 100px;
+    width: 180px;
   }
 }
 
 /* ── AI Section ───────────────────────────────────────────────── */
 
 .aiSection {
-  padding: 6rem 0;
-  border-bottom: 1px solid var(--border-color);
+
+  :global(.container) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid var(--border-color);
+  }
 
   @media (max-width: 768px) {
     padding: 4rem 0;
@@ -110,10 +113,10 @@
 /* ── Services Section ─────────────────────────────────────────── */
 
 .servicesSection {
-  padding: 6rem 0 0 0;
-
-  @media (max-width: 768px) {
-    padding: 4rem 0;
+  :global(.container) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid var(--border-color);
   }
 }
 

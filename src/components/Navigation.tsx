@@ -246,6 +246,16 @@ export default function Navigation() {
                             </Link>
                         </li>
                         <li role="none">
+                            <Link
+                                href="/code-samples"
+                                onClick={(e) => handleNavigation('/code-samples', e)}
+                                role="menuitem"
+                                tabIndex={menuOpen ? 0 : -1}
+                            >
+                                Code
+                            </Link>
+                        </li>
+                        <li role="none">
                             <a
                                 href="https://www.linkedin.com/in/timarnold/"
                                 target="_blank"

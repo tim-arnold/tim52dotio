@@ -5,6 +5,20 @@ const GITHUB_REPO = 'https://github.com/tim-arnold/code-samples';
 
 const demos = [
   {
+    title: 'GitHub Actions Workflows',
+    description:
+        'A collection of CI/CD, backup, migration, and disaster recovery workflows for GitHub Actions. Covers automated deployments, scheduled backups, cross-environment migration, and recovery procedures.',
+    features: [
+      'CI/CD pipelines for automated build and deployment',
+      'Scheduled backup workflows for data protection',
+      'Cross-environment migration automation',
+      'Disaster recovery procedures and rollback workflows',
+    ],
+    tags: ['YAML', 'GitHub Actions', 'CI/CD', 'DevOps'],
+    zipUrl: `${GITHUB_REPO}/raw/main/github-actions.zip`,
+    githubUrl: `${GITHUB_REPO}/tree/main/github-actions`,
+  },
+  {
     title: 'WordPress Theme Pages',
     description:
       'Custom team member single and archive templates for a WordPress theme. The single view displays a hero image, credentials, bio, and social links. The archive page renders a card grid grouped by ACF category with defined section ordering.',
@@ -45,20 +59,6 @@ const demos = [
     tags: ['PHP', 'WordPress', 'ACF', 'Plugin Development'],
     zipUrl: `${GITHUB_REPO}/raw/main/wp-custom-plugin.zip`,
     githubUrl: `${GITHUB_REPO}/tree/main/wp-custom-plugin`,
-  },
-  {
-    title: 'GitHub Actions Workflows',
-    description:
-      'A collection of CI/CD, backup, migration, and disaster recovery workflows for GitHub Actions. Covers automated deployments, scheduled backups, cross-environment migration, and recovery procedures.',
-    features: [
-      'CI/CD pipelines for automated build and deployment',
-      'Scheduled backup workflows for data protection',
-      'Cross-environment migration automation',
-      'Disaster recovery procedures and rollback workflows',
-    ],
-    tags: ['YAML', 'GitHub Actions', 'CI/CD', 'DevOps'],
-    zipUrl: `${GITHUB_REPO}/raw/main/github-actions.zip`,
-    githubUrl: `${GITHUB_REPO}/tree/main/github-actions`,
   },
 ];
 

@@ -43,6 +43,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const [displayChildren, setDisplayChildren] = useState(children);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [hasNavigated, setHasNavigated] = useState(false);
   const previousPathname = useRef(pathname);
   const isInitialRender = useRef(true);
 
@@ -63,6 +64,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
 
     // Route has changed, complete the transition
     if (pathname !== previousPathname.current) {
+      setHasNavigated(true);
       // If we weren't already transitioning, start now (for direct navigation)
       if (!isTransitioning) {
         setIsVisible(false);
@@ -126,8 +128,8 @@ export default function PageTransition({ children }: PageTransitionProps) {
         )}
         
         {/* Content that transitions */}
-        <div 
-          className={`${styles.pageTransition} ${isVisible ? styles.visible : styles.hidden}`}
+        <div
+          className={`${styles.pageTransition} ${isVisible ? (hasNavigated ? styles.visible : styles.visibleNoTransition) : styles.hidden}`}
         >
           {contentChildren}
         </div>

@@ -41,10 +41,34 @@ export default function ContactForm({ className }: ContactFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [turnstileToken, setTurnstileToken] = useState<string>('');
+    const formRef = useRef<HTMLDivElement>(null);
     const turnstileRef = useRef<HTMLDivElement>(null);
     const [turnstileWidgetId, setTurnstileWidgetId] = useState<string>('');
     const [fieldErrors, setFieldErrors] = useState<{[key: string]: string}>({});
     const [touchedFields, setTouchedFields] = useState<{[key: string]: boolean}>({});
+
+    useEffect(() => {
+        const loadTurnstileScript = () => {
+            if (document.querySelector('script[src*="turnstile"]')) return;
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            script.async = true;
+            document.head.appendChild(script);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    loadTurnstileScript();
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '200px' }
+        );
+
+        if (formRef.current) observer.observe(formRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         // Wait for Turnstile to load and render widget
@@ -247,7 +271,7 @@ export default function ContactForm({ className }: ContactFormProps) {
     const isFormValid = formData.name.trim() && formData.email.trim() && formData.message.trim() && turnstileToken;
 
     return (
-        <div className={`${styles.contactForm} ${className || ''}`}>
+        <div ref={formRef} className={`${styles.contactForm} ${className || ''}`}>
             <div className={styles.formLayout}>
             <div className={styles.formLabel}>
                 <h2>Ready to Stop Wrestling with Technology?</h2>

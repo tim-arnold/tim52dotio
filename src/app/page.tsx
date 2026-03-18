@@ -70,6 +70,7 @@ export default async function Home() {
                                 width={388}
                                 height={480}
                                 className={styles.profileImage}
+                                priority
                                 unoptimized
                             />
                         </div>

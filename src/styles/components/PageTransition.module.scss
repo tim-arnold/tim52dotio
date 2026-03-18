@@ -6,6 +6,10 @@
     opacity: 1;
     transition: opacity 0.5s ease-in;
   }
+
+  &.visibleNoTransition {
+    opacity: 1;
+  }
   
   &.hidden {
     opacity: 0;

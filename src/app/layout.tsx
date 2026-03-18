@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "../styles/globals/globals.scss";
 import ErrorBoundary from "../components/ErrorBoundary";
 import ContactForm from "../components/ContactForm";
@@ -95,7 +94,6 @@ export default function RootLayout({
   return (
       <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
       <ErrorBoundary>
         <PageTransition>
           <Navigation data-component="navigation" />

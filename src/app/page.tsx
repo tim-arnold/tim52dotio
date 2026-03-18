@@ -65,10 +65,10 @@ export default async function Home() {
                             </div>
 
                             <Image
-                                src="/images/tim52.png"
+                                src="/images/tim52.webp"
                                 alt="Tim Arnold"
-                                width={200}
-                                height={200}
+                                width={388}
+                                height={480}
                                 className={styles.profileImage}
                                 unoptimized
                             />

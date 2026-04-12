@@ -16,7 +16,7 @@ export default async function Home() {
         jobTitle: 'Web Technology Leader',
         description: 'Experienced web developer and tech leader with 25+ years building websites for nonprofits and agencies',
         url: 'https://tim52.io',
-        image: 'https://tim52.io/images/tim-and-the-wall-square.webp',
+        image: 'https://tim52.io/images/tim52.webp',
         sameAs: [
             'https://linkedin.com/in/timarnold/',
             'https://instagram.com/tim52pics/',

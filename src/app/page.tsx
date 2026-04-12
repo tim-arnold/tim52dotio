@@ -13,7 +13,7 @@ export default async function Home() {
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Tim Arnold',
-        jobTitle: 'Web Developer and Tech Leader',
+        jobTitle: 'Web Technology Leader',
         description: 'Experienced web developer and tech leader with 25+ years building websites for nonprofits and agencies',
         url: 'https://tim52.io',
         image: 'https://tim52.io/images/tim-and-the-wall-square.webp',
@@ -52,7 +52,7 @@ export default async function Home() {
                 {/* Hero */}
                 <section className={styles.hero} aria-labelledby="hero-heading">
                     <div className="container">
-                        <h1 id="hero-heading" className={styles.heroHeading}>Web Developer &amp; Tech Leader</h1>
+                        <h1 id="hero-heading" className={styles.heroHeading}>Web Technology Leader</h1>
                         <div className={styles.heroBody}>
                             <div className={styles.heroLead}>
                                 <p><strong>I help non-profits make technology work for them.</strong></p>

@@ -55,10 +55,10 @@ export default async function Home() {
                         <h1 id="hero-heading" className={styles.heroHeading}>Web Developer &amp; Tech Leader</h1>
                         <div className={styles.heroBody}>
                             <div className={styles.heroLead}>
-                                <p><strong>I help nonprofits make technology work for them.</strong></p>
+                                <p><strong>I help non-profits make technology work for them.</strong></p>
                                 <p>
-                                    20+ years at DC agencies working with  some of the
-                                    largest NPs in the US taught me what succeeds and
+                                    20+ years at DC agencies working with some of the
+                                    largest non-profits in the US has taught me what succeeds and
                                     what just burns budget. Available for fractional
                                     leadership, project work, or consulting.
                                 </p>

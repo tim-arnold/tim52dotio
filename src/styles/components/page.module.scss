@@ -38,7 +38,18 @@
 /* ── Hero ─────────────────────────────────────────────────────── */
 
 .hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding: 6rem 0 3rem;
+
+  :global(.container) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+  }
 
   @media (max-width: 768px) {
     padding: 7rem 0 4rem;

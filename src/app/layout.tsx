@@ -5,6 +5,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import ContactForm from "../components/ContactForm";
 import Navigation from "../components/Navigation";
 import PageTransition from "../components/PageTransition";
+import ScrollReveal from "../components/ScrollReveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,6 +96,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <ErrorBoundary>
+        <ScrollReveal />
         <PageTransition>
           <Navigation data-component="navigation" />
           {children}

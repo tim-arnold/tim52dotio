@@ -57,10 +57,13 @@ export default async function Home() {
                             <div className={styles.heroLead}>
                                 <p><strong>I help non-profits make technology work for them.</strong></p>
                                 <p>
-                                    20+ years at DC agencies working with some of the
-                                    largest non-profits in the US has taught me what succeeds and
-                                    what just burns budget. Available for fractional
-                                    leadership, project work, or consulting.
+                                    For the past 20+ years I&#39;ve been on the technical side of the nonprofit and advocacy world, first as a <strong>developer</strong> and then as <strong>Director</strong> and <strong>VP of Technology</strong> at digital agencies (<a href="https://web.archive.org/web/20200127142917/https://beaconfire-red.com/">Beaconfire</a> &amp; <a href="https://teamallegiance.com">Allegiance Group + Pursuant</a>) building websites, donor platforms, and advocacy tools for large nonprofit clients. Today I&#39;m <strong>Fractional Director of Technology</strong> at <a href="https://weareoutright.com">Outright</a>, where my work continues to be exclusively with nonprofit clients, bringing that same technical leadership to their teams on a fractional basis.
+                                </p>
+                                <p>
+                                    Alongside that work, I&#39;m a <strong>board member</strong> and <strong>CTO</strong> of <a href="https://unruledmasses.org">Unruled Masses</a>, a nonprofit focused on civic engagement and government accountability. I architected and built our web platform from the ground up, leading our migration to <em>Next.js</em> and <em>Sanity CMS</em>, and sit on the board helping set the organization&#39;s technology strategy and direction as we scale.
+                                </p>
+                                <p>
+                                    What ties all of this together is a belief that good technology should make it easier for people to <strong>organize</strong>, <strong>act</strong>, and <strong>hold power accountable</strong>, not harder. I like being the person who makes that infrastructure quietly work.
                                 </p>
                             </div>
 

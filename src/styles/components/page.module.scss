@@ -92,6 +92,23 @@
   color: var(--text-secondary);
   margin-bottom: 2rem;
   align-self: center;
+
+  a {
+    text-decoration: underline;
+    color: var(--color-primary);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 0.25s ease, color 0.25s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-primary);
+      color: var(--text-on-primary);
+      text-decoration: none;
+    }
+  }
 }
 
 .profileImage {

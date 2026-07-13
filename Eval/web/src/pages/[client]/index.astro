@@ -1,0 +1,152 @@
+---
+import { marked } from 'marked';
+import Base from '../../layouts/Base.astro';
+import {
+  getClients,
+  getClientName,
+  getClientReports,
+  getClientProjectIntro,
+  getReportDescription,
+  getAuditDescription,
+  AUDIT_LABELS,
+  AUDIT_ORDER,
+} from '$lib/reports';
+import type { Report } from '$lib/reports';
+
+export async function getStaticPaths() {
+  const clients = getClients();
+  return clients.map(client => ({
+    params: { client },
+  }));
+}
+
+const { client } = Astro.params;
+const base = import.meta.env.BASE_URL;
+const clientName = getClientName(client);
+const reports = getClientReports(client);
+const projectIntroMd = getClientProjectIntro(client);
+const projectIntroHtml = projectIntroMd ? await marked.parseInline(projectIntroMd) : '';
+
+const reportsByAuditType: Record<string, Report[]> = {};
+for (const report of reports) {
+  if (!reportsByAuditType[report.auditType]) {
+    reportsByAuditType[report.auditType] = [];
+  }
+  reportsByAuditType[report.auditType].push(report);
+}
+
+const auditTypesPresent = AUDIT_ORDER.filter(at => reportsByAuditType[at]?.length > 0);
+
+function hasRetests(reports: Report[]): boolean {
+  return reports.some(r => r.run > 0);
+}
+
+function maxRun(reports: Report[]): number {
+  return Math.max(...reports.map(r => r.run));
+}
+
+function reportsByRun(reports: Report[]): Map<number, Report[]> {
+  const map = new Map<number, Report[]>();
+  for (const r of reports) {
+    if (!map.has(r.run)) map.set(r.run, []);
+    map.get(r.run)!.push(r);
+  }
+  return map;
+}
+
+// Reports are titled e.g. "Technical Baseline Report — MyCGMA SEO Audit" for the
+// sidebar/breadcrumb; on this page the client name is already the H1, so trim it.
+function shortTitle(title: string): string {
+  return title.replace(/\s+[—–-].+$/, '');
+}
+---
+
+<Base title={clientName} client={client}>
+  <div class="client-landing">
+    <h1 class="client-landing-name">{clientName}</h1>
+
+    {projectIntroHtml && (
+      <div class="client-landing-intro" set:html={projectIntroHtml} />
+    )}
+
+    {reports.length === 0 ? (
+      <p class="client-landing-empty">No reports available yet.</p>
+    ) : (
+      <div class="client-landing-sections">
+        {auditTypesPresent.map(auditType => {
+          const auditReports = reportsByAuditType[auditType];
+          const withRetests = hasRetests(auditReports);
+          const byRun = reportsByRun(auditReports);
+          const runs = Array.from(byRun.keys()).sort((a, b) => a - b);
+          const auditDescription = getAuditDescription(client, auditType);
+          // Skip the per-report description when a section has only one distinct
+          // report type — it just restates the section description above.
+          // Comparison reports always get theirs shown since they say what changed.
+          const distinctReportTypes = new Set(auditReports.filter(r => !r.isComparison).map(r => r.baseSlug)).size;
+          const showReportDescriptions = distinctReportTypes > 1;
+
+          function reportDescription(report: Report): string {
+            if (!report.isComparison && !showReportDescriptions) return '';
+            return getReportDescription(report.baseSlug, report.isComparison);
+          }
+
+          return (
+            <div class="client-landing-section">
+              <div class="client-landing-section-header">
+                <h2 class="client-landing-section-label">{AUDIT_LABELS[auditType] ?? auditType}</h2>
+                {withRetests && (
+                  <span class="retest-badge-sm">Retest {maxRun(auditReports)}</span>
+                )}
+              </div>
+
+              {auditDescription && (
+                <p class="client-landing-section-description">{auditDescription}</p>
+              )}
+
+              {withRetests ? (
+                runs.map(run => (
+                  <div class="client-landing-run-group">
+                    <div class="client-landing-run-label">
+                      {run === 0 ? 'Initial' : `Retest ${run}`}
+                    </div>
+                    <ul class="client-landing-report-list">
+                      {byRun.get(run)!.map(report => (
+                        <li>
+                          <a href={`${base}${client}/${report.slug}/`} class={`client-landing-report-link${report.isComparison ? ' comparison' : ''}`}>
+                            {report.isComparison ? '↔ ' : ''}{shortTitle(report.title)}
+                            {report.date && <span class="client-landing-report-date">{report.date}</span>}
+                          </a>
+                          {reportDescription(report) && (
+                            <p class="client-landing-report-description">
+                              {reportDescription(report)}
+                            </p>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <ul class="client-landing-report-list">
+                  {auditReports.map(report => (
+                    <li>
+                      <a href={`${base}${client}/${report.slug}/`} class="client-landing-report-link">
+                        {shortTitle(report.title)}
+                        {report.date && <span class="client-landing-report-date">{report.date}</span>}
+                      </a>
+                      {reportDescription(report) && (
+                        <p class="client-landing-report-description">
+                          {reportDescription(report)}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </div>
+</Base>

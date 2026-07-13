@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { getClients, getClientName, getClientReports } from '$lib/reports';
+
+const base = import.meta.env.BASE_URL;
+const clients = getClients();
+const clientData = clients.map(client => ({
+  slug: client,
+  name: getClientName(client),
+  reports: getClientReports(client),
+}));
+---
+
+<Base title="Client Audits">
+  <h1 class="index-heading">Client Audits</h1>
+  <p class="index-subheading">Site audit reports from client engagement work.</p>
+
+  <div class="index-intro">
+    <p>This is a working tool, not a public deliverable page. Each client below has one or more audit reports covering SEO, analytics, accessibility, technology, and security. Use the sidebar to navigate between reports.</p>
+    <p>To add a new client, run <code>./new-client.sh</code> from the repo root.</p>
+  </div>
+
+  {clientData.length === 0 ? (
+    <div class="empty-state">
+      <p>No clients found. Add client directories under <code>clients/</code>.</p>
+    </div>
+  ) : (
+    <div class="client-list">
+      {clientData.map(({ slug, name, reports }) => {
+        return (
+          <a href={`${base}${slug}/`} class="client-row">
+            <div class="client-row-name">{name}</div>
+            <div class="client-row-meta">
+              <span class="client-row-slug">{slug}</span>
+              <span class="client-row-count">{reports.length} {reports.length === 1 ? 'report' : 'reports'}</span>
+            </div>
+            <div class="client-row-arrow">→</div>
+          </a>
+        );
+      })}
+    </div>
+  )}
+</Base>

@@ -1,0 +1,132 @@
+---
+import globalCss from '../styles/global.css?raw';
+import { getClients, getClientName, getClientReports, AUDIT_LABELS, AUDIT_ORDER } from '$lib/reports';
+import type { Report } from '$lib/reports';
+
+interface Props {
+  title: string;
+  client?: string;
+  currentSlug?: string;
+}
+
+const { title, client, currentSlug } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const clients = getClients();
+const clientReports = client ? getClientReports(client) : [];
+const clientName = client ? getClientName(client) : null;
+
+// Group reports by audit type, then by run number
+const reportsByAuditType: Record<string, Report[]> = {};
+for (const report of clientReports) {
+  if (!reportsByAuditType[report.auditType]) {
+    reportsByAuditType[report.auditType] = [];
+  }
+  reportsByAuditType[report.auditType].push(report);
+}
+
+const auditTypesPresent = AUDIT_ORDER.filter(at => reportsByAuditType[at]?.length > 0);
+
+function runLabel(run: number): string {
+  return run === 0 ? 'Initial' : `Retest ${run}`;
+}
+
+function hasMultipleRuns(reports: Report[]): boolean {
+  return new Set(reports.map(r => r.run)).size > 1;
+}
+
+function reportsByRun(reports: Report[]): Map<number, Report[]> {
+  const map = new Map<number, Report[]>();
+  for (const r of reports) {
+    if (!map.has(r.run)) map.set(r.run, []);
+    map.get(r.run)!.push(r);
+  }
+  return map;
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} — Audit Reports</title>
+    <style set:html={globalCss}></style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <a href="/" class="sidebar-logo">
+          <span class="sidebar-logo-mark"></span>
+          <span class="sidebar-logo-text">
+            tim52.io
+            <span class="sidebar-logo-sub">Site Audits</span>
+          </span>
+        </a>
+        <nav class="sidebar-nav">
+          {client && clientName ? (
+            <>
+              <div class="sidebar-client">Client</div>
+              <div class="sidebar-client-name">{clientName}</div>
+
+              {auditTypesPresent.map(auditType => {
+                const reports = reportsByAuditType[auditType];
+                const multiRun = hasMultipleRuns(reports);
+                const byRun = reportsByRun(reports);
+                const runs = Array.from(byRun.keys()).sort((a, b) => a - b);
+
+                return (
+                  <div>
+                    <div class="sidebar-section">{AUDIT_LABELS[auditType] ?? auditType}</div>
+                    {multiRun ? (
+                      runs.map(run => (
+                        <div>
+                          <div class="sidebar-run-label">{runLabel(run)}</div>
+                          {byRun.get(run)!.map(report => (
+                            <a
+                              href={`${base}${report.client}/${report.slug}/`}
+                              class={`sidebar-link sidebar-link--indented${currentSlug === report.slug ? ' active' : ''}${report.isComparison ? ' comparison' : ''}`}
+                            >
+                              {report.isComparison ? '↔ ' : ''}{report.title.replace(/\s+[—–-].+$/, '')}
+                              {report.date && <span class="sidebar-link-date">{report.date}</span>}
+                            </a>
+                          ))}
+                        </div>
+                      ))
+                    ) : (
+                      reports.map(report => (
+                        <a
+                          href={`${base}${report.client}/${report.slug}/`}
+                          class={`sidebar-link${currentSlug === report.slug ? ' active' : ''}`}
+                        >
+                          {report.title.replace(/\s+[—–-].+$/, '')}
+                          {report.date && <span class="sidebar-link-date">{report.date}</span>}
+                        </a>
+                      ))
+                    )}
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <div class="sidebar-client">Clients</div>
+              {clients.map(c => (
+                <a href={`${base}${c}/`} class="sidebar-client-link">
+                  {getClientName(c)}
+                </a>
+              ))}
+            </>
+          )}
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="main-inner">
+          <slot />
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

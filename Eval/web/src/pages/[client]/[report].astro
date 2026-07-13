@@ -1,0 +1,97 @@
+---
+import { marked } from 'marked';
+import Base from '../../layouts/Base.astro';
+import { getAllReports, getClientReports, AUDIT_LABELS } from '$lib/reports';
+import type { Report } from '$lib/reports';
+
+export async function getStaticPaths() {
+  const reports = getAllReports();
+  return reports.map(report => ({
+    params: { client: report.client, report: report.slug },
+    props: { report },
+  }));
+}
+
+interface Props {
+  report: Report;
+}
+
+const { report } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Build a map of file-path references → web URLs for this client's reports.
+// Covers patterns like `seo-audit/reports/03-redesign-risk-register.md`
+// and directory references like `seo-audit/reports/`.
+const clientReports = getClientReports(report.client);
+
+const filePathToUrl: Record<string, string> = {};
+const dirToFirstUrl: Record<string, string> = {};
+
+for (const r of clientReports) {
+  const filePath = `${r.auditType}/reports/${r.slug}.md`;
+  const url = `${base}${r.client}/${r.slug}/`;
+  filePathToUrl[filePath] = url;
+
+  const dir = `${r.auditType}/reports/`;
+  if (!dirToFirstUrl[dir]) dirToFirstUrl[dir] = url;
+}
+
+function linkCrossReferences(html: string): string {
+  // Link specific file references: <code>seo-audit/reports/foo.md</code>
+  html = html.replace(
+    /<code>([^<]+\/reports\/[^<]+\.md)<\/code>/g,
+    (match, path) => {
+      const url = filePathToUrl[path];
+      return url ? `<a href="${url}">${match}</a>` : match;
+    }
+  );
+
+  // Link directory references: <code>seo-audit/reports/</code>
+  html = html.replace(
+    /<code>([^<]+\/reports\/)<\/code>/g,
+    (match, dir) => {
+      const url = dirToFirstUrl[dir];
+      return url ? `<a href="${url}">${match}</a>` : match;
+    }
+  );
+
+  return html;
+}
+
+// Generate GitHub-style slug IDs on headings so anchor links work
+const renderer = new marked.Renderer();
+renderer.heading = function ({ text, depth }: { text: string; depth: number }) {
+  const raw = text.replace(/<[^>]*>/g, '');
+  const slug = raw.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return `<h${depth} id="${slug}">${text}</h${depth}>`;
+};
+
+// Parse markdown to HTML, wrap tables, and resolve cross-references
+const rawHtml = await marked(report.content, { renderer });
+const html = linkCrossReferences(
+  rawHtml
+    .replace(/<table>/g, '<div class="table-wrap"><table>')
+    .replace(/<\/table>/g, '</table></div>')
+);
+
+const auditLabel = AUDIT_LABELS[report.auditType] ?? report.auditType;
+const runLabel = report.run === 0 ? null : `Retest ${report.run}`;
+---
+
+<Base title={report.title} client={report.client} currentSlug={report.slug}>
+  <nav class="report-header">
+    <a href={`${base}${report.client}/`} class="report-header-client-link">{report.clientName}</a>
+    <span class="sep">/</span>
+    <span class="audit-badge">{auditLabel}</span>
+    {runLabel && (
+      <>
+        <span class="sep">/</span>
+        <span class="audit-badge retest-badge">{runLabel}</span>
+      </>
+    )}
+    <span class="sep">/</span>
+    <span>{report.title}</span>
+  </nav>
+
+  <article class="prose" set:html={html} />
+</Base>

@@ -1,0 +1,4 @@
+.idea/
+.playwright-mcp/
+clients/*/.env
+clients/*/.env.local

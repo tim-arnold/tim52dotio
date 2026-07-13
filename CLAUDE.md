@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 - `npm run dev` - Start development server with Turbopack (note: README mentions dev:sass but package.json has just dev)
-- `npm run build` - Build for production (static export)
+- `npm run build` - Build for production (static export). Also runs `scripts/build-evals.sh`, which builds the Astro app in `Eval/web` and copies it into `out/evals/`, so the audit report viewer ships at `/evals/` as part of this site.
 - `npm run start` - Serve production build using serve
 - `npm run lint` - Run ESLint
 
@@ -35,6 +35,7 @@ This is a Next.js 15.3 static site (output: 'export') built for Cloudflare Pages
 - Target branch: 'cow' (main deployment branch)
 - Platform: Cloudflare Pages
 - Build output: Static files in `/out` directory
+- `/out/evals/` (built from `Eval/web`) is gated by Cloudflare Access (email OTP) at the `tim52.io` zone, since it serves real client audit data — this is dashboard/zone config, not something in this repo
 
 ## Documentation
 

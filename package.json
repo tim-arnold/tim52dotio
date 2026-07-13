@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && bash scripts/build-evals.sh",
     "start": "npx serve@latest out",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",

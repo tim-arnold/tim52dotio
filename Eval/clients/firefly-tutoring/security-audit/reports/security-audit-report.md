@@ -1,10 +1,10 @@
 # Security Audit Report — Firefly Tutoring
 
-**Date:** 2026-07-18  
-**URL:** https://www.fireflytutoring.com  
-**Platform:** Wix (Thunderbolt renderer, Pepyaka / Fastly CDN)  
-**Audit type:** Passive — read and observe only. No active exploitation, no authentication bypass.  
-**Data file:** `../data/security-findings.md`
+**Domain:** fireflytutoring.com  
+**Platform:** Wix (Thunderbolt renderer)  
+**Audit date:** 2026-07-18  
+**Data source:** `data/security-findings.md`  
+**Audit type:** Passive — read and observe only. No active exploitation, no authentication bypass.
 
 ---
 

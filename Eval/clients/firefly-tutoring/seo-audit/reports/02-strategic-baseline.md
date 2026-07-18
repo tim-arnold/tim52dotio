@@ -1,7 +1,7 @@
 # SEO Strategic Baseline — Firefly Tutoring
 
 **Domain:** fireflytutoring.com  
-**CMS:** Wix  
+**Platform:** Wix (Thunderbolt renderer)  
 **Audit date:** 2026-07-18  
 **Data source:** `data/baseline-data.md`, `data/full-keyword-inventory.md`
 

@@ -101,6 +101,7 @@ Organize by tier:
 
 ## Formatting Notes
 
+- **Report header:** `Domain` → `Platform` → `Audit date` → `Data source`. No audit-specific extras for technology reports. See `Eval/CLAUDE.md` Conventions for the full spec.
 - Use markdown tables for all structured data (dependencies, integrations, issues)
 - Executive summary: 5-8 bullets covering the most critical issues
 - Be specific: file paths, package names and versions, CVE numbers where relevant

@@ -71,6 +71,18 @@ The GA4 property ID for each client is stored in `clients/<slug>/.env.local` (gi
 
 - **Report H1 titles must start with the report name, not the client name.** The web app sidebar strips everything after the em dash, so `# Technology Audit Report — Client Name` is correct; `# Client Name — Technology Audit Report` is not.
 
+- **Report headers must use this field order**, immediately after the H1:
+
+  ```
+  **Domain:** example.com
+  **Platform:** [CMS/framework] ([renderer or version if known])
+  **Audit date:** YYYY-MM-DD
+  **Data source:** `data/filename.md`
+  [audit-specific fields, if any]
+  ```
+
+  Rules: use `Domain` (not `URL`, `Site`, or `CMS`). Use `Platform` (not `CMS` or `Hosting`). Use `Audit date` (not `Date`). Use `Data source` (not `Data file`). Expand platform detail where meaningful — e.g. `Wix (Thunderbolt renderer)`, `WordPress 6.5 (Kadence theme)`. Audit-specific fields follow the core four and are defined in each HANDOFF.
+
 ## Report Viewer Deployment
 
 The `web/` Astro app is built with `base: '/evals'` and ships as part of the parent `tim52dotio` site's static export, at `tim52.io/evals/` — not as its own Cloudflare Pages deployment. The parent repo's `scripts/build-evals.sh` builds `web/` and copies `web/dist/` into the parent's `out/evals/` as part of its `npm run build`. Access is gated by Cloudflare Access (email OTP) at the `tim52.io` zone level since this data includes real client audit findings (including security-audit results). Any internal link in `web/src/` must be built off `import.meta.env.BASE_URL`, not a hardcoded root-relative path, or it will break under the `/evals` prefix.

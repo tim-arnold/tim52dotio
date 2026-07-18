@@ -1,6 +1,7 @@
 # SEO Remediation Priorities — Firefly Tutoring
 
 **Domain:** fireflytutoring.com  
+**Platform:** Wix (Thunderbolt renderer)  
 **Audit date:** 2026-07-18  
 **Data source:** `data/baseline-data.md`, `reports/01-technical-baseline.md`, `reports/02-strategic-baseline.md`
 

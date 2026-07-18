@@ -115,6 +115,7 @@ Cover these categories:
 
 ## Formatting Notes
 
+- **Report header:** `Domain` → `Platform` → `Audit date` → `Data source`. No audit-specific extras for SEO reports. See `Eval/CLAUDE.md` Conventions for the full spec.
 - Use markdown tables throughout
 - Lead each report with a 3-5 bullet executive summary
 - Keep reports factual — data and recommendations, no filler

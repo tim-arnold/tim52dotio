@@ -1,11 +1,10 @@
 # Accessibility Audit Report — Firefly Tutoring
 
-**Audit date:** 2026-07-18
-**Standard:** WCAG 2.2 Level AA
-**Auditor:** Tim52.io
-**Site:** https://www.fireflytutoring.com
-**Platform:** Wix
-**Lighthouse accessibility score (desktop, homepage):** 91/100
+**Domain:** fireflytutoring.com  
+**Platform:** Wix (Thunderbolt renderer)  
+**Audit date:** 2026-07-18  
+**Data source:** `data/accessibility-findings.md`  
+**Standard:** WCAG 2.2 Level AA  
 
 ---
 

@@ -137,6 +137,7 @@ Set realistic targets grounded in industry benchmarks. Reference the HTTP Archiv
 
 ## Formatting Notes
 
+- **Report header:** `Domain` → `Platform` → `Audit date` → `Data source` → `**Lighthouse version:** [version from tool output]`. See `Eval/CLAUDE.md` Conventions for the full spec.
 - Use markdown tables for all metrics, asset inventories, and roadmap tasks
 - Executive summary: 5–8 bullets covering the core problem and biggest opportunities
 - Be specific: name the scripts, quote the metric values, cite the Lighthouse version

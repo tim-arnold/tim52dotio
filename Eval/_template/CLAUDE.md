@@ -67,6 +67,18 @@ Reports may summarize and interpret data file contents. They must not introduce 
 - Reports should be factual and actionable — the audience is a dev team doing a site rebuild
 - **Report H1 titles must start with the report name, not the client name.** The web app sidebar strips everything after the em dash, so `# Technology Audit Report — Client Name` is correct; `# Client Name — Technology Audit Report` is not.
 
+- **Report headers must use this field order**, immediately after the H1:
+
+  ```
+  **Domain:** example.com
+  **Platform:** [CMS/framework] ([renderer or version if known])
+  **Audit date:** YYYY-MM-DD
+  **Data source:** `data/filename.md`
+  [audit-specific fields, if any]
+  ```
+
+  Rules: use `Domain` (not `URL`, `Site`, or `CMS`). Use `Platform` (not `CMS` or `Hosting`). Use `Audit date` (not `Date`). Use `Data source` (not `Data file`). Expand platform detail where meaningful — e.g. `Wix (Thunderbolt renderer)`, `WordPress 6.5 (Kadence theme)`. Audit-specific fields follow the core four and are defined in each HANDOFF.
+
 ## Retesting
 
 After a redesign or remediation, run `./add-retest.sh` from the repo root to scaffold a new retest. The script auto-increments the retest number and creates:

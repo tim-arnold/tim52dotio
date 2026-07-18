@@ -157,6 +157,7 @@ Tables per component: navigation, primary content template(s), forms, any maps o
 
 ## Formatting Notes
 
+- **Report header:** `Domain` → `Platform` → `Audit date` → `Data source` → `**Standard:** WCAG 2.2 Level AA`. See `Eval/CLAUDE.md` Conventions for the full spec.
 - Include WCAG criterion numbers — the dev team will use these as acceptance criteria
 - Be specific: file paths, line numbers, CSS selectors, URLs
 - Severity ratings should be consistent and defensible

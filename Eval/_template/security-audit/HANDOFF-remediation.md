@@ -151,6 +151,7 @@ Organize by tier:
 
 ## Formatting Notes
 
+- **Report header:** `Domain` → `Platform` → `Audit date` → `Data source` → `**Audit type:** Passive — read and observe only. No active exploitation, no authentication bypass.` See `Eval/CLAUDE.md` Conventions for the full spec.
 - Use markdown tables for headers, cookies, dependencies, and findings
 - Executive summary: 5–8 bullets covering the most critical issues
 - Be specific: header names and values, package names and CVE numbers, file paths

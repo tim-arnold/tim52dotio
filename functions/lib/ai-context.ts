@@ -7,9 +7,21 @@ export const TIM_CONTEXT = `
 
 Tim Arnold is a technology leader with 21+ years of experience driving digital transformation for non-profit organizations. Based in Silver Spring, MD, he has a proven track record building and scaling high-performing tech teams, implementing cost-effective solutions, and bridging the gap between technical capabilities and mission impact.
 
-Tim is currently seeking full-time or fractional leadership opportunities to help non-profits maximize their technology potential and organizational effectiveness.
+Tim currently serves as founding CTO (volunteer) at Unruled Masses and Director of Technology at Outright, and is seeking full-time or fractional leadership opportunities to help non-profits maximize their technology potential and organizational effectiveness.
 
-## Current Role
+## Current Roles
+
+**Chief Technology Officer (Volunteer) at Unruled Masses** (December 2025 - Present)
+Silver Spring, MD
+
+Unruled Masses is a nonpartisan non-profit building civic intelligence and action infrastructure to expose corruption, map power abuses, and facilitate peaceful civic engagement.
+
+- Founding technical leader; built the full public web platform solo from inception, now manages a two-developer team
+- Defined site architecture, content models, and CMS structure on Next.js 16, React 19, TypeScript, and Sanity CMS with Cloudflare Workers edge runtime
+- Designed and built a 30+ content-type Sanity Studio (action playbooks, news, research/intelligence briefs, podcast episodes, team pages, downloadable resources) giving non-technical staff full self-service publishing
+- Directed a developer building a companion Firebase API (Cloud Functions, Firestore, Auth, self-service API keys, Swagger docs), then integrated it with resilient server-side fetching, response-shape validation, tiered error handling, and a 24-hour revalidation cache
+- Implemented end-to-end security hardening: Cloudflare WAF, Turnstile bot protection, Project Galileo DDoS membership, HSTS, CSP headers, timing-safe authentication, plus a structured security audit and remediation process
+- Integrated a privacy-first analytics pipeline (GA4 + Google Tag Manager, custom consent banner, cookieless event tracking)
 
 **Director of Technology at Outright** (May 2024 - Present)
 Washington DC Metro Area
@@ -17,6 +29,7 @@ Washington DC Metro Area
 - Develops and executes technology strategy for agency serving 10+ active non-profit clients
 - Leads vendor evaluation and contract negotiations for technology partnerships
 - Manages team of Web Developers and contractors
+- Directed Salesforce API integrations for client web platforms, including field mapping for bi-directional CMS/CRM sync
 - Oversees technology operations including GitHub, Pantheon, WPEngine, Google Workspace, Monday.com, Slack
 - Provides technical expertise in evaluating sales opportunities and leads proposal process
 - Holds weekly Tech Team check-ins and bi-weekly one-on-ones with direct reports
@@ -56,6 +69,8 @@ Washington DC Metro Area
 - Led successful transition to 100% remote work in 2020, maintaining team productivity and client satisfaction
 - Managed annual technology budgets and resource allocation for teams serving 20+ non-profit clients simultaneously
 - Built and maintained digital platforms serving hundreds of thousands of users across dozens of organizations
+- Architected and shipped a complete public web platform for Unruled Masses as founding CTO, from information architecture through launch, entirely via AI-assisted development
+- Built a structured, repeatable audit framework (SEO, accessibility, performance, security, technology, analytics) used across 8+ non-profit client engagements, including hands-on AI-search-visibility (GEO) and structured data audits
 
 ## Technical Skills
 
@@ -67,11 +82,13 @@ Washington DC Metro Area
 - **Cloud Hosting**: Platform.sh, Pantheon, WPEngine, Vercel, Cloudflare Pages, Netlify
 - **Cloudflare Ecosystem**: Cloudflare Workers, Pages Functions, D1 (SQLite database), R2 (object storage), KV (key-value store), AI workers, CDN configuration
 - **AI-Assisted Development**: Claude Code as development agent, Anthropic Claude API integration, MCP server integrations (Figma, Google Drive, Google Workspace)
-- **Non-Profit Tech**: CRM platforms (Engaging Networks, Luminate Online, Salsa), email marketing (Constant Contact, Mailchimp)
+- **Non-Profit Tech**: CRM platforms (Engaging Networks, Luminate Online, Salsa, ActBlue, GiveButter), Salesforce API integration, email marketing (Constant Contact, Mailchimp)
+- **Technical SEO & GEO (Generative Engine Optimization)**: Built and ran a repeatable audit framework covering technical SEO and AI-search visibility across 8+ non-profit client sites. Used DataForSEO's AI Overview/LLM-mention tooling to measure and diagnose site presence in Google AI Overviews and ChatGPT responses, identify which pages get cited and why, and flag visibility gaps. Audited schema.org/JSON-LD structured data coverage (Organization, Person, Article, BreadcrumbList, FAQPage) client-by-client, producing prioritized remediation plans for gaps, and advised on llms.txt as an emerging AI-crawler signal. Implemented Person schema.org JSON-LD directly on this portfolio site (tim52.io)
+- **Structured Data Implementation**: Hands-on schema.org/JSON-LD implementation (tim52.io) plus structured, machine-readable content modeling at scale — the 30+ content-type Sanity Studio built for Unruled Masses gives every content type a well-defined schema, which is the same discipline that makes content legible to AI crawlers and LLM-based search
 
 ### Working Knowledge (Can Contribute But Not Expert)
 - **Back-End**: PHP/MySQL
-- **Modern Frameworks**: React, Next.js (App Router, multiple shipped projects including this portfolio site and By Torchlight)
+- **Modern Frameworks**: React, Next.js (App Router, multiple shipped projects including this portfolio site, Unruled Masses, and By Torchlight)
 - **Infrastructure**: DNS management, security implementation
 - **APIs**: REST API integration
 

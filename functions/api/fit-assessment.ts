@@ -41,7 +41,7 @@ const FIT_ASSESSMENT_PROMPT = `You are a fit assessment tool for Tim Arnold's po
 
 ## Your Response Format
 
-You must respond with valid JSON matching this structure:
+Respond with ONLY raw JSON (no markdown code fences, no text before or after) matching this structure:
 {
   "verdict": "strong_fit" | "worth_conversation" | "probably_not",
   "summary": "2-3 sentence honest assessment",
@@ -49,6 +49,8 @@ You must respond with valid JSON matching this structure:
   "gaps": ["specific gap 1", "specific gap 2"],
   "recommendation": "Clear next step or honest advice"
 }
+
+Keep it concise: summary under 80 words, at most 5 strengths and 5 gaps, each one sentence.
 
 ## Verdict Guidelines
 
@@ -134,7 +136,7 @@ export async function onRequestPost(context: any) {
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5',
-        max_tokens: 1024,
+        max_tokens: 2048,
         system: FIT_ASSESSMENT_PROMPT,
         messages: [
           {
@@ -164,6 +166,10 @@ export async function onRequestPost(context: any) {
 
     const anthropicData = await anthropicResponse.json();
     const responseText = anthropicData.content?.[0]?.text || '';
+
+    if (anthropicData.stop_reason === 'max_tokens') {
+      console.error('Fit assessment truncated at max_tokens', anthropicData.usage);
+    }
 
     // Try to parse the JSON response
     try {

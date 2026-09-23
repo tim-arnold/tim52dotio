@@ -123,7 +123,7 @@ export default function FitAssessment({ className }: FitAssessmentProps) {
 
           {assessment.strengths.length > 0 && (
             <div className={styles.section}>
-              <h4>Where I&apos;d Add Value</h4>
+              <h4>Where Tim Would Add Value</h4>
               <ul>
                 {assessment.strengths.map((strength, index) => (
                   <li key={index}>{strength}</li>

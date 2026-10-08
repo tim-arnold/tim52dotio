@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Recipients: Privacy Policy and Terms of Use</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f6f6f6;
+    color: #222;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+    line-height: 1.55;
+    font-size: 14px;
+  }
+  h1 { font-size: 20px; color: #ed1848; margin-bottom: 2px; }
+  h2 { font-size: 16px; margin-top: 28px; }
+  .updated { font-size: 12px; color: #777; margin-top: 0; }
+  .summary { background: #fff; border: 1px solid #e2e2e2; border-radius: 8px; padding: 12px 16px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border: 1px solid #e2e2e2; vertical-align: top; }
+  th { background: #fafafa; }
+  code { background: #eee; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>Privacy Policy and Terms of Use</h1>
+  <p class="updated">Test Recipients Chrome extension · Effective October 8, 2026</p>
+
+  <div class="summary">
+    <strong>In short:</strong> everything you enter stays in your own browser. The extension makes
+    no network requests and sends nothing to the publisher or anyone else. There are no accounts,
+    analytics, ads, or trackers.
+  </div>
+
+  <h2>What the extension stores</h2>
+  <p>The extension stores only what you enter on its Settings page:</p>
+  <ul>
+    <li>Client names, URLs and paths, page-detection settings, send ranges, and colors</li>
+    <li>Recipient groups, including the email addresses you add to them</li>
+  </ul>
+  <p>
+    This data is saved with Chrome's extension storage (<code>chrome.storage.local</code>) on your
+    device, in your Chrome profile. It is not synced to your Google account or other devices. It
+    stays until you delete it in Settings or remove the extension; removing the extension deletes
+    it. The extension does not add its own encryption; the data is protected by your device's and
+    Chrome profile's security.
+  </p>
+
+  <h2>What the extension reads from web pages</h2>
+  <p>
+    The extension has no standing access to any website. It acts only when you click its toolbar
+    icon, and only on the tab you are viewing. At that moment it:
+  </p>
+  <ul>
+    <li>Reads the tab's address to find the matching client</li>
+    <li>If a client matches, reads the text of one element you configured (to detect the send code)
+      and checks whether the recipients field is on the page</li>
+    <li>If no client matches, checks the page for the standard Luminate Online message title and
+      recipients field, so it can offer to set the page up as a client</li>
+    <li>When you click a group button, writes the recipient list into the field you configured</li>
+  </ul>
+  <p>
+    It does not read other page content, record your browsing history, or run in the background.
+    Nothing it reads is stored or sent anywhere.
+  </p>
+
+  <h2>What is sent or shared</h2>
+  <p>
+    <strong>Nothing.</strong> The extension makes no network requests of any kind. It does not
+    send data to the publisher, to Google, or to any third party, and it loads no remote code.
+    The publisher never receives or has access to your settings or email addresses.
+  </p>
+
+  <h2>Things that leave the extension because you asked</h2>
+  <ul>
+    <li>
+      <strong>Export files:</strong> Export downloads a JSON file with your settings and email
+      addresses to your computer. Where that file goes afterward, including sharing it with
+      teammates, is up to you. Treat it like any file containing contact information.
+    </li>
+    <li>
+      <strong>Filled fields:</strong> the recipient list written into a page is then handled by
+      that website (for example, your email service provider) under its own privacy policy.
+    </li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <table>
+    <tr><th>Permission</th><th>Why it is needed</th></tr>
+    <tr><td><code>storage</code></td><td>Save your settings in your browser</td></tr>
+    <tr><td><code>activeTab</code></td><td>Access the current tab, only after you click the toolbar icon</td></tr>
+    <tr><td><code>scripting</code></td><td>Read the send code and fill the recipients field on that tab</td></tr>
+  </table>
+
+  <h2>Terms of use</h2>
+  <ul>
+    <li>The extension is provided free of charge, as is, without warranty of any kind.</li>
+    <li>
+      You are responsible for the email addresses you enter, including having permission to send
+      test emails to them, and for checking each test send before it goes out.
+    </li>
+    <li>
+      The publisher is not liable for emails sent to the wrong recipients or for any other loss
+      arising from use of the extension.
+    </li>
+    <li>
+      The extension is not affiliated with or endorsed by any email service provider, including
+      Luminate Online and Constant Contact.
+    </li>
+  </ul>
+
+  <h2>Changes and contact</h2>
+  <p>
+    If this policy changes, the updated version will be published here with a new effective date.
+    Questions:
+    <strong>Tim Arnold, tim@tim52.io</strong>.
+  </p>
+</body>
+</html>

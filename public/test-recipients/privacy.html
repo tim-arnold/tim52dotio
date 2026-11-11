@@ -27,7 +27,7 @@
 </head>
 <body>
   <h1>Privacy Policy and Terms of Use</h1>
-  <p class="updated">Test Recipients Chrome extension · Effective October 8, 2026</p>
+  <p class="updated">Test Recipients Chrome extension · Effective November 11, 2026</p>
 
   <div class="summary">
     <strong>In short:</strong> everything you enter stays in your own browser. The extension makes
@@ -40,6 +40,8 @@
   <ul>
     <li>Client names, URLs and paths, page-detection settings, send ranges, and colors</li>
     <li>Recipient groups, including the email addresses you add to them</li>
+    <li>Optional constituent IDs and names you attach to groups, used to set Luminate's
+      "Viewing as" constituent</li>
   </ul>
   <p>
     This data is saved with Chrome's extension storage (<code>chrome.storage.local</code>) on your
@@ -60,7 +62,8 @@
       and checks whether the recipients field is on the page</li>
     <li>If no client matches, checks the page for the standard Luminate Online message title and
       recipients field, so it can offer to set the page up as a client</li>
-    <li>When you click a group button, writes the recipient list into the field you configured</li>
+    <li>When you click a group button, sets Luminate's "Viewing as" constituent if the group has
+      one, then writes the recipient list into the field you configured</li>
   </ul>
   <p>
     It does not read other page content, record your browsing history, or run in the background.
